@@ -32,9 +32,11 @@
 #define C_TAB     C(KC_TAB)
 #define C_BSPC    C(KC_BSPC)
 #define C_ENT     C(KC_ENT)
+#define C_SCLN    C(KC_SCLN)
 #define C_QUOT    C(KC_QUOT)
 #define C_COMM    C(KC_COMM)
 #define C_DOT     C(KC_DOT)
+#define C_SLSH    C(KC_SLSH)
 #define C_MINS    C(KC_MINS)
 #define C_EQL     C(KC_EQL)
 #define C_GRV     C(KC_GRV)
@@ -81,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     MO_CAPS, LT_A,    ALT_S,   CTL_D,   SFT_F,   KC_G,    KC_H,    SFT_J,   CTL_K,   ALT_L,   LT_SCLN, KC_QUOT,          KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                             KC_LEFT, CTL_UP,  KC_RGHT
+    _______, KC_LGUI, KC_LALT,                   KC_SPC,                             KC_LEFT, CTL_UP,  KC_RGHT
   ),
 
   [L_GAME] = LAYOUT(
@@ -110,9 +112,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_CAPS] = LAYOUT(
     _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, C_0,     C_MINS,  C_EQL,   C_GRV,   _______,
-    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     _______, _______, _______, _______, _______, _______, _______, C_BSPC,
-    _______, C_A,     C_S,     C_D,     C_F,     C_G,     _______, _______, _______, _______, _______, C_QUOT,           C_ENT,
-    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     _______, _______, C_COMM,  _______, _______,          _______, _______,
+    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     C_U,     C_I,     C_O,     C_P,     _______, _______, C_BSPC,
+    _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     C_J,     C_K,     C_L,     C_SCLN,  C_QUOT,           C_ENT,
+    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     C_M,     C_COMM,  C_DOT,   KC_SLSH,          _______, _______,
     _______, _______, KC_BSPC,                   KC_ENT,                             KC_PGDN, KC_DOWN, KC_PGUP
   ),
 
