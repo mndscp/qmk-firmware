@@ -28,6 +28,7 @@
 #define ALT_L     LALT_T(KC_L)
 #define SFT_LNG   RSFT_T(KC_HAEN)
 #define CTL_UP    LCTL_T(KC_UP)
+#define ALT_BSP   LALT_T(KC_BSPC)
 
 #define C_TAB     C(KC_TAB)
 #define C_BSPC    C(KC_BSPC)
@@ -83,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     MO_CAPS, LT_A,    ALT_S,   CTL_D,   SFT_F,   KC_G,    KC_H,    SFT_J,   CTL_K,   ALT_L,   LT_SCLN, KC_QUOT,          KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
-    _______, KC_LGUI, KC_LALT,                   KC_SPC,                             KC_LEFT, CTL_UP,  KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                             KC_LEFT, CTL_UP,  KC_RGHT
   ),
 
   [L_GAME] = LAYOUT(
@@ -114,8 +115,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, C_0,     C_MINS,  C_EQL,   C_GRV,   _______,
     C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     C_U,     C_I,     C_O,     C_P,     _______, _______, C_BSPC,
     _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     C_J,     C_K,     C_L,     C_SCLN,  C_QUOT,           C_ENT,
-    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     C_M,     C_COMM,  C_DOT,   KC_SLSH,          _______, _______,
-    _______, _______, KC_BSPC,                   KC_ENT,                             KC_PGDN, KC_DOWN, KC_PGUP
+    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     C_M,     C_COMM,  C_DOT,   C_SLSH,           _______, _______,
+    _______, _______, ALT_BSP,                   KC_ENT,                             KC_PGDN, KC_DOWN, KC_PGUP
   ),
 
   [L_A] = LAYOUT(
@@ -135,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_I] = LAYOUT(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, KC_TAB,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, KC_BSLS, KC_7,    KC_8,    KC_9,    KC_GRV,  _______, KC_BSPC, _______, _______, _______, _______, _______, _______,
     _______, KC_COMM, KC_4,    KC_5,    KC_6,    KC_EQL,  KC_ASTR, KC_LSFT, _______, KC_SPC,  _______, _______,          _______,
     _______, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS, KC_SLSH, _______, _______, _______, _______,          _______, _______,
