@@ -18,10 +18,11 @@
 #define LT_E      LT(L_E, KC_E)
 #define LT_F      LT(L_E, KC_F)
 #define LT_I      LT(L_I, KC_I)
-#define LT_O      LT(L_I, KC_O)
+#define LT_O      LT(L_SCLN, KC_O)
 #define LT_U      LT(L_I, KC_U)
 #define LT_SCLN   LT(L_SCLN, KC_SCLN)
 #define LT_DEL    LT(L_CAPS, KC_DEL)
+#define TG_CLMK   TG(L_CLMK)
 #define TG_GAME   TG(L_GAME)
 #define DF_QWTY   DF(L_QWTY)
 #define DF_CLMK   DF(L_CLMK)
@@ -121,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_MYCM, _DSKTP,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_RCTL,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-    RESET,   _______, TG_GAME,                   _______,                                              DF_QWTY, _______, DF_CLMK
+    RESET,   _______, TG_GAME,                   TG_CLMK,                                              _______, _______, _______
   ),
 
   [L_TAB] = LAYOUT(
@@ -190,8 +191,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case HA_S:
+    case HA_I:
     case HA_L:
+    case HA_R:
+    case HA_S:
     case HC_D:
     case HC_K:
     case LT_E:
