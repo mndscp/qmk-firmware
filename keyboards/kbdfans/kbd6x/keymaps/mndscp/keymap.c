@@ -39,6 +39,7 @@
 #define HS_J      RSFT_T(KC_J)
 #define HS_N      RSFT_T(KC_N)
 #define HS_T      RSFT_T(KC_T)
+#define S_Z       LSFT_T(KC_Z)
 #define SFT_LNG   RSFT_T(KC_HAEN)
 #define CTL_UP    LCTL_T(KC_UP)
 #define ALT_BSP   LALT_T(KC_BSPC)
@@ -104,8 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_CLMK] = LAYOUT(
     LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
     LT_TAB,  KC_Q,    KC_W,    LT_F,    KC_P,    KC_B,    KC_J,    KC_L,    LT_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC, KC_BSPC,
-    MO_CAPS, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_QUOT,          KC_ENT,
-    KC_LSFT, KC_X,    KC_C,    KC_D,    KC_V,    KC_Z,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
+    S_Z,     KC_X,    KC_C,    KC_D,    KC_V,    KC_Z,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
     KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, CTL_UP,  KC_RGHT
   ),
 
