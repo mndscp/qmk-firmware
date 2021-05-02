@@ -1,5 +1,5 @@
 BOOTMAGIC_ENABLE   = no
-COMBO_ENABLE       = no
+COMBO_ENABLE       = yes
 CONSOLE_ENABLE     = no
 LEADER_ENABLE      = no
 MOUSEKEY_ENABLE    = yes

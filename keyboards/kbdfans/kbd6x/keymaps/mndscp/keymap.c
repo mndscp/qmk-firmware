@@ -94,7 +94,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_CLMK] = LAYOUT(
     LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
-    LT_TAB,  KC_Q,    KC_W,    LT_F,    KC_P,    KC_B,    KC_J,    KC_L,    LT_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC, KC_BSPC,
+    LT_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC, KC_BSPC,
     LT_CAPS, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_QUOT,          KC_ENT,
     S_Z,     KC_X,    KC_C,    KC_D,    KC_V,    KC_Z,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
     KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, CTL_UP,  KC_RGHT
@@ -173,21 +173,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-// void matrix_init_user(void)
-// {
-//   //user initialization
-// }
-
-// void matrix_scan_user(void)
-// {
-//   //user matrix
-// }
-
-// bool process_record_user(uint16_t keycode, keyrecord_t *record)
-// {
-//   return true;
-// }
-
+// Set different tapping terms for some key groups
+// ----------------------------------------------------------------------------
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case HA_I:
@@ -202,11 +189,15 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       return TAPPING_TERM + 80;
     case LT_CAPS:
     case LT_TAB:
-      return 120;
+    case S_Z:
+      return 100;
     default:
       return TAPPING_TERM;
   }
 }
+
+// Turn off key repeat for a few keys
+// ----------------------------------------------------------------------------
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -223,6 +214,9 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
       return false;
   }
 }
+
+// Wrap keypresses from mod-tap layers in F keys for AHK
+// ----------------------------------------------------------------------------
 
 layer_state_t layer_state_set_user(layer_state_t state)
 {
@@ -267,4 +261,126 @@ layer_state_t layer_state_set_user(layer_state_t state)
   }
 
   return state;
+}
+
+// Combos
+// ----------------------------------------------------------------------------
+
+enum combo_events {
+  PRNS,
+  LPRN,
+  RPRN,
+  CBRS,
+  LCBR,
+  RCBR,
+  BRCS,
+  LBRC,
+  RBRC,
+  ABKS,
+  LABK,
+  RABK
+};
+
+const uint16_t PROGMEM combo01[] = {KC_W, KC_P, COMBO_END};
+const uint16_t PROGMEM combo02[] = {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM combo03[] = {KC_F, KC_P, COMBO_END};
+
+const uint16_t PROGMEM combo04[] = {KC_X, KC_D, COMBO_END};
+const uint16_t PROGMEM combo05[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo06[] = {KC_C, KC_D, COMBO_END};
+
+const uint16_t PROGMEM combo07[] = {KC_L, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo08[] = {KC_L, KC_U, COMBO_END};
+const uint16_t PROGMEM combo09[] = {KC_U, KC_Y, COMBO_END};
+
+const uint16_t PROGMEM combo10[] = {KC_H, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo11[] = {KC_H, KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo12[] = {KC_COMM, KC_DOT, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+  [PRNS] = COMBO_ACTION(combo07),
+  [LPRN] = COMBO_ACTION(combo08),
+  [RPRN] = COMBO_ACTION(combo09),
+  [CBRS] = COMBO_ACTION(combo10),
+  [LCBR] = COMBO_ACTION(combo11),
+  [RCBR] = COMBO_ACTION(combo12),
+  [BRCS] = COMBO_ACTION(combo01),
+  [LBRC] = COMBO_ACTION(combo02),
+  [RBRC] = COMBO_ACTION(combo03),
+  [ABKS] = COMBO_ACTION(combo04),
+  [LABK] = COMBO_ACTION(combo05),
+  [RABK] = COMBO_ACTION(combo06)
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case PRNS:
+      if (pressed) {
+        tap_code16(KC_LPRN);
+        tap_code16(KC_RPRN);
+        tap_code16(KC_LEFT);
+      }
+      break;
+    case LPRN:
+      if (pressed) {
+        tap_code16(KC_LPRN);
+      }
+      break;
+    case RPRN:
+      if (pressed) {
+        tap_code16(KC_RPRN);
+      }
+      break;
+    case CBRS:
+      if (pressed) {
+        tap_code16(KC_LCBR);
+        tap_code16(KC_RCBR);
+        tap_code16(KC_LEFT);
+      }
+      break;
+    case LCBR:
+      if (pressed) {
+        tap_code16(KC_LCBR);
+      }
+      break;
+    case RCBR:
+      if (pressed) {
+        tap_code16(KC_RCBR);
+      }
+      break;
+    case BRCS:
+      if (pressed) {
+        tap_code16(KC_LBRC);
+        tap_code16(KC_RBRC);
+        tap_code16(KC_LEFT);
+      }
+      break;
+    case LBRC:
+      if (pressed) {
+        tap_code16(KC_LBRC);
+      }
+      break;
+    case RBRC:
+      if (pressed) {
+        tap_code16(KC_RBRC);
+      }
+      break;
+    case ABKS:
+      if (pressed) {
+        tap_code16(KC_LABK);
+        tap_code16(KC_RABK);
+        tap_code16(KC_LEFT);
+      }
+      break;
+    case LABK:
+      if (pressed) {
+        tap_code16(KC_LABK);
+      }
+      break;
+    case RABK:
+      if (pressed) {
+        tap_code16(KC_RABK);
+      }
+      break;
+  }
 }
