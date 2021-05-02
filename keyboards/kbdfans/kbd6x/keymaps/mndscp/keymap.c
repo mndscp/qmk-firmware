@@ -13,7 +13,7 @@
 
 #define LT_ESC    LT(L_ESC, KC_ESC)
 #define LT_TAB    LT(L_TAB, KC_TAB)
-#define MO_CAPS   MO(L_CAPS)
+#define LT_CAPS   LT(L_CAPS, KC_ESC)
 #define LT_A      LT(L_A, KC_A)
 #define LT_E      LT(L_E, KC_E)
 #define LT_F      LT(L_E, KC_F)
@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_QWTY] = LAYOUT(
     LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
-    MO_CAPS, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN, KC_QUOT,          KC_ENT,
+    LT_CAPS, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN, KC_QUOT,          KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
     KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, CTL_UP,  KC_RGHT
   ),
@@ -105,6 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_CLMK] = LAYOUT(
     LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
     LT_TAB,  KC_Q,    KC_W,    LT_F,    KC_P,    KC_B,    KC_J,    KC_L,    LT_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC, KC_BSPC,
+    LT_CAPS, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_QUOT,          KC_ENT,
     S_Z,     KC_X,    KC_C,    KC_D,    KC_V,    KC_Z,    KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
     KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, CTL_UP,  KC_RGHT
   ),
@@ -144,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_A] = LAYOUT(
     _______, _______, _______, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, KC_PLUS, KC_TILD, _______,
     _______, _______, _______, _______, _______, _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  _REDO,   KC_LCBR, KC_RCBR, C_BSPC,
-    _______, _______, HA_S,    KC_LCTL, KC_LSFT, S_TAB,   KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, KC_DQUO,          KC_ESC,
+    _______, _______, HA_S,    KC_LCTL, KC_LSFT, S_TAB,   KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, KC_DQUO,          KC_ENT,
     _______, _______, C_X,     C_C,     C_V,     C_Z,     KC_BSPC, KC_DEL,  C_X,     C_C,     C_V,              _______, _______,
     _______, _______, _______,                   KC_ENT,                                               _______, _______, _______
   ),
