@@ -169,8 +169,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_SCLN] = LAYOUT(
     _______, _______, _______, KC_TAB,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, KC_BSLS, KC_7,    KC_8,    KC_9,    KC_GRV,  _______, KC_BSPC, _______, _______, _______, _______, _______, _______,
-    _______, KC_COMM, KC_4,    KC_5,    KC_6,    KC_EQL,  KC_ASTR, KC_LSFT, _______, KC_SPC,  _______, _______,          _______,
-    _______, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS, KC_SLSH, _______, _______, _______, _______,          _______, _______,
+    _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_EQL,  KC_ASTR, KC_LSFT, _______, KC_SPC,  _______, _______,          _______,
+    _______, KC_1,    KC_2,    KC_3,    _______, KC_MINS, KC_SLSH, _______, _______, _______, _______,          _______, _______,
     _______, _______, _______,                   KC_0,                                                 _______, _______, _______
   ),
 };
@@ -217,6 +217,8 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     case HS_F:
     case HS_J:
     case HC_K:
+    case HS_N:
+    case HS_T:
       return true;
     default:
       return false;
