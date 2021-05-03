@@ -90,7 +90,6 @@
 #define _UNDO     C(KC_Z)
 #define _REDO     C(S(KC_Z))
 
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_CLMK] = LAYOUT(
     LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
@@ -189,7 +188,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       return TAPPING_TERM + 80;
     case LT_CAPS:
     case LT_TAB:
-    case S_Z:
       return 100;
     default:
       return TAPPING_TERM;
@@ -298,15 +296,15 @@ const uint16_t PROGMEM combo11[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo12[] = {KC_COMM, KC_DOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [PRNS] = COMBO_ACTION(combo07),
-  [LPRN] = COMBO_ACTION(combo08),
-  [RPRN] = COMBO_ACTION(combo09),
+  [PRNS] = COMBO_ACTION(combo01),
+  [LPRN] = COMBO_ACTION(combo02),
+  [RPRN] = COMBO_ACTION(combo03),
   [CBRS] = COMBO_ACTION(combo10),
   [LCBR] = COMBO_ACTION(combo11),
   [RCBR] = COMBO_ACTION(combo12),
-  [BRCS] = COMBO_ACTION(combo01),
-  [LBRC] = COMBO_ACTION(combo02),
-  [RBRC] = COMBO_ACTION(combo03),
+  [BRCS] = COMBO_ACTION(combo07),
+  [LBRC] = COMBO_ACTION(combo08),
+  [RBRC] = COMBO_ACTION(combo09),
   [ABKS] = COMBO_ACTION(combo04),
   [LABK] = COMBO_ACTION(combo05),
   [RABK] = COMBO_ACTION(combo06)
