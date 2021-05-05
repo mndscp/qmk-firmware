@@ -275,7 +275,11 @@ enum combo_events {
   RBRC,
   ABKS,
   LABK,
-  RABK
+  RABK,
+  AE,
+  OE,
+  UE,
+  SZ
 };
 
 const uint16_t PROGMEM combo01[] = {KC_W, KC_P, COMBO_END};
@@ -294,6 +298,11 @@ const uint16_t PROGMEM combo10[] = {KC_H, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo11[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo12[] = {KC_COMM, KC_DOT, COMBO_END};
 
+const uint16_t PROGMEM combo13[] = {KC_P, KC_L, COMBO_END};
+const uint16_t PROGMEM combo14[] = {KC_P, KC_J, COMBO_END};
+const uint16_t PROGMEM combo15[] = {KC_B, KC_L, COMBO_END};
+const uint16_t PROGMEM combo16[] = {KC_B, KC_J, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
   [PRNS] = COMBO_ACTION(combo01),
   [LPRN] = COMBO_ACTION(combo02),
@@ -306,7 +315,11 @@ combo_t key_combos[COMBO_COUNT] = {
   [RBRC] = COMBO_ACTION(combo09),
   [ABKS] = COMBO_ACTION(combo04),
   [LABK] = COMBO_ACTION(combo05),
-  [RABK] = COMBO_ACTION(combo06)
+  [RABK] = COMBO_ACTION(combo06),
+  [AE] = COMBO_ACTION(combo13),
+  [OE] = COMBO_ACTION(combo14),
+  [UE] = COMBO_ACTION(combo15),
+  [SZ] = COMBO_ACTION(combo16)
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -377,6 +390,34 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case RABK:
       if (pressed) {
         tap_code16(KC_RABK);
+      }
+      break;
+    case AE:
+      if (pressed) {
+        register_code(KC_F17);
+        tap_code16(KC_T);
+        unregister_code(KC_F17);
+      }
+      break;
+    case OE:
+      if (pressed) {
+        register_code(KC_F17);
+        tap_code16(KC_S);
+        unregister_code(KC_F17);
+      }
+      break;
+    case UE:
+      if (pressed) {
+        register_code(KC_F17);
+        tap_code16(KC_R);
+        unregister_code(KC_F17);
+      }
+      break;
+    case SZ:
+      if (pressed) {
+        register_code(KC_F17);
+        tap_code16(KC_A);
+        unregister_code(KC_F17);
       }
       break;
   }
