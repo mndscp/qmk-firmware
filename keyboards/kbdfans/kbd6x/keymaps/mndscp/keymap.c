@@ -279,16 +279,20 @@ enum combo_events {
   AE,
   OE,
   UE,
-  SZ
+  SZ,
+  PASTE,
+  COPY,
+  CUT,
+  UNDO
 };
 
 const uint16_t PROGMEM combo01[] = {KC_W, KC_P, COMBO_END};
 const uint16_t PROGMEM combo02[] = {KC_W, KC_F, COMBO_END};
 const uint16_t PROGMEM combo03[] = {KC_F, KC_P, COMBO_END};
 
-const uint16_t PROGMEM combo04[] = {KC_X, KC_D, COMBO_END};
-const uint16_t PROGMEM combo05[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo06[] = {KC_C, KC_D, COMBO_END};
+// const uint16_t PROGMEM combo04[] = {KC_X, KC_D, COMBO_END};
+// const uint16_t PROGMEM combo05[] = {KC_X, KC_C, COMBO_END};
+// const uint16_t PROGMEM combo06[] = {KC_C, KC_D, COMBO_END};
 
 const uint16_t PROGMEM combo07[] = {KC_L, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo08[] = {KC_L, KC_U, COMBO_END};
@@ -303,6 +307,11 @@ const uint16_t PROGMEM combo14[] = {KC_P, KC_J, COMBO_END};
 const uint16_t PROGMEM combo15[] = {KC_B, KC_L, COMBO_END};
 const uint16_t PROGMEM combo16[] = {KC_B, KC_J, COMBO_END};
 
+const uint16_t PROGMEM combo17[] = {KC_D, KC_K, COMBO_END};
+const uint16_t PROGMEM combo18[] = {KC_C, KC_K, COMBO_END};
+const uint16_t PROGMEM combo19[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM combo20[] = {KC_X, KC_C, COMBO_END};
+
 combo_t key_combos[COMBO_COUNT] = {
   [PRNS] = COMBO_ACTION(combo01),
   [LPRN] = COMBO_ACTION(combo02),
@@ -313,13 +322,17 @@ combo_t key_combos[COMBO_COUNT] = {
   [BRCS] = COMBO_ACTION(combo07),
   [LBRC] = COMBO_ACTION(combo08),
   [RBRC] = COMBO_ACTION(combo09),
-  [ABKS] = COMBO_ACTION(combo04),
-  [LABK] = COMBO_ACTION(combo05),
-  [RABK] = COMBO_ACTION(combo06),
+  // [ABKS] = COMBO_ACTION(combo04),
+  // [LABK] = COMBO_ACTION(combo05),
+  // [RABK] = COMBO_ACTION(combo06),
   [AE] = COMBO_ACTION(combo13),
   [OE] = COMBO_ACTION(combo14),
   [UE] = COMBO_ACTION(combo15),
-  [SZ] = COMBO_ACTION(combo16)
+  [SZ] = COMBO_ACTION(combo16),
+  [PASTE] = COMBO_ACTION(combo17),
+  [COPY] = COMBO_ACTION(combo18),
+  [CUT] = COMBO_ACTION(combo19),
+  [UNDO] = COMBO_ACTION(combo20)
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -418,6 +431,26 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         register_code(KC_F17);
         tap_code16(KC_A);
         unregister_code(KC_F17);
+      }
+      break;
+    case PASTE:
+      if (pressed) {
+        tap_code16(C_V);
+      }
+      break;
+    case COPY:
+      if (pressed) {
+        tap_code16(C_C);
+      }
+      break;
+    case CUT:
+      if (pressed) {
+        tap_code16(C_X);
+      }
+      break;
+    case UNDO:
+      if (pressed) {
+        tap_code16(_UNDO);
       }
       break;
   }
