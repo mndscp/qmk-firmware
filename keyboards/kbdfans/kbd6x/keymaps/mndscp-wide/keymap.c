@@ -92,7 +92,7 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_CLMK] = LAYOUT(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_F18,  KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,  KC_GRV,  KC_MPLY,
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_MPLY, KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,
     LT_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_F19,  KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_SCLN, KC_BSPC,
     LT_CAPS, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_F18,  KC_M,    HS_N,    HC_E,    HA_I,    LT_O,             KC_ENT,
     SFT_Z,   KC_X,    KC_C,    KC_D,    KC_K,    KC_F23,  KC_F20,  KC_V,    KC_H,    KC_COMM, KC_DOT,           KC_SLSH, LT_DEL,
@@ -100,25 +100,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_QWTY] = LAYOUT(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
-    LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
-    LT_CAPS, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN, KC_QUOT,          KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_MPLY, KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,
+    LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_F19,  KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_QUOT, KC_BSPC,
+    LT_CAPS, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_F18,  KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN,          KC_ENT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_F20,  KC_N,    KC_M,    KC_COMM, KC_DOT,           KC_SLSH, LT_DEL,
     KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, CTL_UP,  KC_RGHT
   ),
 
   [L_GAME] = LAYOUT(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
-    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, KC_DEL,
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_MPLY, KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_F19,  KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT, KC_BSPC,
+    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_F18,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,          KC_ENT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_F20,  KC_N,    KC_M,    KC_COMM, KC_DOT,           KC_SLSH, KC_DEL,
     KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, KC_UP,   KC_RGHT
   ),
 
   [L_ESC] = LAYOUT(
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _LOCK,
     _______, KC_MYCM, _DSKTP,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_RCTL,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_HAEN, _______, _______, _______,          KC_RCTL,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
     RESET,   _______, TG_GAME,                   TG_QWTY,                                              _______, _______, _______
   ),
@@ -132,11 +132,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_CAPS] = LAYOUT(
-    _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, C_0,     C_MINS,  C_EQL,   C_GRV,   _______,
+    _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, _______, C_0,     C_MINS,  C_EQL,   C_GRV,
     C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     C_U,     C_I,     C_O,     C_P,     C_QUOT,  C_SCLN,  C_BSPC,
     _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     C_J,     C_K,     C_L,     C_SCLN,  C_QUOT,           C_ENT,
     _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     C_M,     C_COMM,  C_DOT,   C_SLSH,           _______, _______,
-    _______, _______, ALT_BSP,                   KC_ENT,                                               KC_PGDN, KC_DOWN, KC_PGUP
+    _______, _______, ALT_BSP,                   KC_ENT,                                               _______, KC_DOWN, _______
   ),
 
   [L_A] = LAYOUT(
@@ -165,8 +165,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_SCLN] = LAYOUT(
     _______, _______, _______, KC_TAB,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_BSLS, KC_7,    KC_8,    KC_9,    KC_GRV,  _______, KC_BSPC, _______, _______, _______, _______, _______, _______,
-    _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_EQL,  KC_ASTR, KC_LSFT, _______, KC_SPC,  _______, _______,          _______,
+    _______, KC_BSLS, KC_7,    KC_8,    KC_9,    _______, _______, _______, KC_BSPC, _______, _______, _______, _______, _______,
+    _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_EQL,  KC_ASTR, _______, KC_LSFT, _______, _______, _______,          _______,
     _______, KC_1,    KC_2,    KC_3,    _______, KC_MINS, KC_SLSH, _______, _______, _______, _______,          _______, _______,
     _______, _______, _______,                   KC_0,                                                 _______, _______, _______
   ),
