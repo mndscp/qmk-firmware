@@ -12,14 +12,11 @@
 #define L_SCLN    9
 
 #define LT_ESC    LT(L_ESC, KC_ESC)
+#define LT_MPLY   LT(L_ESC, KC_MPLY)
 #define LT_TAB    LT(L_TAB, KC_TAB)
 #define LT_CAPS   LT(L_CAPS, KC_ESC)
 #define LT_A      LT(L_A, KC_A)
-#define LT_E      LT(L_E, KC_E)
-#define LT_F      LT(L_E, KC_F)
-#define LT_I      LT(L_I, KC_I)
 #define LT_O      LT(L_SCLN, KC_O)
-#define LT_U      LT(L_I, KC_U)
 #define LT_SCLN   LT(L_SCLN, KC_SCLN)
 #define LT_DEL    LT(L_CAPS, KC_DEL)
 #define TG_QWTY   TG(L_QWTY)
@@ -40,6 +37,7 @@
 #define SFT_LNG   RSFT_T(KC_HAEN)
 #define CTL_UP    LCTL_T(KC_UP)
 #define ALT_BSP   LALT_T(KC_BSPC)
+#define SFT_Z     LSFT_T(KC_Z)
 
 #define C_TAB     C(KC_TAB)
 #define C_BSPC    C(KC_BSPC)
@@ -91,27 +89,27 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_CLMK] = LAYOUT(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
-    LT_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_LBRC, KC_RBRC, KC_BSPC,
-    LT_CAPS, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_QUOT,          KC_ENT,
-    KC_LSFT, KC_X,    KC_C,    KC_D,    KC_K,    KC_Z,    KC_V,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, CTL_UP,  KC_RGHT
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV,  KC_LBRC, KC_RBRC, LT_MPLY,
+    LT_TAB,  KC_Q,    KC_W,    KC_G,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_MINS, KC_EQL,  KC_BSPC,
+    LT_CAPS, LT_A,    HA_R,    HC_S,    HS_T,    KC_F,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_QUOT,          KC_ENT,
+    SFT_Z,   KC_X,    KC_C,    KC_D,    KC_K,    KC_Z,    KC_V,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, LT_DEL,
+    KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                                      KC_LEFT, CTL_UP,  KC_RGHT
   ),
 
   [L_QWTY] = LAYOUT(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
-    LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV,  KC_LBRC, KC_RBRC, LT_MPLY,
+    LT_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS, KC_EQL,  KC_BSPC,
     LT_CAPS, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN, KC_QUOT,          KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          SFT_LNG, LT_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, CTL_UP,  KC_RGHT
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, LT_DEL,
+    KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                                      KC_LEFT, CTL_UP,  KC_RGHT
   ),
 
   [L_GAME] = LAYOUT(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  LT_MPLY,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT,                   KC_SPC,                                               KC_LEFT, KC_UP,   KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                                      KC_LEFT, KC_UP,   KC_RGHT
   ),
 
   [L_ESC] = LAYOUT(
@@ -119,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_MYCM, _DSKTP,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_RCTL,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-    RESET,   _______, TG_GAME,                   TG_QWTY,                                              _______, _______, _______
+    RESET,   _______, TG_GAME,                            TG_QWTY,                                     _______, _______, _______
   ),
 
   [L_TAB] = LAYOUT(
@@ -127,15 +125,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, C_Q,     C_W,     C_E,     C_R,     _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, C_A,     C_S,     C_D,     C_F,     _______, _______, _______, _______, _______, _______, _______,          _______,
     _______, C_Z,     C_X,     C_C,     C_V,     _______, _______, _______, _______, _______, _______,          _______, _______,
-    _______, _______, _______,                   _______,                                              _______, _______, _______
+    _______, _______, _______,                            _______,                                     _______, _______, _______
   ),
 
   [L_CAPS] = LAYOUT(
-    _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, C_0,     C_MINS,  C_EQL,   C_GRV,   _______,
-    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     C_U,     C_I,     C_O,     C_P,     _______, _______, C_BSPC,
+    _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, C_0,     C_GRV,   _______, _______, _______,
+    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     C_U,     C_I,     C_O,     C_P,     C_MINS,  C_EQL,   C_BSPC,
     _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     C_J,     C_K,     C_L,     C_SCLN,  C_QUOT,           C_ENT,
     _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     C_M,     C_COMM,  C_DOT,   C_SLSH,           _______, _______,
-    _______, _______, ALT_BSP,                   KC_ENT,                                               KC_PGDN, KC_DOWN, KC_PGUP
+    _______, _______, ALT_BSP,                            KC_ENT,                                      KC_PGDN, KC_DOWN, KC_PGUP
   ),
 
   [L_A] = LAYOUT(
@@ -146,28 +144,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,                   KC_ENT,                                               _______, _______, _______
   ),
 
-  [L_E] = LAYOUT(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_BTN1, KC_MS_U, KC_BTN2, KC_BTN3, _______, _______, _______,
-    _______, _______, _______, _______, KC_BTN1, _______, _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______,          _______,
-    _______, _______, _______, _______, _______, _______, KC_BTN1, KC_WH_U, KC_MPLY, KC_WH_D, _______,          _______, _______,
-    _______, _______, _______,                   _______,                                              _______, _______, _______
-  ),
-
-  [L_I] = LAYOUT(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-    _______, _______, _______,                   _______,                                              _______, _______, _______
-  ),
-
   [L_SCLN] = LAYOUT(
     _______, _______, _______, KC_TAB,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, KC_BSLS, KC_7,    KC_8,    KC_9,    KC_GRV,  _______, KC_BSPC, _______, _______, _______, _______, _______, _______,
     _______, KC_DOT,  KC_4,    KC_5,    KC_6,    KC_EQL,  KC_ASTR, KC_LSFT, _______, KC_SPC,  _______, _______,          _______,
     _______, KC_1,    KC_2,    KC_3,    _______, KC_MINS, KC_SLSH, _______, _______, _______, _______,          _______, _______,
-    _______, _______, _______,                   KC_0,                                                 _______, _______, _______
+    _______, _______, _______,                            KC_0,                                        _______, _______, _______
   ),
 };
 
@@ -181,8 +163,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HA_S:
     case HC_D:
     case HC_K:
-    case LT_E:
-    case LT_I:
     case LT_ESC:
       return TAPPING_TERM + 80;
     case LT_CAPS:
@@ -198,8 +178,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case LT_E:
-    case LT_I:
     case LT_A:
     case HS_F:
     case HS_J:
@@ -275,24 +253,16 @@ enum combo_events {
   RBRC,
   ABKS,
   LABK,
-  RABK,
-  AE,
-  OE,
-  UE,
-  SZ,
-  PASTE,
-  COPY,
-  CUT,
-  UNDO
+  RABK
 };
 
 const uint16_t PROGMEM combo01[] = {KC_W, KC_P, COMBO_END};
-const uint16_t PROGMEM combo02[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM combo03[] = {KC_F, KC_P, COMBO_END};
+const uint16_t PROGMEM combo02[] = {KC_W, KC_G, COMBO_END};
+const uint16_t PROGMEM combo03[] = {KC_G, KC_P, COMBO_END};
 
-// const uint16_t PROGMEM combo04[] = {KC_X, KC_D, COMBO_END};
-// const uint16_t PROGMEM combo05[] = {KC_X, KC_C, COMBO_END};
-// const uint16_t PROGMEM combo06[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM combo04[] = {KC_X, KC_D, COMBO_END};
+const uint16_t PROGMEM combo05[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo06[] = {KC_C, KC_D, COMBO_END};
 
 const uint16_t PROGMEM combo07[] = {KC_L, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo08[] = {KC_L, KC_U, COMBO_END};
@@ -301,16 +271,6 @@ const uint16_t PROGMEM combo09[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo10[] = {KC_H, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo11[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo12[] = {KC_COMM, KC_DOT, COMBO_END};
-
-const uint16_t PROGMEM combo13[] = {KC_P, KC_L, COMBO_END};
-const uint16_t PROGMEM combo14[] = {KC_P, KC_J, COMBO_END};
-const uint16_t PROGMEM combo15[] = {KC_B, KC_L, COMBO_END};
-const uint16_t PROGMEM combo16[] = {KC_B, KC_J, COMBO_END};
-
-const uint16_t PROGMEM combo17[] = {KC_D, KC_K, COMBO_END};
-const uint16_t PROGMEM combo18[] = {KC_C, KC_D, COMBO_END};
-const uint16_t PROGMEM combo19[] = {KC_X, KC_D, COMBO_END};
-const uint16_t PROGMEM combo20[] = {KC_X, KC_C, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [PRNS] = COMBO_ACTION(combo01),
@@ -322,17 +282,9 @@ combo_t key_combos[COMBO_COUNT] = {
   [BRCS] = COMBO_ACTION(combo07),
   [LBRC] = COMBO_ACTION(combo08),
   [RBRC] = COMBO_ACTION(combo09),
-  // [ABKS] = COMBO_ACTION(combo04),
-  // [LABK] = COMBO_ACTION(combo05),
-  // [RABK] = COMBO_ACTION(combo06),
-  [AE] = COMBO_ACTION(combo13),
-  [OE] = COMBO_ACTION(combo14),
-  [UE] = COMBO_ACTION(combo15),
-  [SZ] = COMBO_ACTION(combo16),
-  [PASTE] = COMBO_ACTION(combo17),
-  [COPY] = COMBO_ACTION(combo18),
-  [CUT] = COMBO_ACTION(combo19),
-  [UNDO] = COMBO_ACTION(combo20)
+  [ABKS] = COMBO_ACTION(combo04),
+  [LABK] = COMBO_ACTION(combo05),
+  [RABK] = COMBO_ACTION(combo06)
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -403,54 +355,6 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case RABK:
       if (pressed) {
         tap_code16(KC_RABK);
-      }
-      break;
-    case AE:
-      if (pressed) {
-        register_code(KC_F17);
-        tap_code16(KC_T);
-        unregister_code(KC_F17);
-      }
-      break;
-    case OE:
-      if (pressed) {
-        register_code(KC_F17);
-        tap_code16(KC_S);
-        unregister_code(KC_F17);
-      }
-      break;
-    case UE:
-      if (pressed) {
-        register_code(KC_F17);
-        tap_code16(KC_R);
-        unregister_code(KC_F17);
-      }
-      break;
-    case SZ:
-      if (pressed) {
-        register_code(KC_F17);
-        tap_code16(KC_A);
-        unregister_code(KC_F17);
-      }
-      break;
-    case PASTE:
-      if (pressed) {
-        tap_code16(C_V);
-      }
-      break;
-    case COPY:
-      if (pressed) {
-        tap_code16(C_C);
-      }
-      break;
-    case CUT:
-      if (pressed) {
-        tap_code16(C_X);
-      }
-      break;
-    case UNDO:
-      if (pressed) {
-        tap_code16(_UNDO);
       }
       break;
   }
