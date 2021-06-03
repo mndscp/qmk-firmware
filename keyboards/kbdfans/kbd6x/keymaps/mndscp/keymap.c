@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_ESC] = LAYOUT(
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _LOCK,
     _______, KC_MYCM, _DSKTP,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          KC_RCTL,
+    _______, _______, _______, _______, _______, _______, _______, KC_HAEN, _______, _______, _______, _______,          KC_RCTL,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
     RESET,   _______, TG_GAME,                            TG_QWTY,                                     _______, _______, _______
   ),
@@ -137,8 +137,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_A] = LAYOUT(
-    _______, _______, _______, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, KC_PLUS, KC_TILD, _______,
-    _______, _______, _______, _______, _______, _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  _REDO,   KC_LCBR, KC_RCBR, C_BSPC,
+    _______, _______, _______, _______, _______, _______, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD, KC_LCBR, KC_RCBR, _______,
+    _______, _______, _______, _______, _______, _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_COLN_ KC_UNDS, KC_PLUS, C_BSPC,
     _______, _______, HA_S,    KC_LCTL, KC_LSFT, S_TAB,   KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_COLN, KC_DQUO,          KC_ENT,
     _______, _______, C_X,     C_C,     C_V,     C_Z,     KC_BSPC, KC_DEL,  C_X,     C_C,     C_V,              _______, _______,
     _______, _______, _______,                   KC_ENT,                                               _______, _______, _______
