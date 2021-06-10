@@ -19,7 +19,8 @@ enum preonic_keycodes {
   QWRT,
   GAME,
   LOWER,
-  RAISE
+  RAISE,
+  REPEAT
 };
 
 #define _LOCK     G(KC_L)
@@ -114,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_TAB,  KC_Q,    KC_W,    KC_G,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
     LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_F,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_K,    KC_V,    KC_H,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,   _______, SFT_SPC, KC_SPC,  _______, RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, LOWER,   SFT_SPC, REPEAT,  KC_SPC,  _______, RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
 /* Qwerty
@@ -135,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     LT_CTRL, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN, KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_SLSH,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,   _______, SFT_SPC, KC_SPC,  _______, RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, LOWER,   SFT_SPC, REPEAT,  KC_SPC,  _______, RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
 /* Game
@@ -177,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_COMM, KC_TILD, KC_SCLN, KC_QUES, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______,
     _______, KC_GRV,  KC_COLN, KC_EXLM, SFT_MIN, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
     _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, KC_EQL,  KC_1,    KC_2,    KC_3,    KC_COMM, _______,
-    _______, _______, _______, _______, _______, _______, KC_0,    _______, _______, _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, KC_0,    _______, _______, _______, _______
   ),
 
   /* Raise
@@ -218,7 +219,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     RESET,   _______, _______, _______, _______, _______, _______, KC_HAEN, QWRT,    CLMK,    GAME,    _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    REPEAT,  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     KC_RCTL, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
   ),
 
@@ -227,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_COLN, C_BSPC,
     _______, _______, HA_S,    KC_LCTL, KC_LSFT, S_TAB,   KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_ESC,  C_QUOT,
     _______, _______, C_X,     C_C,     C_V,     _______, KC_BSPC, KC_DEL,  C_X,     C_C,     C_V,     _______,
-    _______, _______, _______, _______,      KC_ENT,         _______,       _______, _______, _______, _______
+    _______, _______, _______, _______, _______, KC_ENT,  _______, _______, _______, _______, _______, _______
   ),
 
   [LAYER_TAB] = LAYOUT_preonic_grid(
@@ -243,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     _______, _______, _______, _______, _______,
     _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_J,     _______, _______, _______, _______, _______,
     _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     _______, C_COMM,  C_DOT,   C_SLSH,  _______,
-    _______, _______, _______, KC_BSPC, _______, KC_ENT,  _______, _______, _______, C_MINS,  C_0,     C_EQL
+    _______, _______, _______, KC_BSPC, KC_ENT,  _______, _______, _______, _______, C_MINS,  C_0,     C_EQL
   )
 
   // [TEMPLATE] = LAYOUT_preonic_grid(
@@ -452,10 +453,59 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
   }
 }
 
+// Repeat key
+// ----------------------------------------------------------------------------
+
+// Used to extract the basic tapping keycode from a dual-role key.
+// Example: GET_TAP_KC(MT(MOD_RSFT, KC_E)) == KC_E
+#define GET_TAP_KC(dual_role_key) dual_role_key & 0xFF
+uint16_t last_keycode = KC_NO;
+uint8_t last_modifier = 0;
+
+// Initialize variables holding the bitfield
+// representation of active modifiers.
+uint8_t mod_state;
+uint8_t oneshot_mod_state;
+
+void process_repeat_key(uint16_t keycode, const keyrecord_t *record) {
+    if (keycode != REPEAT) {
+        last_modifier = oneshot_mod_state > mod_state ? oneshot_mod_state : mod_state;
+        switch (keycode) {
+            case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+                if (record->event.pressed) {
+                    last_keycode = GET_TAP_KC(keycode);
+                }
+                break;
+            case QK_MOMENTARY ... QK_MOMENTARY_MAX:
+                return; // to avoid modifier loss
+            default:
+                if (record->event.pressed) {
+                    last_keycode = keycode;
+                }
+                break;
+        }
+    } else { // keycode == REPEAT
+        if (record->event.pressed) {
+            register_mods(last_modifier);
+            register_code16(last_keycode);
+        } else {
+            unregister_code16(last_keycode);
+            unregister_mods(last_modifier);
+        }
+    }
+}
+
 // Preonic
 // ----------------------------------------------------------------------------
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  process_repeat_key(keycode, record);
+  // It's important to update the mod variables *after* calling process_repeat_key, or else
+  // only a single modifier from the previous key is repeated (e.g. Ctrl+Shift+T then Repeat produces Shift+T)
+  mod_state = get_mods();
+  oneshot_mod_state = get_oneshot_mods();
+
   switch (keycode) {
         case CLMK:
           if (record->event.pressed) {
