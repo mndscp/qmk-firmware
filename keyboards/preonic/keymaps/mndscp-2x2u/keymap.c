@@ -25,12 +25,14 @@ enum preonic_keycodes {
 #define _LOCK     G(KC_L)
 #define _UNDO     C(KC_Z)
 
-// Layer taps
+// Hold-taps
 #define LT_TAB    LT(LAYER_TAB, KC_TAB)
 #define LT_CTRL   LT(LAYER_CTRL, KC_ESC)
 #define LT_A      LT(LAYER_A, KC_A)
 #define LT_O      LT(LAYER_O, KC_O)
 #define LT_SCLN   LT(LAYER_O, KC_SCLN)
+#define SFT_MIN   SFT_T(KC_MINS)
+#define SFT_SPC   SFT_T(KC_SPC)
 
 // Homerow mods Colemak
 #define HA_R      LALT_T(KC_R)
@@ -57,6 +59,10 @@ enum preonic_keycodes {
 #define C_SLSH    C(KC_SLSH)
 #define C_MINS    C(KC_MINS)
 #define C_EQL     C(KC_EQL)
+#define C_DOWN    C(KC_DOWN)
+#define C_LEFT    C(KC_LEFT)
+#define C_RGHT    C(KC_RGHT)
+#define C_UP      C(KC_UP)
 #define C_0       C(KC_0)
 #define C_1       C(KC_1)
 #define C_2       C(KC_2)
@@ -92,44 +98,44 @@ enum preonic_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Colemak
   * ,-----------------------------------------------------------------------------------.
-  * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+  * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Tab  |   Q  |   W  |   G  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Del  |
+  * | Tab  |   Q  |   W  |   G  |   P  |   G  |   J  |   L  |   U  |   Y  |  '   | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Ctrl |   A  |   R  |   S  |   T  |   F  |   M  |   N  |   E  |   I  |   O  |  '   |
+  * | Ctrl |   A  |   R  |   S  |   T  |   F  |   M  |   N  |   E  |   I  |   O  |Enter |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Shift|   Z  |   X  |   C  |   D  |   K  |   V  |   H  |   ,  |   .  |   /  |Enter |
+  * | Shift|   Z  |   X  |   C  |   D  |   K  |   V  |   H  |   ,  |   .  |  Up  |   /  |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Ctrl | GUI  | Alt  |Lower |    Shift    |    Space    |Raise | Left |  Up  |Right |
+  * | Ctrl | GUI  | Alt  |Lower |    Shift    |    Space    |Raise | Left | Down |Right |
   * `-----------------------------------------------------------------------------------'
   */
   [LAYER_COLEMAK] = LAYOUT_preonic_2x2u(
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
-    LT_TAB,  KC_Q,    KC_W,    KC_G,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
-    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_F,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_QUOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_K,    KC_V,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        KC_LSFT,        KC_SPC,        RAISE,   KC_LEFT, KC_UP,   KC_RGHT
+    LT_TAB,  KC_Q,    KC_W,    KC_G,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
+    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_F,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_ENT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_K,    KC_V,    KC_H,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
+    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
 /* Qwerty
   * ,-----------------------------------------------------------------------------------.
-  * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+  * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
+  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
   * | Ctrl |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Ctrl | GUI  | Alt  |Lower |    Shift    |    Space    |Raise | Left |  Up  |Right |
+  * | Ctrl | GUI  | Alt  |Lower |    Shift    |    Space    |Raise | Left | Down |Right |
   * `-----------------------------------------------------------------------------------'
   */
   [LAYER_QWERTY] = LAYOUT_preonic_2x2u(
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     LT_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    LT_CTRL, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN, KC_QUOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        KC_LSFT,        KC_SPC,        RAISE,   KC_LEFT, KC_UP,   KC_RGHT
+    LT_CTRL, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    LT_SCLN, KC_ENT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_SLSH,
+    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
 /* Game
@@ -168,9 +174,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
   [LAYER_LOWER] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_4,    KC_5,    KC_6,    _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,    _______, _______,
+    KC_COMM, KC_TILD, KC_SCLN, KC_QUES, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______,
+    _______, KC_GRV,  KC_COLN, KC_EXLM, SFT_MIN, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
+    _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, KC_EQL,  KC_1,    KC_2,    KC_3,    KC_COMM, _______,
     _______, _______, _______, _______,      _______,        KC_0,          _______, _______, _______, _______
   ),
 
@@ -188,11 +194,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
   */
   [LAYER_RAISE] = LAYOUT_preonic_2x2u(
-    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
-    KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
-    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_F19,  _______, _______, _______,
+    _______, KC_F17,  _______, KC_F18,  _______, _______, _______, _______, _______, _______, KC_F20,  _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, C_UP,    _______,
+    _______, _______, _______, _______,      _______,        _______,       _______, C_LEFT,  C_DOWN,  C_RGHT
   ),
 
   /* Adjust (Lower + Raise)
@@ -209,10 +215,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `-----------------------------------------------------------------------------------'
   */
   [LAYER_ADJUST] = LAYOUT_preonic_2x2u(
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-    _______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL,
-    RESET,   _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, KC_HAEN, QWRT,    CLMK,    GAME,    _______,
-    _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    RESET,   _______, _______, _______, _______, _______, _______, KC_HAEN, QWRT,    CLMK,    GAME,    _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     KC_RCTL, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
@@ -261,8 +267,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HC_K:
       return TAPPING_TERM + 80;
     case LT_CTRL:
-    case LT_TAB:
       return 100;
+    case LT_TAB:
+      return 140;
     default:
       return TAPPING_TERM;
   }
@@ -498,32 +505,6 @@ uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
 
-// void encoder_update_user(uint8_t index, bool clockwise) {
-//   if (muse_mode) {
-//     if (IS_LAYER_ON(LAYER_RAISE)) {
-//       if (clockwise) {
-//         muse_offset++;
-//       } else {
-//         muse_offset--;
-//       }
-//     } else {
-//       if (clockwise) {
-//         muse_tempo+=1;
-//       } else {
-//         muse_tempo-=1;
-//       }
-//     }
-//   } else {
-//     if (clockwise) {
-//       register_code(KC_PGDN);
-//       unregister_code(KC_PGDN);
-//     } else {
-//       register_code(KC_PGUP);
-//       unregister_code(KC_PGUP);
-//     }
-//   }
-// }
-
 void dip_switch_update_user(uint8_t index, bool active) {
     switch (index) {
         case 0:
@@ -541,7 +522,6 @@ void dip_switch_update_user(uint8_t index, bool active) {
             }
     }
 }
-
 
 void matrix_scan_user(void) {
 #ifdef AUDIO_ENABLE
