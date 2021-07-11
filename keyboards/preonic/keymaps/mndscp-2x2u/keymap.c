@@ -2,6 +2,7 @@
 #include "muse.h"
 
 enum preonic_layers {
+  LAYER_WHAT,
   LAYER_COLEMAK,
   LAYER_QWERTY,
   LAYER_GAME,
@@ -17,6 +18,7 @@ enum preonic_layers {
 enum preonic_keycodes {
   CLMK = SAFE_RANGE,
   QWRT,
+  WHAT,
   GAME,
   LOWER,
   RAISE
@@ -29,10 +31,12 @@ enum preonic_keycodes {
 #define LT_TAB    LT(LAYER_TAB, KC_TAB)
 #define LT_CTRL   LT(LAYER_CTRL, KC_ESC)
 #define LT_A      LT(LAYER_A, KC_A)
+#define LT_I      LT(LAYER_A, KC_I)
 #define LT_O      LT(LAYER_O, KC_O)
 #define LT_SCLN   LT(LAYER_O, KC_SCLN)
 #define SFT_MIN   SFT_T(KC_MINS)
 #define SFT_SPC   SFT_T(KC_SPC)
+#define SFT_ENT   SFT_T(KC_ENT)
 
 // Homerow mods Colemak
 #define HA_R      LALT_T(KC_R)
@@ -49,6 +53,10 @@ enum preonic_keycodes {
 #define HS_J      RSFT_T(KC_J)
 #define HC_K      LCTL_T(KC_K)
 #define HA_L      LALT_T(KC_L)
+
+// Homerow mods WHAT
+#define HA_A      LALT_T(KC_A)
+#define HC_R      LCTL_T(KC_R)
 
 // Modified keys
 #define C_TAB     C(KC_TAB)
@@ -96,24 +104,45 @@ enum preonic_keycodes {
 #define S_TAB     S(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  /* Colemak
+/* ISRT
   * ,-----------------------------------------------------------------------------------.
   * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Tab  |   Q  |   W  |   G  |   P  |   G  |   J  |   L  |   U  |   Y  |  '   | Bksp |
+  * | Tab  |   Q  |   C  |   L  |   M  |   K  |   Z  |   F  |   U  |   X  |  '   | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Ctrl |   A  |   R  |   S  |   T  |   F  |   M  |   N  |   E  |   I  |   O  |Enter |
+  * | Ctrl |   I  |   S  |   R  |   T  |   G  |   P  |   N  |   E  |   A  |   O  |Enter |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
-  * | Shift|   Z  |   X  |   C  |   D  |   K  |   V  |   H  |   ,  |   .  |  Up  |   /  |
+  * | Shift|   Y  |   V  |   W  |   D  |   J  |   B  |   H  |   ,  |   .  |  Up  | Del  |
+  * |------+------+------+------+------+------+------+------+------+------+------+------|
+  * | Ctrl | GUI  | Alt  |Lower |    Shift    |    Space    |Raise | Left | Down |Right |
+  * `-----------------------------------------------------------------------------------'
+  */
+  [LAYER_WHAT] = LAYOUT_preonic_2x2u(
+    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
+    LT_TAB,  KC_Q,    KC_C,    KC_L,    KC_M,    KC_K,    KC_Z,    KC_F,    KC_U,    KC_X,    KC_QUOT, KC_BSPC,
+    LT_CTRL, LT_I,    HA_S,    HC_R,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_A,    LT_O,    KC_ENT,
+    KC_LSFT, KC_Y,    KC_V,    KC_W,    KC_D,    KC_J,    KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
+    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
+  ),
+
+  /* Colemak-Qix
+  * ,-----------------------------------------------------------------------------------.
+  * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
+  * |------+------+------+------+------+------+------+------+------+------+------+------|
+  * | Tab  |   Q  |   L  |   C  |   M  |   K  |   J  |   F  |   U  |   Y  |  '   | Bksp |
+  * |------+------+------+------+------+------+------+------+------+------+------+------|
+  * | Ctrl |   A  |   R  |   S  |   T  |   G  |   P  |   N  |   E  |   I  |   O  |Enter |
+  * |------+------+------+------+------+------+------+------+------+------+------+------|
+  * | Shift|   Z  |   X  |   C  |   D  |   V  |   B  |   H  |   ,  |   .  |  Up  | Del  |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
   * | Ctrl | GUI  | Alt  |Lower |    Shift    |    Space    |Raise | Left | Down |Right |
   * `-----------------------------------------------------------------------------------'
   */
   [LAYER_COLEMAK] = LAYOUT_preonic_2x2u(
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
-    LT_TAB,  KC_Q,    KC_W,    KC_G,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
-    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_F,    KC_M,    HS_N,    HC_E,    HA_I,    LT_O,    KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_D,    KC_K,    KC_V,    KC_H,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
+    LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
+    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    LT_O,    KC_ENT,
+    KC_LSFT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
     KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
@@ -138,7 +167,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
-/* Game
+  /* Game
   * ,-----------------------------------------------------------------------------------.
   * | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
   * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -174,8 +203,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
   [LAYER_LOWER] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    KC_COMM, KC_TILD, KC_SCLN, KC_QUES, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______,
-    _______, KC_GRV,  KC_COLN, KC_EXLM, SFT_MIN, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
+    KC_COMM, KC_TILD, KC_SCLN, KC_EXLM, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______,
+    _______, KC_GRV,  KC_COLN, KC_QUES, SFT_MIN, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
     _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, KC_EQL,  KC_1,    KC_2,    KC_3,    KC_COMM, _______,
     _______, _______, _______, _______,      _______,        KC_0,          _______, _______, _______, _______
   ),
@@ -217,17 +246,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_ADJUST] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    RESET,   _______, _______, _______, _______, _______, _______, KC_HAEN, QWRT,    CLMK,    GAME,    _______,
+    RESET,   _______, _______, _______, _______, _______, _______, QWRT,    CLMK,    WHAT,    GAME,    _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     KC_RCTL, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
   [LAYER_A] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
-    _______, _______, _______, _______, _______, _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_COLN, C_BSPC,
-    _______, _______, HA_S,    KC_LCTL, KC_LSFT, S_TAB,   KC_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, KC_ESC,  C_QUOT,
+    _______, _______, _______, S_TAB,   KC_TAB,  _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_COLN, C_BSPC,
+    _______, _______, HA_S,    KC_LCTL, KC_LSFT, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_ESC,  C_QUOT,
     _______, _______, C_X,     C_C,     C_V,     _______, KC_BSPC, KC_DEL,  C_X,     C_C,     C_V,     _______,
-    _______, _______, _______, _______,      KC_ENT,         _______,       _______, _______, _______, _______
+    _______, _______, _______, _______,      SFT_ENT,        _______,       _______, _______, _______, _______
   ),
 
   [LAYER_TAB] = LAYOUT_preonic_2x2u(
@@ -241,9 +270,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_CTRL] = LAYOUT_preonic_2x2u(
     _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, _______, _LOCK,
     C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     _______, _______, _______, _______, _______,
-    _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_J,     _______, _______, _______, _______, _______,
+    _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     _______, _______, _______, _______, _______,
     _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     _______, C_COMM,  C_DOT,   C_SLSH,  _______,
-    _______, _______, _______, KC_BSPC,      KC_ENT,         _______,       _______, C_MINS,  C_0,     C_EQL
+    _______, _______, _______, KC_BSPC,      SFT_ENT,        _______,       _______, C_MINS,  C_0,     C_EQL
   )
 
   // [TEMPLATE] = LAYOUT_preonic_2x2u(
@@ -334,58 +363,57 @@ layer_state_t layer_state_set_user(layer_state_t state)
 // ----------------------------------------------------------------------------
 
 enum combo_events {
-  PRNS,
+  SMLY1,
   LPRN,
   RPRN,
-  CBRS,
+  SMLY2,
   LCBR,
   RCBR,
-  BRCS,
+  SMLY3,
   LBRC,
   RBRC,
-  ABKS,
+  SMLY4,
   LABK,
   RABK
 };
 
-const uint16_t PROGMEM combo01[] = {KC_W, KC_P, COMBO_END};
-const uint16_t PROGMEM combo02[] = {KC_W, KC_G, COMBO_END};
-const uint16_t PROGMEM combo03[] = {KC_G, KC_P, COMBO_END};
+const uint16_t PROGMEM combo01[] = {KC_C, KC_M, COMBO_END};
+const uint16_t PROGMEM combo02[] = {KC_C, KC_L, COMBO_END};
+const uint16_t PROGMEM combo03[] = {KC_L, KC_M, COMBO_END};
 
-const uint16_t PROGMEM combo04[] = {KC_X, KC_D, COMBO_END};
-const uint16_t PROGMEM combo05[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo06[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM combo04[] = {KC_V, KC_D, COMBO_END};
+const uint16_t PROGMEM combo05[] = {KC_V, KC_W, COMBO_END};
+const uint16_t PROGMEM combo06[] = {KC_W, KC_D, COMBO_END};
 
-const uint16_t PROGMEM combo07[] = {KC_L, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo08[] = {KC_L, KC_U, COMBO_END};
-const uint16_t PROGMEM combo09[] = {KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo07[] = {KC_F, KC_X, COMBO_END};
+const uint16_t PROGMEM combo08[] = {KC_F, KC_U, COMBO_END};
+const uint16_t PROGMEM combo09[] = {KC_U, KC_X, COMBO_END};
 
 const uint16_t PROGMEM combo10[] = {KC_H, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo11[] = {KC_H, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo12[] = {KC_COMM, KC_DOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [PRNS] = COMBO_ACTION(combo01),
+  [SMLY1] = COMBO_ACTION(combo01),
   [LPRN] = COMBO_ACTION(combo02),
   [RPRN] = COMBO_ACTION(combo03),
-  [CBRS] = COMBO_ACTION(combo10),
-  [LCBR] = COMBO_ACTION(combo11),
-  [RCBR] = COMBO_ACTION(combo12),
-  [BRCS] = COMBO_ACTION(combo07),
-  [LBRC] = COMBO_ACTION(combo08),
-  [RBRC] = COMBO_ACTION(combo09),
-  [ABKS] = COMBO_ACTION(combo04),
-  [LABK] = COMBO_ACTION(combo05),
-  [RABK] = COMBO_ACTION(combo06)
+  [SMLY2] = COMBO_ACTION(combo07),
+  [LCBR] = COMBO_ACTION(combo08),
+  [RCBR] = COMBO_ACTION(combo09),
+  [SMLY3] = COMBO_ACTION(combo04),
+  [LBRC] = COMBO_ACTION(combo05),
+  [RBRC] = COMBO_ACTION(combo06),
+  [SMLY4] = COMBO_ACTION(combo10),
+  [LABK] = COMBO_ACTION(combo11),
+  [RABK] = COMBO_ACTION(combo12)
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
-    case PRNS:
+    case SMLY1:
       if (pressed) {
-        tap_code16(KC_LPRN);
+        tap_code16(KC_COLN);
         tap_code16(KC_RPRN);
-        tap_code16(KC_LEFT);
       }
       break;
     case LPRN:
@@ -398,11 +426,11 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         tap_code16(KC_RPRN);
       }
       break;
-    case CBRS:
+    case SMLY2:
       if (pressed) {
-        tap_code16(KC_LCBR);
-        tap_code16(KC_RCBR);
-        tap_code16(KC_LEFT);
+        tap_code16(KC_COLN);
+        tap_code16(KC_SPC);
+        tap_code16(S(KC_D));
       }
       break;
     case LCBR:
@@ -415,11 +443,10 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         tap_code16(KC_RCBR);
       }
       break;
-    case BRCS:
+    case SMLY3:
       if (pressed) {
-        tap_code16(KC_LBRC);
-        tap_code16(KC_RBRC);
-        tap_code16(KC_LEFT);
+        tap_code16(KC_COLN);
+        tap_code16(S(KC_P));
       }
       break;
     case LBRC:
@@ -432,11 +459,10 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         tap_code16(KC_RBRC);
       }
       break;
-    case ABKS:
+    case SMLY4:
       if (pressed) {
-        tap_code16(KC_LABK);
-        tap_code16(KC_RABK);
-        tap_code16(KC_LEFT);
+        tap_code16(KC_COLN);
+        tap_code16(S(KC_D));
       }
       break;
     case LABK:
@@ -459,13 +485,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
         case CLMK:
           if (record->event.pressed) {
+            tap_code16(KC_HAEN);
             set_single_persistent_default_layer(LAYER_COLEMAK);
           }
           return false;
           break;
         case QWRT:
           if (record->event.pressed) {
+            tap_code16(KC_HAEN);
             set_single_persistent_default_layer(LAYER_QWERTY);
+          }
+          return false;
+          break;
+        case WHAT:
+          if (record->event.pressed) {
+            tap_code16(KC_HAEN);
+            set_single_persistent_default_layer(LAYER_WHAT);
           }
           return false;
           break;
