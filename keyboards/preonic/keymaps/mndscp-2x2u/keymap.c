@@ -25,6 +25,7 @@ enum preonic_keycodes {
 };
 
 #define _LOCK     G(KC_L)
+#define _REDO     C(KC_Y)
 #define _UNDO     C(KC_Z)
 
 // Hold-taps
@@ -184,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
     _______, _______, _______, S_TAB,   KC_TAB,  _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_DQUO, C_BSPC,
     _______, _______, HA_S,    KC_LCTL, KC_LSFT, KC_PGUP, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  C_QUOT,
-    _______, _______, C_X,     C_C,     C_V,     KC_PGDN, KC_DEL,  C_V,     C_C,     C_X,     C_A,     _______,
+    _______, _______, C_X,     _REDO,   _UNDO,   KC_PGDN, KC_DEL,  C_V,     C_C,     C_X,     C_A,     _______,
     _______, _______, _______, _______,      SFT_ENT,        _______,       _______, _______, _______, _______
   ),
 
