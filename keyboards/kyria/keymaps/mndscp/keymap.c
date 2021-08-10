@@ -74,18 +74,18 @@ enum combos {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK] = LAYOUT( /*                                              Colemak-Qi
    ,-----------------------------------------------------.                                     ,-----------------------------------------------------.
-   |   Alt  |    Q   |    L   |    C   |    M   |    K   |                                     |    J   |    F   |    U   |    Y   |    '   |    !   |
+   |   Alt  |    Q   |    L   |    C   |    M   |    K   |                                     |    J   |    F   |    U   |    Y   |    '   |  Bspc  |
    |--------+--------+--------+--------+--------+--------|                                     |--------+--------+--------+--------+--------+--------|
-   |  Shift |    A   |    R   |    S   |    T   |    G   |                                     |    P   |    N   |    E   |    I   |    O   |    ?   |
+   |  Shift |    A   |    R   |    S   |    T   |    G   |                                     |    P   |    N   |    E   |    I   |    O   |  Enter |
    |--------+--------+--------+--------+--------+--------+-----------------. ,-----------------+--------+--------+--------+--------+--------+--------|
-   |   Alt  |    Z   |    X   |    W   |    D   |    V   |        |  Play  | |        |        |    B   |    H   |    ,   |    .   |    /   |    ;   |
+   |   Alt  |    Z   |    X   |    W   |    D   |    V   |  Left  |  Right | |  Play  |        |    B   |    H   |    ,   |    .   |    /   |   Del  |
    `--------------------------+--------+--------+--------+--------+--------| |--------+--------+--------+--------+--------+--------------------------'
                               |  Play  |   Del  |  Enter |  Bspc  |  Space | |        |  Space |   Tab  |        |  AltGr |
                               |        |        |  Ctrl  |  Lower |  Raise | |        |  Lower |        |        |        |
                               `--------------------------------------------' `--------------------------------------------'                         */
-    ALT_ESC, KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,                                          KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_EXLM,
-    SFT_ESC, HG_A,    HA_R,    HC_S,    HS_T,    KC_G,                                          KC_P,    HS_N,    HC_E,    HA_I,    HG_O,    KC_QUES,
-    KC_LALT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    _______, KC_MPLY,   _______, _______, KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_SCLN,
+    ALT_ESC, KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,                                          KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
+    SFT_ESC, HG_A,    HA_R,    HC_S,    HS_T,    KC_G,                                          KC_P,    HS_N,    HC_E,    HA_I,    HG_O,    KC_ENT,
+    KC_LALT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    KC_LEFT, KC_RGHT,   KC_LEFT, KC_RGHT, KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
                                KC_MPLY, MO_RAIS, CTL_ENT, LOW_BSP, RAI_SPC,   KC_DEL,  LOW_SPC, KC_TAB,  _______, KC_RALT
   ),
 
@@ -239,19 +239,19 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 // Combos
 // ----------------------------------------------------------------------------
 
-const uint16_t PROGMEM COMBO_SMILEY_1[] = {KC_L, KC_M, COMBO_END};        // :)
-const uint16_t PROGMEM COMBO_SMILEY_2[] = {KC_X, KC_D, COMBO_END};        // :P
-const uint16_t PROGMEM COMBO_SMILEY_3[] = {KC_F, KC_Y, COMBO_END};        // : D
-const uint16_t PROGMEM COMBO_SMILEY_4[] = {KC_H, KC_DOT, COMBO_END};      // :D
-const uint16_t PROGMEM COMBO_PAREN_L[]  = {KC_L, KC_C, COMBO_END};        // (
-const uint16_t PROGMEM COMBO_PAREN_R[]  = {KC_C, KC_M, COMBO_END};        // )
-const uint16_t PROGMEM COMBO_BRACE_L[]  = {KC_X, KC_W, COMBO_END};        // [
-const uint16_t PROGMEM COMBO_BRACE_R[]  = {KC_W, KC_D, COMBO_END};        // ]
-const uint16_t PROGMEM COMBO_CURLY_L[]  = {KC_F, KC_U, COMBO_END};        // {
-const uint16_t PROGMEM COMBO_CURLY_R[]  = {KC_U, KC_Y, COMBO_END};        // }
-const uint16_t PROGMEM COMBO_ANGLE_L[]  = {KC_H, KC_COMM, COMBO_END};     // <
-const uint16_t PROGMEM COMBO_ANGLE_R[]  = {KC_COMM, KC_DOT, COMBO_END};   // >
-const uint16_t PROGMEM COMBO_CAPSLOCK[] = {KC_G, KC_P, COMBO_END};        // Capslock
+const uint16_t PROGMEM COMBO_SMILEY_1[] = {KC_L, KC_M, COMBO_END};      // :)
+const uint16_t PROGMEM COMBO_SMILEY_2[] = {KC_X, KC_D, COMBO_END};      // :P
+const uint16_t PROGMEM COMBO_SMILEY_3[] = {KC_F, KC_Y, COMBO_END};      // : D
+const uint16_t PROGMEM COMBO_SMILEY_4[] = {KC_H, KC_DOT, COMBO_END};    // :D
+const uint16_t PROGMEM COMBO_PAREN_L[]  = {KC_L, KC_C, COMBO_END};      // (
+const uint16_t PROGMEM COMBO_PAREN_R[]  = {KC_C, KC_M, COMBO_END};      // )
+const uint16_t PROGMEM COMBO_BRACE_L[]  = {KC_X, KC_W, COMBO_END};      // [
+const uint16_t PROGMEM COMBO_BRACE_R[]  = {KC_W, KC_D, COMBO_END};      // ]
+const uint16_t PROGMEM COMBO_CURLY_L[]  = {KC_F, KC_U, COMBO_END};      // {
+const uint16_t PROGMEM COMBO_CURLY_R[]  = {KC_U, KC_Y, COMBO_END};      // }
+const uint16_t PROGMEM COMBO_ANGLE_L[]  = {KC_H, KC_COMM, COMBO_END};   // <
+const uint16_t PROGMEM COMBO_ANGLE_R[]  = {KC_COMM, KC_DOT, COMBO_END}; // >
+const uint16_t PROGMEM COMBO_CAPSLOCK[] = {KC_G, KC_P, COMBO_END};      // Capslock
 
 combo_t key_combos[COMBO_COUNT] = {
   [C_SMILEY_1] = COMBO_ACTION(COMBO_SMILEY_1),
