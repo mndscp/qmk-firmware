@@ -3,7 +3,9 @@
 enum layers {
   L_COLEMAK,
   L_QWERTY,
-  L_GAME,
+  L_TAB,
+  L_CTRL,
+  L_A,
   L_LOWER,
   L_RAISE,
   L_ADJUST
@@ -34,9 +36,11 @@ enum keycodes {
 
 // Hold-taps
 #define LOW_SPC   LT(L_LOWER, KC_SPC)
+#define LT_TAB    LT(L_TAB, KC_TAB)
 #define LT_CTRL   LT(L_CTRL, KC_ESC)
 #define RAI_ENT   LT(L_RAISE, KC_ENT)
 #define RAI_SPC   LT(L_RAISE, KC_SPC)
+#define LT_A      LT(L_A, KC_A)
 #define SFT_SPC   SFT_T(KC_SPC)
 
 // Custom keys
@@ -57,77 +61,101 @@ enum keycodes {
 #define _UE       KC_F19 // Ü
 #define _SZ       KC_F18 // ẞ
 
-// Homerow mods
-#define HG_A      LGUI_T(KC_A)
+#define C_Q       C(KC_Q)
+#define C_W       C(KC_W)
+#define C_E       C(KC_E)
+#define C_R       C(KC_R)
+#define C_T       C(KC_T)
+#define C_Y       C(KC_Y)
+#define C_A       C(KC_A)
+#define C_S       C(KC_S)
+#define C_D       C(KC_D)
+#define C_F       C(KC_F)
+#define C_G       C(KC_G)
+#define C_H       C(KC_H)
+#define C_Z       C(KC_Z)
+#define C_X       C(KC_X)
+#define C_C       C(KC_C)
+#define C_V       C(KC_V)
+#define C_B       C(KC_B)
+
+// Homerow mods Colemak
 #define HA_R      LALT_T(KC_R)
 #define HC_S      LCTL_T(KC_S)
 #define HS_T      LSFT_T(KC_T)
 #define HS_N      RSFT_T(KC_N)
 #define HC_E      LCTL_T(KC_E)
 #define HA_I      LALT_T(KC_I)
-#define HG_O      RGUI_T(KC_O)
+
+// Homerow mods QWERTY
+#define HA_S      LALT_T(KC_S)
+#define HC_D      LCTL_T(KC_D)
+#define HS_F      LSFT_T(KC_F)
+#define HS_J      RSFT_T(KC_J)
+#define HC_K      LCTL_T(KC_K)
+#define HA_L      LALT_T(KC_L)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK] = LAYOUT(
     LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_MINS, KC_BSPC,
-    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT
-    KC_LSFT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    KC_MPLY, KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL
+    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT,
+    KC_LSFT, KC_X,    KC_W,    KC_D,    KC_V,    KC_Z,    KC_MPLY, KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
     KC_LCTL, KC_LALT,                   LOWER,   SFT_SPC,          KC_SPC,  RAISE,                     KC_LEFT, KC_RGHT
   ),
 
   [L_QWERTY] = LAYOUT(
     _______, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______, _______,
     _______, KC_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, _______,
-    _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, KC_N,    KC_M,    _______, _______, _______, _______
+    _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, KC_N,    KC_M,    _______, _______, _______, _______,
     _______, _______,                   _______, _______,          _______, _______,                   _______, _______
   ),
 
   [L_TAB] = LAYOUT(
     _______, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    _______, _______, _______, _______, _______, _______, _______,
     _______, KC_A,    HA_S,    HC_D,    HS_F,    _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_Z,    KC_X,    KC_C,    _______, _______, _______, _______, _______, _______, _______, _______, _______
+    _______, KC_Z,    KC_X,    KC_C,    _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______,                   _______, _______,          _______, _______,                   _______, _______
   ),
 
   [L_CTRL] = LAYOUT(
     _______, C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     _______, _______, _______, _______, _______, _______,
     _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     _______, _______, _______, _______, _______,
-    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     _______, _______, _______, _______, _______, _______, _______
+    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     _______, _______, _______, _______, _______, _______, _______,
     _______, _______,                   KC_BSPC, KC_ENT,           _______, _______,                   _______, _______
   ),
 
   [L_A] = LAYOUT(
     _______, _______, _______, _______, _BCKTAB, KC_TAB,  _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_DQUO, KC_UNDS, _DELWRD,
     _______, _______, HA_S,    KC_LCTL, KC_LSFT, KC_PGUP, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-    _______, _______, _______, _UNDO,   _REDO,   KC_PGDN, _______, KC_DEL,  _PASTE,  _COPY,   _CUT,    _SELALL, _______
+    _______, _______, _______, _UNDO,   _REDO,   KC_PGDN, _______, KC_DEL,  _PASTE,  _COPY,   _CUT,    _SELALL, _______,
     _______, _______,                   _______, _______,          _______, _______,                   _______, _______
   ),
 
   [L_LOWER] = LAYOUT(
     _______, KC_TILD, KC_SCLN, KC_EXLM, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______, _______,
-    _______, KC_GRV,  KC_COLN, KC_QUES, SFT_MIN, _______, _______, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
-    _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_COMM, _______
+    _______, KC_GRV,  KC_COLN, KC_QUES, KC_LSFT, _______, _______, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
+    _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_COMM, _______,
     _______, _______,                   _______, _______,          KC_0,    _______,                   _______, _______
   ),
 
   [L_RAISE] = LAYOUT(
     _______, _______, _______, _______, _______, _______, _______, _______, KC_F19,  _______, _______, _______, _______,
-    _______, KC_F17,  _______, KC_F18,  _______, _______, _______, QWERTY,  COLEMAK, _______, KC_F20,  _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    _______, KC_F17,  _______, KC_F18,  _______, _______, _______, _______, _______, _______, KC_F20,  _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______,                   _______, _______,          _______, _______,                   _______, _______
-  )
+  ),
 
   [L_ADJUST] = LAYOUT(
     RESET,   _______, _______, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______, _LOCK,
-    _______, _______, _______, _______, _______, _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11   _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,  _______
+    _______, _______, _______, COLEMAK, QWERTY,  _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,  _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,  _______,
     _______, _______,                   _______, _______,          _______, _______,                   _______, _______
-  ),
+  )
 
   // [L_TEMPLATE] = LAYOUT(
   //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
   //   _______, _______,                   _______, _______,          _______, _______,                   _______, _______
   // ),
 };
@@ -168,7 +196,7 @@ layer_state_t layer_state_set_user(layer_state_t state)
   // }
 
   return state;
-}
+};
 
 // Different tapping terms for slow fingers
 // ----------------------------------------------------------------------------
@@ -177,13 +205,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case HA_I:
     case HA_R:
-    case HG_A:
-    case HG_O:
       return TAPPING_TERM + 85;
     default:
       return TAPPING_TERM;
   }
-}
+};
 
 // Turn off key repeat for index shift keys
 // ----------------------------------------------------------------------------
@@ -196,7 +222,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     default:
       return false;
   }
-}
+};
 
 // Combos
 // ----------------------------------------------------------------------------
@@ -229,7 +255,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_ANGLE_L]  = COMBO_ACTION(COMBO_ANGLE_L),
   [C_ANGLE_R]  = COMBO_ACTION(COMBO_ANGLE_R),
   [C_CAPSLOCK] = COMBO_ACTION(COMBO_CAPSLOCK)
-}
+};
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
@@ -304,7 +330,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       }
       break;
   }
-}
+};
 
 // ----------------------------------------------------------------------------
 
@@ -351,7 +377,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   return true;
-}
+};
 
 // void matrix_init_user(void) {
 //   // set CapsLock LED to output and low
