@@ -148,8 +148,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_LOWER] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    KC_COMM, KC_TILD, KC_SCLN, KC_EXLM, _______, _______, KC_PLUS, KC_7,    KC_8,    KC_9,    _______, _______,
-    _______, KC_GRV,  KC_COLN, KC_QUES, SFT_MIN, _______, KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
+    KC_COMM, KC_TILD, KC_SCLN, KC_EXLM, _______, _______, SFT_MIN, KC_7,    KC_8,    KC_9,    KC_RABK, _______,
+    _______, KC_GRV,  KC_COLN, KC_QUES, SFT_MIN, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
     _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, KC_EQL,  KC_1,    KC_2,    KC_3,    KC_COMM, _______,
     _______, _______, _______, _______,      _______,        KC_0,          _______, _______, _______, _______
   ),
@@ -224,11 +224,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HA_S:
     case HC_D:
     case HC_K:
-      return TAPPING_TERM + 80;
+      return TAPPING_TERM + 85;
     case LT_CTRL:
       return 100;
     case LT_TAB:
-      return 140;
+      return 135;
     default:
       return TAPPING_TERM;
   }
