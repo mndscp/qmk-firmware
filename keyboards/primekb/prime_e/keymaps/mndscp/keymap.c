@@ -228,13 +228,13 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 // ----------------------------------------------------------------------------
 
 const uint16_t PROGMEM COMBO_SMILEY_1[] = {KC_L, KC_M, COMBO_END};      // :)
-const uint16_t PROGMEM COMBO_SMILEY_2[] = {KC_X, KC_D, COMBO_END};      // :P
+const uint16_t PROGMEM COMBO_SMILEY_2[] = {KC_W, KC_V, COMBO_END};      // :P
 const uint16_t PROGMEM COMBO_SMILEY_3[] = {KC_F, KC_Y, COMBO_END};      // : D
 const uint16_t PROGMEM COMBO_SMILEY_4[] = {KC_H, KC_DOT, COMBO_END};    // :D
 const uint16_t PROGMEM COMBO_PAREN_L[]  = {KC_L, KC_C, COMBO_END};      // (
 const uint16_t PROGMEM COMBO_PAREN_R[]  = {KC_C, KC_M, COMBO_END};      // )
-const uint16_t PROGMEM COMBO_BRACE_L[]  = {KC_X, KC_W, COMBO_END};      // [
-const uint16_t PROGMEM COMBO_BRACE_R[]  = {KC_W, KC_D, COMBO_END};      // ]
+const uint16_t PROGMEM COMBO_BRACE_L[]  = {KC_W, KC_D, COMBO_END};      // [
+const uint16_t PROGMEM COMBO_BRACE_R[]  = {KC_D, KC_V, COMBO_END};      // ]
 const uint16_t PROGMEM COMBO_CURLY_L[]  = {KC_F, KC_U, COMBO_END};      // {
 const uint16_t PROGMEM COMBO_CURLY_R[]  = {KC_U, KC_Y, COMBO_END};      // }
 const uint16_t PROGMEM COMBO_ANGLE_L[]  = {KC_H, KC_COMM, COMBO_END};   // <
