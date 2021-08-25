@@ -34,7 +34,7 @@ enum keycodes {
   RAISE
 };
 
-// Hold-taps
+// Layer keys
 #define LOW_SPC   LT(L_LOWER, KC_SPC)
 #define LT_TAB    LT(L_TAB, KC_TAB)
 #define LT_CTRL   LT(L_CTRL, KC_ESC)
@@ -42,6 +42,9 @@ enum keycodes {
 #define RAI_SPC   LT(L_RAISE, KC_SPC)
 #define LT_A      LT(L_A, KC_A)
 #define SFT_SPC   SFT_T(KC_SPC)
+#define SFT_CLN   SFT_T(KC_COLN)
+#define SFT_0     SFT_T(KC_0)
+#define TG_ADJS   TG(L_ADJUST)
 
 // Custom keys
 #define _BCKTAB   S(KC_TAB)
@@ -99,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK] = LAYOUT(
     LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_MINS, KC_BSPC,
     LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT,
-    KC_LSFT, KC_X,    KC_W,    KC_D,    KC_V,    KC_Z,    KC_MPLY, KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
+    TG_ADJS, KC_X,    KC_W,    KC_D,    KC_V,    KC_Z,    KC_MPLY, KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
     KC_LCTL, KC_LALT,                   LOWER,   SFT_SPC,          KC_SPC,  RAISE,                     KC_LEFT, KC_RGHT
   ),
 
@@ -133,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_LOWER] = LAYOUT(
     _______, KC_TILD, KC_SCLN, KC_EXLM, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______, _______,
-    _______, KC_GRV,  KC_COLN, KC_QUES, KC_LSFT, _______, _______, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
+    _______, KC_GRV,  KC_COLN, KC_QUES, SFT_CLN, _______, _______, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
     _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, _______, _______, KC_1,    KC_2,    KC_3,    KC_COMM, _______,
     _______, _______,                   _______, _______,          KC_0,    _______,                   _______, _______
   ),
@@ -146,10 +149,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_ADJUST] = LAYOUT(
-    RESET,   _______, _______, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______, _LOCK,
-    _______, _______, _______, COLEMAK, QWERTY,  _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,  _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,  _______,
-    _______, _______,                   _______, _______,          _______, _______,                   _______, _______
+    RESET,   _______, KC_7,    KC_8,    KC_9,    _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F11,  _______, _LOCK,
+    _______, _______, KC_4,    KC_5,    KC_6,    _______, COLEMAK, KC_F4,   KC_F5,   KC_F6,   KC_F12,  _______,
+    _______, _______, KC_1,    KC_2,    KC_3,    _______, _______, QWERTY,  KC_F1,   KC_F2,   KC_F3,   KC_F10,  _______,
+    _______, _______,                   _______, SFT_0,            _______, _______,                   _______, _______
   )
 
   // [L_TEMPLATE] = LAYOUT(
