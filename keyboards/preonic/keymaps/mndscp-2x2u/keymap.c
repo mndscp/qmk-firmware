@@ -2,15 +2,14 @@
 #include "muse.h"
 
 enum preonic_layers {
-  LAYER_ISRT,
   LAYER_COLEMAK,
   LAYER_QWERTY,
+  LAYER_APT,
   LAYER_GAME,
   LAYER_LOWER,
   LAYER_RAISE,
   LAYER_ADJUST,
   LAYER_A,
-  LAYER_O,
   LAYER_TAB,
   LAYER_CTRL
 };
@@ -18,7 +17,7 @@ enum preonic_layers {
 enum preonic_keycodes {
   COLEMAK = SAFE_RANGE,
   QWERTY,
-  ISRT,
+  APT,
   GAME,
   LOWER,
   RAISE
@@ -34,28 +33,22 @@ enum preonic_keycodes {
 #define LT_A      LT(LAYER_A, KC_A)
 #define LT_I      LT(LAYER_A, KC_I)
 #define LT_R      LT(LAYER_A, KC_R)
-#define LT_O      LT(LAYER_O, KC_O)
-#define LT_SCLN   LT(LAYER_O, KC_SCLN)
 #define SFT_MIN   SFT_T(KC_MINS)
 #define SFT_SPC   SFT_T(KC_SPC)
 #define SFT_ENT   SFT_T(KC_ENT)
 
-// Homerow mods ISRT
+// Homerow mods APT
 #define HA_S      LALT_T(KC_S)
-#define HC_R      LCTL_T(KC_R)
-#define HS_T      RSFT_T(KC_T)
+#define HC_T      LCTL_T(KC_T)
+#define HS_H      RSFT_T(KC_H)
 #define HS_N      RSFT_T(KC_N)
 #define HC_E      LCTL_T(KC_E)
-#define HA_A      LALT_T(KC_A)
-
-// Homerow mods Hands Down Reference
-#define HC_N      LCTL_T(KC_N)
-#define HS_U      RSFT_T(KC_U)
 #define HA_I      LALT_T(KC_I)
 
 // Homerow mods Colemak
 #define HA_R      LALT_T(KC_R)
 #define HC_S      LCTL_T(KC_S)
+#define HS_T      RSFT_T(KC_T)
 #define HA_I      LALT_T(KC_I)
 
 // Homerow mods Qwerty
@@ -113,37 +106,45 @@ enum preonic_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_COLEMAK] = LAYOUT_preonic_2x2u(
   // ,-----------------------------------------------------------------------------------.
-  // | Esc  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
+  // |  Esc |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Tab  |   Q  |   L  |   C  |   M  |   K  |   J  |   F  |   U  |   Y  |   '  | Bksp |
+  // |  Tab |   Q  |   L  |   C  |   M  |   K  |   J  |   F  |   U  |   Y  |   '  | Bksp |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |   A  |   R  |   S  |   T  |   G  |   P  |   N  |   E  |   I  |   O  |Enter |
+  // | Ctrl |   A  |   R  |   S  |   T  |   G  |   P  |   N  |   E  |   I  |   O  | Enter|
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Shift|   Z  |   X  |   W  |   D  |   V  |   B  |   H  |   ,  |   .  |   -  | Del  |
+  // | Shift|   Z  |   X  |   W  |   D  |   V  |   B  |   H  |   ,  |   .  |   -  |  Del |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl | GUI  | Alt  |Lower |    Shift    |    Space    |Raise | Left | Down |Right |
+  // | Ctrl |  GUI |  Alt | Lower|    Shift    |    Space    | Raise| Left |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
-    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    LT_O,    KC_ENT,
+    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_MINS, KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_UP,   KC_RGHT
+  ),
+
+  [LAYER_APT] = LAYOUT_preonic_2x2u(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_Q,    KC_C,    KC_D,    KC_L,    KC_Z,    KC_X,    KC_Y,    KC_O,    KC_U,    KC_QUOT, _______,
+    _______, LT_R,    HA_S,    HC_T,    HS_H,    KC_K,    KC_P,    HS_N,    HC_E,    HA_I,    KC_A,    _______,
+    _______, KC_W,    KC_B,    KC_G,    KC_M,    KC_V,    KC_J,    KC_F,    _______, _______, _______, _______,
+    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
   [LAYER_QWERTY] = LAYOUT_preonic_2x2u(
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
-    LT_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    LT_CTRL, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_SLSH,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        SFT_SPC,        KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RGHT
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
+    _______, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, _______,
+    _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    _______, _______, KC_SLSH, _______,
+    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
   [LAYER_GAME] = LAYOUT_preonic_2x2u(
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        KC_LSFT,        KC_SPC,        RAISE,   KC_LEFT, KC_UP,   KC_RGHT
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
+    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, _______,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    _______, _______, KC_SLSH, _______,
+    _______, _______, _______, _______,      KC_LSFT,        _______,       _______, _______, _______, _______
   ),
 
   [LAYER_LOWER] = LAYOUT_preonic_2x2u(
@@ -165,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_ADJUST] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    RESET,   _______, _______, _______, _______, _______, _______, QWERTY,  COLEMAK, ISRT,    GAME,    _______,
+    RESET,   _______, _______, _______, _______, _______, _______, QWERTY,  COLEMAK, APT,     GAME,    _______,
     _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
     KC_RCTL, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
@@ -222,13 +223,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HA_L:
     case HA_R:
     case HA_S:
-    case HC_D:
-    case HC_K:
       return TAPPING_TERM + 85;
     case LT_CTRL:
       return 100;
     case LT_TAB:
-      return 135;
+      return 120;
     default:
       return TAPPING_TERM;
   }
@@ -240,7 +239,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case LT_A:
+    case LT_R:
     case HS_F:
+    case HS_H:
     case HS_J:
     case HC_K:
     case HS_N:
@@ -427,10 +428,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case ISRT:
+        case APT:
           if (record->event.pressed) {
             tap_code16(KC_HAEN);
-            set_single_persistent_default_layer(LAYER_ISRT);
+            set_single_persistent_default_layer(LAYER_APT);
           }
           return false;
           break;
