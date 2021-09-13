@@ -3,8 +3,8 @@
 
 enum preonic_layers {
   LAYER_COLEMAK,
+  LAYER_QIMP,
   LAYER_QWERTY,
-  LAYER_APT,
   LAYER_GAME,
   LAYER_LOWER,
   LAYER_RAISE,
@@ -17,7 +17,7 @@ enum preonic_layers {
 enum preonic_keycodes {
   COLEMAK = SAFE_RANGE,
   QWERTY,
-  APT,
+  QIMP,
   GAME,
   LOWER,
   RAISE
@@ -128,24 +128,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL, KC_LGUI, KC_LALT, LOWER,        LT_SPC,         SFT_SPC,       RAISE,   KC_LEFT, KC_UP,   KC_RGHT
   ),
 
-  [LAYER_APT] = LAYOUT_preonic_2x2u(
+  [LAYER_QIMP] = LAYOUT_preonic_2x2u(
   // ,-----------------------------------------------------------------------------------.
-  // |      |      |      |      |      |      |      |      |      |      |      |      |
+  // |  Esc |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |   Q  |   C  |   D  |   L  |   Z  |   X  |   Y  |   O  |   U  |      |      |
+  // |  Tab |   Q  |   L  |   C  |   P  |   K  |   J  |   F  |   U  |   Y  |   '  | Bksp |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |   R  |   S  |   T  |   H  |   K  |   P  |   N  |   E  |   I  |   A  |      |
+  // | Ctrl |   A  |   R  |   S  |   T  |   G  |   M  |   N  |   E  |   I  |   O  | Enter|
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |   W  |   B  |   G  |   M  |   V  |   J  |   F  |      |      |      |      |
+  // | Shift|   Z  |   X  |   W  |   D  |   V  |   B  |   H  |   ,  |   .  |   /  |  Del |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      |      |      |             |             |      |      |      |      |
+  // | Ctrl |  GUI |  Alt | Lower|     Nav     |    Space    | Raise| Left |  Up  | Right|
   // `-----------------------------------------------------------------------------------'
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, KC_Q,    KC_C,    KC_D,    KC_L,    KC_Z,    KC_X,    KC_Y,    KC_O,    KC_U,    KC_QUOT, _______,
-    _______, LT_R,    HA_S,    HC_T,    HS_H,    KC_K,    KC_P,    HS_N,    HC_E,    HA_I,    KC_A,    _______,
-    _______, KC_W,    KC_B,    KC_G,    KC_M,    KC_V,    KC_J,    KC_F,    _______, _______, _______, _______,
-    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
+    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
+    LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_P,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
+    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_M,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT,
+    KC_LSFT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
+    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        LT_SPC,         SFT_SPC,       RAISE,   KC_LEFT, KC_UP,   KC_RGHT
   ),
+
+  // [LAYER_APT] = LAYOUT_preonic_2x2u(
+  // // ,-----------------------------------------------------------------------------------.
+  // // |      |      |      |      |      |      |      |      |      |      |      |      |
+  // // |------+------+------+------+------+------+------+------+------+------+------+------|
+  // // |      |   Q  |   C  |   D  |   L  |   Z  |   X  |   Y  |   O  |   U  |      |      |
+  // // |------+------+------+------+------+------+------+------+------+------+------+------|
+  // // |      |   R  |   S  |   T  |   H  |   K  |   P  |   N  |   E  |   I  |   A  |      |
+  // // |------+------+------+------+------+------+------+------+------+------+------+------|
+  // // |      |   W  |   B  |   G  |   M  |   V  |   J  |   F  |      |      |      |      |
+  // // |------+------+------+------+------+------+------+------+------+------+------+------|
+  // // |      |      |      |      |             |             |      |      |      |      |
+  // // `-----------------------------------------------------------------------------------'
+  //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  //   _______, KC_Q,    KC_C,    KC_D,    KC_L,    KC_Z,    KC_X,    KC_Y,    KC_O,    KC_U,    KC_QUOT, _______,
+  //   _______, LT_R,    HA_S,    HC_T,    HS_H,    KC_K,    KC_P,    HS_N,    HC_E,    HA_I,    KC_A,    _______,
+  //   _______, KC_W,    KC_B,    KC_G,    KC_M,    KC_V,    KC_J,    KC_F,    _______, _______, _______, _______,
+  //   _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
+  // ),
 
   [LAYER_QWERTY] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -182,7 +201,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_ADJUST] = LAYOUT_preonic_2x2u(
     RESET,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, QWERTY,  COLEMAK, APT,     GAME,    RGB_TOG,
+    _______, _______, _______, _______, _______, _______, _______, QWERTY,  COLEMAK, QIMP,    GAME,    RGB_TOG,
     _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
     KC_RCTL, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
@@ -197,10 +216,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // |      |      |  Cut | Copy | Paste| PgDn |  Del | Paste| Copy |  Cut |SelAll|      |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      |      |      |    Enter    |             |      |      |      |      |
+  // |      |      |      |      |             |     Tab     |      |      |      |      |
   // `-----------------------------------------------------------------------------------'
     _______, _______, _______, _______, _______, _______, _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
-    _______, _______, KC_7,    KC_8,    KC_9,    _______, _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_DQUO, C_BSPC,
+    _______, S_TAB,   KC_7,    KC_8,    KC_9,    KC_TAB,  _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_DQUO, C_BSPC,
     _______, KC_0,    HA_4,    HC_5,    HS_6,    KC_PGUP, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  C_QUOT,
     _______, _______, KC_1,    KC_2,    KC_3,    KC_PGDN, KC_DEL,  C_V,     C_C,     C_X,     C_A,     _______,
     _______, _______, _______, _______,      _______,        SFT_TAB,       _______, _______, _______, _______
@@ -444,10 +463,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case APT:
+        case QIMP:
           if (record->event.pressed) {
             tap_code16(KC_HAEN);
-            set_single_persistent_default_layer(LAYER_APT);
+            set_single_persistent_default_layer(LAYER_QIMP);
           }
           return false;
           break;
