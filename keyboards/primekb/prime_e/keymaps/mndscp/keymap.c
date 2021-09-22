@@ -31,7 +31,13 @@ enum keycodes {
   COLEMAK = SAFE_RANGE,
   QWERTY,
   LOWER,
-  RAISE
+  AE,      // ä
+  OE,      // ö
+  UE,      // ü
+  SZ,      // ß
+  AE_CAP,  // Ä
+  OE_CAP,  // Ö
+  UE_CAP  // Ü
 };
 
 // Layer keys
@@ -101,9 +107,8 @@ enum keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK] = LAYOUT(
     LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_MINS, KC_BSPC,
-    LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT,
-    TG_ADJS, KC_X,    KC_W,    KC_D,    KC_V,    KC_Z,    KC_MPLY, KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
-    KC_LCTL, KC_LALT,                   LOWER,   SFT_SPC,          KC_SPC,  RAISE,                     KC_LEFT, KC_RGHT
+    _______, KC_TILD, KC_AMPR, KC_ASTR, KC_QUES, KC_GRV,  _______, AE_CAP,  OE_CAP,  UE_CAP,  _______, _______, _______,
+    _______, KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_COLN, _______, AE,      OE,      UE,      SZ,      _______,
   ),
 
   [L_QWERTY] = LAYOUT(
@@ -374,13 +379,95 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_off(L_RAISE);
         update_tri_layer(L_LOWER, L_RAISE, L_ADJUST);
       }
-
       return false;
       break;
-  }
+    case AE:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_1);
+        tap_code16(KC_KP_3);
+        tap_code16(KC_KP_2);
+        unregister_code(KC_LALT);
+      }
+      return false;
+      break;
+    case OE:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_1);
+        tap_code16(KC_KP_4);
+        tap_code16(KC_KP_8);
+        unregister_code(KC_LALT);
+      }
+      return false;
+      break;
+    case UE:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_0);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_5);
+        tap_code16(KC_KP_2);
+        unregister_code(KC_LALT);
+      }
+      return false;
+      break;
+    case SZ:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_5);
+        unregister_code(KC_LALT);
+      }
+      return false;
+      break;
+    case AE_CAP:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_0);
+        tap_code16(KC_KP_1);
+        tap_code16(KC_KP_9);
+        tap_code16(KC_KP_6);
+        unregister_code(KC_LALT);
+      }
+      return false;
+      break;
+    case OE_CAP:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_0);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_1);
+        tap_code16(KC_KP_4);
+        unregister_code(KC_LALT);
+      }      return false;
+      break;
+    case UE_CAP:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_0);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_0);
+        unregister_code(KC_LALT);
+      }
+      return false;
+      break;
+    }
 
   return true;
 };
+
+// Always enable numlock
+// ----------------------------------------------------------------------------
+
+void led_set_keymap(uint8_t usb_led) {
+  if (!(usb_led & (1<<USB_LED_NUM_LOCK))) {
+    register_code(KC_NUMLOCK);
+    unregister_code(KC_NUMLOCK);
+  }
+}
 
 // void matrix_init_user(void) {
 //   // set CapsLock LED to output and low
