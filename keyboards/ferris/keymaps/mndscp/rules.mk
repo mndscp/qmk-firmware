@@ -1,3 +1,10 @@
-BOOTLOADER = atmel-dfu
-BOOTMAGIC_ENABLE = lite
-TAP_DANCE_ENABLE = yes
+BOOTLOADER         = atmel-dfu
+BOOTMAGIC_ENABLE   = no
+COMBO_ENABLE       = yes
+CONSOLE_ENABLE     = no
+LEADER_ENABLE      = no
+MOUSEKEY_ENABLE    = no
+RGBLIGHT_ENABLE    = no
+TAP_DANCE_ENABLE   = no
+UNICODE_ENABLE     = yes
+VIA_ENABLE         = no
