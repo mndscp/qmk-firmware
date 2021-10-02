@@ -1,2 +1,3 @@
+BOOTLOADER = atmel-dfu
 BOOTMAGIC_ENABLE = lite
 TAP_DANCE_ENABLE = yes
