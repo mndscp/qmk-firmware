@@ -43,7 +43,7 @@ enum macros {
   SZ,      // ß
   AE_CAP,  // Ä
   OE_CAP,  // Ö
-  UE_CAP  // Ü
+  UE_CAP   // Ü
 };
 
 // Layer keys
@@ -61,6 +61,7 @@ enum macros {
 #define SFT_CIR   SFT_T(KC_CIRC)
 #define SFT_CLN   SFT_T(KC_COLN)
 #define SFT_ENT   SFT_T(KC_ENT)
+#define SFT_F22   SFT_T(KC_F22)
 #define SFT_SPC   SFT_T(KC_SPC)
 #define SFT_TAB   SFT_T(KC_TAB)
 #define SFT_Z     SFT_T(KC_Z)
@@ -153,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK] = LAYOUT(
     LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_MINS, KC_BSPC,
     LT_CTRL, KC_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT,
-    SFT_Z,   KC_X,    KC_W,    KC_D,    KC_V,    KC_Z,    KC_ESC,  KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
+    SFT_Z,   KC_X,    KC_W,    KC_D,    KC_V,    KC_MPLY, KC_ESC,  KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
     KC_LCTL, KC_LALT,                   LOWER,   LT_LEFT,          LT_RGHT, RAISE,                     KC_LEFT, KC_RGHT
   ),
 
@@ -189,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    _______, _______, _______, _______, _______, _______, _______,
     _______, KC_A,    HA_S,    HC_D,    HS_F,    _______, _______, _______, _______, _______, _______, _______,
     _______, KC_Z,    KC_X,    KC_C,    _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______,                   KC_PSCR, _______,          _______, _______,                   _______, _______
+    _______, KC_PSCR,                   KC_F21,  SFT_F22,          _______, _______,                   _______, _______
   ),
 
   [L_CTRL] = LAYOUT(
