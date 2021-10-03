@@ -58,6 +58,7 @@ enum macros {
 #define HA_L      LALT_T(KC_L)
 
 // Mod and Layer keys
+#define DF_DST    DF(L_DONTSTARVE)
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_A      LT(L_A, KC_A)
@@ -65,7 +66,6 @@ enum macros {
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
-#define NUM_ENT   LT(L_NUMPAD, KC_ENT)
 #define SFT_F22   SFT_T(KC_F22)
 #define SFT_GRV   SFT_T(KC_GRV)
 #define SFT_SPC   SFT_T(KC_SPC)
@@ -73,11 +73,8 @@ enum macros {
 #define SYM_SPC   LT(L_SYMBOL, KC_SPC)
 
 // Custom keys
-#define _SFTTAB   S(KC_TAB)
-#define _DELWRD   C(KC_BSPC)
 #define _LOCK     G(KC_L)
-#define _UNDO
-#define DF_DST    DF(L_DONTSTARVE)
+#define _SFTTAB   S(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT(
@@ -111,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_NAVIGATION] = LAYOUT(
     KC_ESC,  _______, _SFTTAB, KC_TAB,  _SFTTAB,          _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO,
     KC_ESC,  KC_LALT, KC_LCTL, KC_LSFT, KC_PGUP,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
+    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _SFTTAB, C(KC_C), C(KC_V), C(KC_X), KC_TAB,
                                KC_PSCR, XXXXXXX,          SYM_ESC, _______
   ),
 
@@ -120,7 +117,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_COLN, KC_QUES, SFT_GRV, _______,          _______, M_AE,    M_OE,    M_UE,    M_SZ,
     KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          _______, _______, _______, _______, _______,
                                _______, NAV_MIN,          XXXXXXX, _______
-  ),
 
   [L_FUNCTION] = LAYOUT(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           _______, _______, _______, _______, _LOCK,
