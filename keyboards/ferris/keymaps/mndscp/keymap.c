@@ -7,8 +7,8 @@ enum layers {
   L_NUMPAD,
   L_NAVIGATION,
   L_SYMBOL,
-  L_CAPS,
   L_FUNCTION,
+  L_CAPS,
   L_Q,
   L_A,
   L_Z,
@@ -57,7 +57,7 @@ enum macros {
 #define HC_K      LCTL_T(KC_K)
 #define HA_L      LALT_T(KC_L)
 
-// Hold-taps
+// Mod and Layer keys
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_A      LT(L_A, KC_A)
@@ -67,75 +67,17 @@ enum macros {
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
 #define NUM_ENT   LT(L_NUMPAD, KC_ENT)
 #define SFT_F22   SFT_T(KC_F22)
+#define SFT_GRV   SFT_T(KC_GRV)
 #define SFT_SPC   SFT_T(KC_SPC)
 #define SYM_ESC   LT(L_SYMBOL, KC_ESC)
 #define SYM_SPC   LT(L_SYMBOL, KC_SPC)
 
 // Custom keys
 #define _SFTTAB   S(KC_TAB)
-#define _COPY     C(KC_C)
-#define _CUT      C(KC_X)
 #define _DELWRD   C(KC_BSPC)
 #define _LOCK     G(KC_L)
-#define _PASTE    C(KC_V)
-#define _REDO     C(KC_Y)
-#define _UNDO     C(KC_Z)
+#define _UNDO
 #define DF_DST    DF(L_DONTSTARVE)
-
-#define C_A       C(KC_A)
-#define C_B       C(KC_B)
-#define C_C       C(KC_C)
-#define C_D       C(KC_D)
-#define C_E       C(KC_E)
-#define C_F       C(KC_F)
-#define C_G       C(KC_G)
-#define C_H       C(KC_H)
-#define C_Q       C(KC_Q)
-#define C_R       C(KC_R)
-#define C_S       C(KC_S)
-#define C_T       C(KC_T)
-#define C_V       C(KC_V)
-#define C_W       C(KC_W)
-#define C_X       C(KC_X)
-#define C_Y       C(KC_Y)
-#define C_Z       C(KC_Z)
-#define C_0       C(KC_0)
-#define C_BSPC    C(KC_BSPC)
-#define C_COMM    C(KC_COMM)
-#define C_DOT     C(KC_DOT)
-#define C_EQL     C(KC_EQL)
-#define C_MINS    C(KC_MINS)
-
-#define S_A       S(KC_A)
-#define S_B       S(KC_B)
-#define S_C       S(KC_C)
-#define S_D       S(KC_D)
-#define S_E       S(KC_E)
-#define S_F       S(KC_F)
-#define S_G       S(KC_G)
-#define S_H       S(KC_H)
-#define S_I       S(KC_I)
-#define S_J       S(KC_J)
-#define S_K       S(KC_K)
-#define S_L       S(KC_L)
-#define S_M       S(KC_M)
-#define S_N       S(KC_N)
-#define S_O       S(KC_O)
-#define S_P       S(KC_P)
-#define S_Q       S(KC_Q)
-#define S_R       S(KC_R)
-#define S_S       S(KC_S)
-#define S_T       S(KC_T)
-#define S_U       S(KC_U)
-#define S_V       S(KC_V)
-#define S_W       S(KC_W)
-#define S_X       S(KC_X)
-#define S_Y       S(KC_Y)
-#define S_Z       S(KC_Z)
-#define S_COMM    S(KC_COMM)
-#define S_DOT     S(KC_DOT)
-#define S_QUOT    S(KC_QUOT)
-#define S_SLSH    S(KC_SLSH)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT(
@@ -161,37 +103,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_NUMPAD] = LAYOUT(
     _______, _______, _______, _______, _______,          KC_PLUS, KC_7,    KC_8,    KC_9,    KC_SLSH,
-    _______, KC_LALT, KC_LCTL, KC_LSFT, KC_ENT,           KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,
+    _______, _______, _______, _______, KC_ENT,           KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,
     RESET,   _______, KC_BSPC, KC_DEL,  _______,          KC_ASTR, KC_1,    KC_2,    KC_3,    KC_EQL,
                                XXXXXXX, _______,          KC_0,    KC_SPC
   ),
 
   [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  _______, _SFTTAB, KC_TAB,  _SFTTAB,          _______, KC_BSPC, KC_UP,   KC_DEL,  _______,
+    KC_ESC,  _______, _SFTTAB, KC_TAB,  _SFTTAB,          _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO,
     KC_ESC,  KC_LALT, KC_LCTL, KC_LSFT, KC_PGUP,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    _______, _______, _UNDO,   _REDO,   KC_PGDN,          _______, _COPY,   _PASTE,  _CUT,    _______,
-                               _______, XXXXXXX,          SYM_ESC, _______
+    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
+                               KC_PSCR, XXXXXXX,          SYM_ESC, _______
   ),
 
   [L_SYMBOL] = LAYOUT(
-    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______,          _______, M_AE,    M_OE,    M_UE,    M_SZ,
-    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
+    _______, KC_SCLN, KC_EXLM, KC_TILD, _______,          _______, _______, _______, _______, _______,
+    _______, KC_COLN, KC_QUES, SFT_GRV, _______,          _______, M_AE,    M_OE,    M_UE,    M_SZ,
+    KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          _______, _______, _______, _______, _______,
                                _______, NAV_MIN,          XXXXXXX, _______
   ),
 
-  [L_CAPS] = LAYOUT(
-    S_Q,     S_L,     S_C,     S_M,     S_K,              S_J,     S_F,     S_U,     S_Y,     S_QUOT,
-    S_A,     S_R,     S_S,     S_T,     S_G,              S_P,     S_N,     S_E,     S_I,     S_O,
-    S_Z,     S_X,     S_W,     S_D,     S_V,              S_B,     S_H,     S_COMM,  S_DOT,   S_SLSH,
-                               _______, XXXXXXX,          XXXXXXX, _______
+  [L_FUNCTION] = LAYOUT(
+    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           _______, _______, _______, _______, _LOCK,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           _______, M_CLMK,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, _______, _______, _______, RESET,
+                               _______, _______,          _______, XXXXXXX
   ),
 
-  [L_FUNCTION] = LAYOUT(
-    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _LOCK,
-    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______,          DF_DST,  M_CLMK,  M_QWRT,  _______,  RESET,
-                               _______, _______,          _______, XXXXXXX
+  [L_CAPS] = LAYOUT(
+    S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K),          S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO,
+    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G),          S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O),
+    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V),          S(KC_B), S(KC_H), KC_LABK, KC_RABK, KC_QUES,
+                               _______, XXXXXXX,          XXXXXXX, _______
   ),
 
   [L_Q] = LAYOUT(
@@ -202,9 +144,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_A] = LAYOUT(
-    _______, C_W,     C_E,     C_R,     C_T,              _______, _______, _______, _______, _______,
-    XXXXXXX, C_S,     C_D,     C_F,     C_G,              _______, _______, _______, _______, _______,
-    _______, C_X,     C_C,     C_V,     C_B,              _______, _______, _______, _______, _______,
+    _______, C(KC_W), C(KC_E), C(KC_R), C(KC_T),          _______, _______, _______, _______, _______,
+    XXXXXXX, C(KC_S), C(KC_D), C(KC_F), C(KC_G),          _______, _______, _______, _______, _______,
+    _______, C(KC_X), C(KC_C), C(KC_V), C(KC_B),          _______, _______, _______, _______, _______,
                                _______, SFT_SPC,          _______, _______
   ),
 
@@ -261,8 +203,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 // Wrap keypresses from layers in F keys for AHK
 // ----------------------------------------------------------------------------
 
-layer_state_t layer_state_set_user(layer_state_t state)
-{
+layer_state_t layer_state_set_user(layer_state_t state) {
   static bool Q_is_pressed;
 
   if (layer_state_cmp(state, L_Q)) {
