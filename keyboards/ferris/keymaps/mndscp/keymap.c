@@ -9,7 +9,8 @@ enum layers {
   L_SYMBOL,
   L_FUNCTION,
   L_Q,
-  L_A
+  L_A,
+  L_Z
 };
 
 enum combos {
@@ -65,8 +66,9 @@ enum macros {
 
 // Hold-taps
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
-#define LT_A      LT(L_A, KC_A)
 #define LT_Q      LT(L_Q, KC_Q)
+#define LT_A      LT(L_A, KC_A)
+#define LT_Z      LT(L_Z, KC_Z)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NUM_ENT   LT(L_NUMPAD, KC_ENT)
 #define SFT_F22   SFT_T(KC_F22)
@@ -137,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK] = LAYOUT(
     LT_Q,    KC_L,    KC_C,    KC_M,    KC_K,             KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT,
     LT_A,    HA_R,    HC_S,    HS_T,    KC_G,             KC_P,    HS_N,    HC_E,    HA_I,    KC_O,
-    KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,             KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
+    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V,             KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
                                NUM_ENT, NAV_BSP,          SYM_SPC, FUN_PLY
   ),
 
@@ -183,6 +185,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______,          _______, _______
   ),
 
+  [L_Q] = LAYOUT(
+    _______, KC_Q,    KC_W,    KC_E,    KC_R,             _______, _______, _______, _______, _______,
+    _______, KC_A,    KC_S,    KC_D,    KC_F,             _______, _______, _______, _______, _______,
+    _______, KC_Z,    KC_X,    KC_C,    KC_V,             _______, _______, _______, _______, _______,
+                               KC_F21,  SFT_F22,          _______, _______
+  ),
+
   [L_A] = LAYOUT(
     _______, C_W,     C_E,     C_R,     C_T,              _______, _______, _______, _______, _______,
     _______, C_S,     C_D,     C_F,     C_G,              _______, _______, _______, _______, _______,
@@ -190,19 +199,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, KC_LSFT,          _______, _______
   ),
 
-  [L_Q] = LAYOUT(
-    _______, KC_Q,    KC_W,    KC_E,    KC_R,             _______, _______, _______, _______, _______,
-    _______, KC_A,    KC_S,    KC_D,    KC_F,             _______, _______, _______, _______, _______,
-    _______, KC_Z,    KC_X,    KC_C,    KC_V,             _______, _______, _______, _______, _______,
-                               KC_F21,  SFT_F22,          _______, _______
-  )
+  [L_Z] = LAYOUT(
+    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
+    _______, _______, KC_UP,   _______, _______,          _______, _______, _______, _______, _______,
+    _______, KC_LEFT, KC_DOWN, KC_RGHT, _______,          _______, _______, _______, _______, _______,
+                               _______, KC_LCTL,          _______, _______
+  ),
 
   // [L_TEMPLATE] = LAYOUT(
   //   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______,
   //   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______,
   //   _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______,
   //                              _______, _______,     _______, _______
-  // )
+  // ),
 };
 
 // Different tapping terms for slow fingers
