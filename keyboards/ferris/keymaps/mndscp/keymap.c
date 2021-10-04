@@ -66,6 +66,7 @@ enum macros {
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
+#define NUM_ENT   LT(L_NUMPAD, KC_ENT)
 #define SFT_F22   SFT_T(KC_F22)
 #define SFT_GRV   SFT_T(KC_GRV)
 #define SFT_SPC   SFT_T(KC_SPC)
@@ -115,8 +116,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_SYMBOL] = LAYOUT(
     _______, KC_SCLN, KC_EXLM, KC_TILD, _______,          _______, _______, _______, _______, _______,
     _______, KC_COLN, KC_QUES, SFT_GRV, _______,          _______, M_AE,    M_OE,    M_UE,    M_SZ,
-    KC_BSLS, KC_PIPE, KC_SLSH, _______, _______,          _______, _______, _______, _______, _______,
-                               _______, NAV_MIN,          XXXXXXX, _______
+    KC_BSLS, KC_PIPE, KC_SLSH, KC_PLUS, _______,          _______, _______, _______, _______, _______,
+                               KC_UNDS, NAV_MIN,          XXXXXXX, _______
+  ),
 
   [L_FUNCTION] = LAYOUT(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           _______, _______, _______, _______, _LOCK,
