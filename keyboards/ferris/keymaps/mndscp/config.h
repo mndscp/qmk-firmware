@@ -1,7 +1,8 @@
 #pragma once
 
-#define COMBO_COUNT 12
-#define COMBO_TERM 30
+#define COMBO_COUNT 13
+#define COMBO_STRICT_TIMER
+#define COMBO_TERM 48
 #define IGNORE_MOD_TAP_INTERRUPT
 #define MOUSEKEY_DELAY 20
 #define MOUSEKEY_INTERVAL 16

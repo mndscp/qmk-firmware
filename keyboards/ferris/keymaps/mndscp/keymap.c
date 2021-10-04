@@ -12,7 +12,7 @@ enum layers {
   L_Q,
   L_A,
   L_Z,
-  L_SLSH
+  L_SLSH,
 };
 
 enum combos {
@@ -26,8 +26,9 @@ enum combos {
   C_CURLY_R,
   C_BRACK_L,
   C_BRACK_R,
-  C_ANGLE_L,
-  C_ANGLE_R
+  C_CUT,
+  C_COPY,
+  C_PASTE,
 };
 
 enum macros {
@@ -107,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  _______, _SFTTAB, KC_TAB,  _SFTTAB,          _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO,
+    KC_ESC,  _______, _SFTTAB, KC_TAB,  _SFTTAB,          _SFTTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
     KC_ESC,  KC_LALT, KC_LCTL, KC_LSFT, KC_PGUP,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
     _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _SFTTAB, C(KC_C), C(KC_V), C(KC_X), KC_TAB,
                                KC_PSCR, XXXXXXX,          SYM_ESC, _______
@@ -142,9 +143,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_A] = LAYOUT(
-    _______, C(KC_W), C(KC_E), C(KC_R), C(KC_T),          _______, _______, _______, _______, _______,
-    XXXXXXX, C(KC_S), C(KC_D), C(KC_F), C(KC_G),          _______, _______, _______, _______, _______,
-    _______, C(KC_X), C(KC_C), C(KC_V), C(KC_B),          _______, _______, _______, _______, _______,
+    _______, C(KC_Q), C(KC_W), C(KC_E), C(KC_R),          _______, _______, _______, _______, _______,
+    XXXXXXX, C(KC_A), C(KC_S), C(KC_D), C(KC_F),          _______, _______, _______, _______, _______,
+    _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V),          _______, _______, _______, _______, _______,
                                _______, SFT_SPC,          _______, _______
   ),
 
@@ -192,6 +193,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case HS_N:
     case HS_T:
+    case SYM_SPC:
       return true;
     default:
       return false;
@@ -228,18 +230,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Combos
 // ----------------------------------------------------------------------------
 
-const uint16_t PROGMEM COMBO_SMILEY_1[] = {KC_L, KC_M, COMBO_END};      // :)
-const uint16_t PROGMEM COMBO_SMILEY_2[] = {KC_X, KC_D, COMBO_END};      // :P
-const uint16_t PROGMEM COMBO_SMILEY_3[] = {KC_F, KC_Y, COMBO_END};      // : D
-const uint16_t PROGMEM COMBO_SMILEY_4[] = {KC_H, KC_DOT, COMBO_END};    // :D
-const uint16_t PROGMEM COMBO_PAREN_L[]  = {KC_L, KC_C, COMBO_END};      // (
-const uint16_t PROGMEM COMBO_PAREN_R[]  = {KC_C, KC_M, COMBO_END};      // )
-const uint16_t PROGMEM COMBO_BRACK_L[]  = {KC_X, KC_W, COMBO_END};      // [
-const uint16_t PROGMEM COMBO_BRACK_R[]  = {KC_W, KC_D, COMBO_END};      // ]
-const uint16_t PROGMEM COMBO_CURLY_L[]  = {KC_F, KC_U, COMBO_END};      // {
-const uint16_t PROGMEM COMBO_CURLY_R[]  = {KC_U, KC_Y, COMBO_END};      // }
-const uint16_t PROGMEM COMBO_ANGLE_L[]  = {KC_H, KC_COMM, COMBO_END};   // <
-const uint16_t PROGMEM COMBO_ANGLE_R[]  = {KC_COMM, KC_DOT, COMBO_END}; // >
+const uint16_t PROGMEM COMBO_SMILEY_1[] = {KC_L, KC_M, COMBO_END};        // :)
+const uint16_t PROGMEM COMBO_SMILEY_2[] = {KC_X, KC_D, COMBO_END};        // :P
+const uint16_t PROGMEM COMBO_SMILEY_3[] = {KC_F, KC_Y, COMBO_END};        // : D
+const uint16_t PROGMEM COMBO_SMILEY_4[] = {KC_H, KC_DOT, COMBO_END};      // :D
+const uint16_t PROGMEM COMBO_PAREN_L[]  = {KC_L, KC_C, COMBO_END};        // (
+const uint16_t PROGMEM COMBO_PAREN_R[]  = {KC_C, KC_M, COMBO_END};        // )
+const uint16_t PROGMEM COMBO_BRACK_L[]  = {KC_F, KC_U, COMBO_END};        // [
+const uint16_t PROGMEM COMBO_BRACK_R[]  = {KC_U, KC_Y, COMBO_END};        // ]
+const uint16_t PROGMEM COMBO_CURLY_L[]  = {KC_H, KC_COMM, COMBO_END};     // {
+const uint16_t PROGMEM COMBO_CURLY_R[]  = {KC_COMM, KC_DOT, COMBO_END};   // }
+const uint16_t PROGMEM COMBO_COPY[]     = {KC_W, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_CUT[]      = {KC_X, KC_W, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTE[]    = {KC_D, KC_V, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [C_SMILEY_1] = COMBO_ACTION(COMBO_SMILEY_1),
@@ -252,8 +255,9 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_BRACK_R]  = COMBO_ACTION(COMBO_BRACK_R),
   [C_CURLY_L]  = COMBO_ACTION(COMBO_CURLY_L),
   [C_CURLY_R]  = COMBO_ACTION(COMBO_CURLY_R),
-  [C_ANGLE_L]  = COMBO_ACTION(COMBO_ANGLE_L),
-  [C_ANGLE_R]  = COMBO_ACTION(COMBO_ANGLE_R)
+  [C_COPY]     = COMBO_ACTION(COMBO_COPY),
+  [C_CUT]      = COMBO_ACTION(COMBO_CUT),
+  [C_PASTE]    = COMBO_ACTION(COMBO_PASTE),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -323,15 +327,21 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       }
 
       break;
-    case C_ANGLE_L:
+    case C_COPY:
       if (pressed) {
-        tap_code16(KC_LABK);
+        tap_code16(C(KC_C));
       }
 
       break;
-    case C_ANGLE_R:
+    case C_CUT:
       if (pressed) {
-        tap_code16(KC_RABK);
+        tap_code16(C(KC_X));
+      }
+
+      break;
+    case C_PASTE:
+      if (pressed) {
+        tap_code16(C(KC_V));
       }
 
       break;
