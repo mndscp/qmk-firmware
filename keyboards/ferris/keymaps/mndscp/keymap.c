@@ -58,7 +58,13 @@ enum macros {
 #define HC_K      LCTL_T(KC_K)
 #define HA_L      LALT_T(KC_L)
 
+// Homerow mods Numpad
+#define HA_4      LALT_T(KC_4)
+#define HC_5      LCTL_T(KC_5)
+#define HS_6      LSFT_T(KC_6)
+
 // Mod and Layer keys
+#define CTL_SPC   LCTL_T(KC_SPC)
 #define DF_DST    DF(L_DONTSTARVE)
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
 #define LT_Q      LT(L_Q, KC_Q)
@@ -101,22 +107,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NUMPAD] = LAYOUT(
-    _______, _______, _______, _______, _______,          KC_PLUS, KC_7,    KC_8,    KC_9,    KC_SLSH,
-    _______, _______, _______, _______, KC_ENT,           KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,
-    RESET,   _______, KC_BSPC, KC_DEL,  _______,          KC_ASTR, KC_1,    KC_2,    KC_3,    KC_EQL,
+    KC_SLSH, KC_7,    KC_8,    KC_9,    KC_ASTR,          KC_ASTR, KC_7,    KC_8,    KC_9,    KC_SLSH,
+    KC_0,    KC_4,    KC_5,    HS_6,    KC_MINS,          KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,
+    KC_DOT,  KC_1,    KC_2,    KC_3,    KC_PLUS,          KC_PLUS, KC_1,    KC_2,    KC_3,    KC_EQL,
                                XXXXXXX, _______,          KC_0,    KC_SPC
   ),
 
   [L_NAVIGATION] = LAYOUT(
     KC_ESC,  _______, _SFTTAB, KC_TAB,  _SFTTAB,          _SFTTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
     KC_ESC,  KC_LALT, KC_LCTL, KC_LSFT, KC_PGUP,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _SFTTAB, C(KC_C), C(KC_V), C(KC_X), KC_TAB,
+    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
                                KC_PSCR, XXXXXXX,          SYM_ESC, _______
   ),
 
   [L_SYMBOL] = LAYOUT(
-    _______, KC_SCLN, KC_EXLM, KC_TILD, _______,          _______, _______, _______, _______, _______,
-    _______, KC_COLN, KC_QUES, SFT_GRV, _______,          _______, M_AE,    M_OE,    M_UE,    M_SZ,
+    _______, _______, KC_EXLM, KC_TILD, _______,          _______, _______, _______, _______, _______,
+    KC_SCLN, KC_COLN, KC_QUES, SFT_GRV, _______,          _______, M_AE,    M_OE,    M_UE,    M_SZ,
     KC_BSLS, KC_PIPE, KC_SLSH, KC_PLUS, _______,          _______, _______, _______, _______, _______,
                                KC_UNDS, NAV_MIN,          XXXXXXX, _______
   ),
@@ -151,16 +157,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_Z] = LAYOUT(
     _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
-    _______, _______, KC_UP,   _______, _______,          _______, _______, _______, _______, _______,
-    XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,           _______, _______, _______, _______, _______,
-                               KC_LSFT, KC_LCTL,          _______, _______
+    _______, KC_BSPC, KC_UP,   KC_DEL,  _______,          _______, _______, _______, _______, _______,
+    XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, _______,          _______, _______, _______, _______, _______,
+                               KC_LSFT, CTL_SPC,          _______, _______
   ),
 
   [L_SLSH] = LAYOUT(
     _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______,          _______, _______, KC_UP,   _______, _______,
-    _______, _______, _______, _______, _______,          KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX,
-                               _______, _______,          KC_LCTL, KC_LSFT
+    _______, _______, _______, _______, _______,          _______, KC_BSPC, KC_UP,   KC_DEL,  _______,
+    _______, _______, _______, _______, _______,          _______, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX,
+                               _______, _______,          CTL_SPC, KC_LSFT
   ),
 
   // [L_TEMPLATE] = LAYOUT(
@@ -193,6 +199,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case HS_N:
     case HS_T:
+    case NUM_ENT:
     case SYM_SPC:
       return true;
     default:
@@ -292,58 +299,31 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 
       break;
     case C_PAREN_L:
-      if (pressed) {
-        tap_code16(KC_LPRN);
-      }
-
+      if (pressed) tap_code16(KC_LPRN);
       break;
     case C_PAREN_R:
-      if (pressed) {
-        tap_code16(KC_RPRN);
-      }
-
+      if (pressed) tap_code16(KC_RPRN);
       break;
     case C_BRACK_L:
-      if (pressed) {
-        tap_code16(KC_LBRC);
-      }
-
+      if (pressed) tap_code16(KC_LBRC);
       break;
     case C_BRACK_R:
-      if (pressed) {
-        tap_code16(KC_RBRC);
-      }
-
+      if (pressed) tap_code16(KC_RBRC);
       break;
     case C_CURLY_L:
-      if (pressed) {
-        tap_code16(KC_LCBR);
-      }
-
+      if (pressed) tap_code16(KC_LCBR);
       break;
     case C_CURLY_R:
-      if (pressed) {
-        tap_code16(KC_RCBR);
-      }
-
+      if (pressed) tap_code16(KC_RCBR);
       break;
     case C_COPY:
-      if (pressed) {
-        tap_code16(C(KC_C));
-      }
-
+      if (pressed) tap_code16(C(KC_C));
       break;
     case C_CUT:
-      if (pressed) {
-        tap_code16(C(KC_X));
-      }
-
+      if (pressed) tap_code16(C(KC_X));
       break;
     case C_PASTE:
-      if (pressed) {
-        tap_code16(C(KC_V));
-      }
-
+      if (pressed) tap_code16(C(KC_V));
       break;
   }
 };
