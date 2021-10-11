@@ -5,6 +5,6 @@ CONSOLE_ENABLE     = no
 LEADER_ENABLE      = no
 MOUSEKEY_ENABLE    = no
 RGBLIGHT_ENABLE    = no
-TAP_DANCE_ENABLE   = no
+TAP_DANCE_ENABLE   = yes
 UNICODE_ENABLE     = yes
 VIA_ENABLE         = no

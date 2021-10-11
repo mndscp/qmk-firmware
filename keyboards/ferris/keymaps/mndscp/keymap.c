@@ -34,12 +34,15 @@ enum combos {
 enum macros {
   M_CLMK = SAFE_RANGE,
   M_QWRT,
-
-  // Additional German letters
   M_AE,
   M_OE,
   M_UE,
-  M_SZ
+  M_SZ,
+};
+
+enum tap_dances {
+  TD_EXCLAMATIONMARK,
+  TD_QUESTIONMARK,
 };
 
 // Homerow mods Colemak-Qi
@@ -64,6 +67,10 @@ enum macros {
 #define HS_6      LSFT_T(KC_6)
 
 // Mod and Layer keys
+#define ALT_SPC   LALT_T(KC_SPC)
+#define CTL_BSP   LCTL_T(KC_BSPC)
+#define CTL_ESC   LCTL_T(KC_ESC)
+#define CTL_ENT   CTL_T(KC_ENT)
 #define CTL_SPC   LCTL_T(KC_SPC)
 #define DF_DST    DF(L_DONTSTARVE)
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
@@ -73,23 +80,33 @@ enum macros {
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
+#define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
 #define NUM_ENT   LT(L_NUMPAD, KC_ENT)
+#define NUM_BSP   LT(L_NUMPAD, KC_BSPC)
+#define SFT_BSP   SFT_T(KC_BSPC)
+#define SFT_DEL   LSFT_T(KC_DEL)
+#define SFT_ENT   SFT_T(KC_ENT)
 #define SFT_F22   SFT_T(KC_F22)
 #define SFT_GRV   SFT_T(KC_GRV)
+#define SFT_QUO   SFT_T(KC_QUOT)
 #define SFT_SPC   SFT_T(KC_SPC)
 #define SYM_ESC   LT(L_SYMBOL, KC_ESC)
 #define SYM_SPC   LT(L_SYMBOL, KC_SPC)
+#define TD_EXLM   TD(TD_EXCLAMATIONMARK)
+#define TD_QUES   TD(TD_QUESTIONMARK)
 
 // Custom keys
-#define _LOCK     G(KC_L)
-#define _SFTTAB   S(KC_TAB)
+#define LOCK      G(KC_L)
+#define BACKTAB   S(KC_TAB)
+#define ZOOMIN    C(KC_PLUS)
+#define ZOOMOUT   C(KC_MINS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT(
     LT_Q,    KC_L,    KC_C,    KC_M,    KC_K,             KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT,
     LT_A,    HA_R,    HC_S,    HS_T,    KC_G,             KC_P,    HS_N,    HC_E,    HA_I,    KC_O,
     LT_Z,    KC_X,    KC_W,    KC_D,    KC_V,             KC_B,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH,
-                               NUM_ENT, NAV_BSP,          SYM_SPC, FUN_PLY
+                               NUM_BSP, NAV_ENT,          SYM_SPC, FUN_PLY
   ),
 
   [L_QWERTY] = LAYOUT(
@@ -107,30 +124,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NUMPAD] = LAYOUT(
-    KC_SLSH, KC_7,    KC_8,    KC_9,    KC_ASTR,          KC_ASTR, KC_7,    KC_8,    KC_9,    KC_SLSH,
-    KC_0,    KC_4,    KC_5,    HS_6,    KC_MINS,          KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,
-    KC_DOT,  KC_1,    KC_2,    KC_3,    KC_PLUS,          KC_PLUS, KC_1,    KC_2,    KC_3,    KC_EQL,
+    KC_EQL,  KC_7,    KC_8,    KC_9,    KC_ASTR,          KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,
+    KC_0,    KC_4,    KC_5,    HS_6,    KC_PLUS,          KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,
+    KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS,          KC_MINS, KC_1,    KC_2,    KC_3,    KC_SLSH,
                                XXXXXXX, _______,          KC_0,    KC_SPC
   ),
 
   [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  _______, _SFTTAB, KC_TAB,  _SFTTAB,          _SFTTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
-    KC_ESC,  KC_LALT, KC_LCTL, KC_LSFT, KC_PGUP,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
-                               KC_PSCR, XXXXXXX,          SYM_ESC, _______
+    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_PSCR,          BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
+    CTL_ESC, ALT_SPC, CTL_BSP, SFT_ENT, KC_DEL,           KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
+    _______, KC_PGUP, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
+                               _______, XXXXXXX,          SYM_ESC, _______
   ),
 
   [L_SYMBOL] = LAYOUT(
-    _______, _______, KC_EXLM, KC_TILD, _______,          _______, _______, _______, _______, _______,
-    KC_SCLN, KC_COLN, KC_QUES, SFT_GRV, _______,          _______, M_AE,    M_OE,    M_UE,    M_SZ,
-    KC_BSLS, KC_PIPE, KC_SLSH, KC_PLUS, _______,          _______, _______, _______, _______, _______,
-                               KC_UNDS, NAV_MIN,          XXXXXXX, _______
+    _______, KC_TILD, KC_EXLM, KC_DQUO, KC_LCBR,          KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_CIRC,
+    KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN,          KC_RPRN, M_AE,    M_OE,    M_UE,    M_SZ,
+    KC_BSLS, KC_PIPE, KC_UNDS, KC_GRV,  KC_LBRC,          KC_RBRC, KC_AT,   KC_LABK, KC_RABK, _______,
+                               KC_MINS, _______,          XXXXXXX, _______
   ),
 
   [L_FUNCTION] = LAYOUT(
-    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           _______, _______, _______, _______, _LOCK,
+    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   _______, _______, _______, LOCK,
     _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           _______, M_CLMK,  M_QWRT,  DF_DST,  _______,
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, _______, _______, _______, RESET,
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          _______, XXXXXXX
   ),
 
@@ -152,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, C(KC_Q), C(KC_W), C(KC_E), C(KC_R),          _______, _______, _______, _______, _______,
     XXXXXXX, C(KC_A), C(KC_S), C(KC_D), C(KC_F),          _______, _______, _______, _______, _______,
     _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V),          _______, _______, _______, _______, _______,
-                               _______, SFT_SPC,          _______, _______
+                               ALT_SPC, SFT_ENT,          _______, _______
   ),
 
   [L_Z] = LAYOUT(
@@ -221,6 +238,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     Q_is_pressed = false;
   }
 
+  static bool thumb2_is_pressed;
+
+  if (layer_state_cmp(state, L_NAVIGATION)) {
+    register_code(KC_F13);
+    thumb2_is_pressed = true;
+  } else {
+    if (thumb2_is_pressed) unregister_code(KC_F13);
+    thumb2_is_pressed = false;
+  }
+
   static bool A_is_pressed;
 
   if (layer_state_cmp(state, L_A)) {
@@ -232,6 +259,33 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   }
 
   return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
+};
+
+// Tap Dance
+// ----------------------------------------------------------------------------
+
+void td_exlm(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    tap_code16(KC_EXLM);
+  } else {
+    tap_code16(KC_EXLM);
+    tap_code16(KC_ENT);
+  }
+}
+
+void td_ques(qk_tap_dance_state_t *state, void *user_data) {
+  if (state->count == 1) {
+    tap_code16(KC_QUES);
+  } else {
+    tap_code16(KC_QUES);
+    tap_code16(KC_ENT);
+  }
+}
+
+// All tap dance functions would go here. Only showing this one.
+qk_tap_dance_action_t tap_dance_actions[] = {
+  [TD_EXCLAMATIONMARK] = ACTION_TAP_DANCE_FN(td_exlm),
+  [TD_QUESTIONMARK] = ACTION_TAP_DANCE_FN(td_ques),
 };
 
 // Combos
