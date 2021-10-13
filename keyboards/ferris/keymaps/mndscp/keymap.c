@@ -73,6 +73,7 @@ enum tap_dances {
 #define CTL_ENT   CTL_T(KC_ENT)
 #define CTL_SPC   LCTL_T(KC_SPC)
 #define DF_DST    DF(L_DONTSTARVE)
+#define FUN_ESC   LT(L_FUNCTION, KC_ESC)
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_A      LT(L_A, KC_A)
@@ -80,9 +81,11 @@ enum tap_dances {
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
+#define NAV_SPC   LT(L_NAVIGATION, KC_SPC)
 #define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
 #define NUM_ENT   LT(L_NUMPAD, KC_ENT)
 #define NUM_BSP   LT(L_NUMPAD, KC_BSPC)
+#define NUM_TAB   LT(L_NUMPAD, KC_TAB)
 #define SFT_BSP   SFT_T(KC_BSPC)
 #define SFT_DEL   LSFT_T(KC_DEL)
 #define SFT_ENT   SFT_T(KC_ENT)
@@ -106,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_Q,    KC_L,    KC_C,    KC_M,    KC_K,             KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT,
     LT_A,    HA_R,    HC_S,    HS_T,    KC_G,             KC_P,    HS_N,    HC_E,    HA_I,    KC_O,
     LT_Z,    KC_X,    KC_W,    KC_D,    KC_V,             KC_B,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH,
-                               NUM_BSP, NAV_ENT,          SYM_SPC, FUN_PLY
+                               NUM_TAB, NAV_ENT,          SYM_SPC, FUN_ESC
   ),
 
   [L_QWERTY] = LAYOUT(
@@ -127,28 +130,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_EQL,  KC_7,    KC_8,    KC_9,    KC_ASTR,          KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,
     KC_0,    KC_4,    KC_5,    HS_6,    KC_PLUS,          KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,
     KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS,          KC_MINS, KC_1,    KC_2,    KC_3,    KC_SLSH,
-                               XXXXXXX, _______,          KC_0,    KC_SPC
+                               XXXXXXX, _______,          KC_0,    KC_BSPC
   ),
 
   [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_PSCR,          BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
+    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_PGUP,          BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
     CTL_ESC, ALT_SPC, CTL_BSP, SFT_ENT, KC_DEL,           KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    _______, KC_PGUP, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
+    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
                                _______, XXXXXXX,          SYM_ESC, _______
   ),
 
   [L_SYMBOL] = LAYOUT(
-    _______, KC_TILD, KC_EXLM, KC_DQUO, KC_LCBR,          KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_CIRC,
+    KC_AT,   KC_ASTR, KC_EXLM, KC_DQUO, KC_LCBR,          KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_AMPR,
     KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN,          KC_RPRN, M_AE,    M_OE,    M_UE,    M_SZ,
-    KC_BSLS, KC_PIPE, KC_UNDS, KC_GRV,  KC_LBRC,          KC_RBRC, KC_AT,   KC_LABK, KC_RABK, _______,
-                               KC_MINS, _______,          XXXXXXX, _______
+    KC_BSLS, KC_PIPE, KC_UNDS, KC_GRV,  KC_LBRC,          KC_RBRC, KC_LABK, KC_EQL,  KC_RABK, KC_CIRC,
+                               KC_MINS, NAV_SPC,          XXXXXXX, KC_TILD
   ),
 
   [L_FUNCTION] = LAYOUT(
-    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   _______, _______, _______, LOCK,
+    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
     _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           _______, M_CLMK,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
-                               _______, _______,          _______, XXXXXXX
+                               _______, _______,          KC_MPLY, XXXXXXX
   ),
 
   [L_CAPS] = LAYOUT(
@@ -264,29 +267,29 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Tap Dance
 // ----------------------------------------------------------------------------
 
-void td_exlm(qk_tap_dance_state_t *state, void *user_data) {
-  if (state->count == 1) {
-    tap_code16(KC_EXLM);
-  } else {
-    tap_code16(KC_EXLM);
-    tap_code16(KC_ENT);
-  }
-}
+// void td_exlm(qk_tap_dance_state_t *state, void *user_data) {
+//   if (state->count == 1) {
+//     tap_code16(KC_EXLM);
+//   } else {
+//     tap_code16(KC_EXLM);
+//     tap_code16(KC_ENT);
+//   }
+// }
 
-void td_ques(qk_tap_dance_state_t *state, void *user_data) {
-  if (state->count == 1) {
-    tap_code16(KC_QUES);
-  } else {
-    tap_code16(KC_QUES);
-    tap_code16(KC_ENT);
-  }
-}
+// void td_ques(qk_tap_dance_state_t *state, void *user_data) {
+//   if (state->count == 1) {
+//     tap_code16(KC_QUES);
+//   } else {
+//     tap_code16(KC_QUES);
+//     tap_code16(KC_ENT);
+//   }
+// }
 
-// All tap dance functions would go here. Only showing this one.
-qk_tap_dance_action_t tap_dance_actions[] = {
-  [TD_EXCLAMATIONMARK] = ACTION_TAP_DANCE_FN(td_exlm),
-  [TD_QUESTIONMARK] = ACTION_TAP_DANCE_FN(td_ques),
-};
+// // All tap dance functions would go here. Only showing this one.
+// qk_tap_dance_action_t tap_dance_actions[] = {
+//   [TD_EXCLAMATIONMARK] = ACTION_TAP_DANCE_FN(td_exlm),
+//   [TD_QUESTIONMARK] = ACTION_TAP_DANCE_FN(td_ques),
+// };
 
 // Combos
 // ----------------------------------------------------------------------------
