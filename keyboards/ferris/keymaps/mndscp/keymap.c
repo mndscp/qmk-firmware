@@ -67,6 +67,7 @@ enum tap_dances {
 #define HS_6      LSFT_T(KC_6)
 
 // Mod and Layer keys
+#define ALT_DEL   LALT_T(KC_DEL)
 #define ALT_SPC   LALT_T(KC_SPC)
 #define CTL_BSP   LCTL_T(KC_BSPC)
 #define CTL_ESC   LCTL_T(KC_ESC)
@@ -134,8 +135,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_PGUP,          BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
-    CTL_ESC, ALT_SPC, CTL_BSP, SFT_ENT, KC_DEL,           KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
+    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_SPC,          BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
+    CTL_ESC, ALT_DEL, CTL_BSP, SFT_ENT, KC_PGUP,           KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
     _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
                                _______, XXXXXXX,          SYM_ESC, _______
   ),
