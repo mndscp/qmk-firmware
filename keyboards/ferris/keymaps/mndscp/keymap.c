@@ -135,9 +135,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_SPC,          BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_TAB,
-    CTL_ESC, ALT_DEL, CTL_BSP, SFT_ENT, KC_PGUP,           KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    _______, _______, C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
+    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_SPC,           BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO,
+    CTL_ESC, ALT_DEL, CTL_BSP, SFT_ENT, KC_PGUP,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
+    _______, C(KC_S), C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
                                _______, XXXXXXX,          SYM_ESC, _______
   ),
 
