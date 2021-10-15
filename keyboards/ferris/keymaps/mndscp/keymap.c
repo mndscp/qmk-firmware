@@ -67,11 +67,12 @@ enum tap_dances {
 #define HS_6      LSFT_T(KC_6)
 
 // Mod and Layer keys
+#define ALT_BSP   LALT_T(KC_BSPC)
 #define ALT_DEL   LALT_T(KC_DEL)
 #define ALT_SPC   LALT_T(KC_SPC)
 #define CTL_BSP   LCTL_T(KC_BSPC)
 #define CTL_ESC   LCTL_T(KC_ESC)
-#define CTL_ENT   CTL_T(KC_ENT)
+#define CTL_ENT   LCTL_T(KC_ENT)
 #define CTL_SPC   LCTL_T(KC_SPC)
 #define DF_DST    DF(L_DONTSTARVE)
 #define FUN_ESC   LT(L_FUNCTION, KC_ESC)
@@ -87,13 +88,13 @@ enum tap_dances {
 #define NUM_ENT   LT(L_NUMPAD, KC_ENT)
 #define NUM_BSP   LT(L_NUMPAD, KC_BSPC)
 #define NUM_TAB   LT(L_NUMPAD, KC_TAB)
-#define SFT_BSP   SFT_T(KC_BSPC)
+#define SFT_BSP   LSFT_T(KC_BSPC)
 #define SFT_DEL   LSFT_T(KC_DEL)
-#define SFT_ENT   SFT_T(KC_ENT)
-#define SFT_F22   SFT_T(KC_F22)
-#define SFT_GRV   SFT_T(KC_GRV)
-#define SFT_QUO   SFT_T(KC_QUOT)
-#define SFT_SPC   SFT_T(KC_SPC)
+#define SFT_ENT   LSFT_T(KC_ENT)
+#define SFT_F22   LSFT_T(KC_F22)
+#define SFT_GRV   LSFT_T(KC_GRV)
+#define SFT_QUO   LSFT_T(KC_QUOT)
+#define SFT_SPC   LSFT_T(KC_SPC)
 #define SYM_ESC   LT(L_SYMBOL, KC_ESC)
 #define SYM_SPC   LT(L_SYMBOL, KC_SPC)
 #define TD_EXLM   TD(TD_EXCLAMATIONMARK)
@@ -104,6 +105,7 @@ enum tap_dances {
 #define BACKTAB   S(KC_TAB)
 #define ZOOMIN    C(KC_PLUS)
 #define ZOOMOUT   C(KC_MINS)
+#define EMOJI     G(KC_DOT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT(
@@ -135,17 +137,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_SPC,           BACKTAB, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO,
-    CTL_ESC, ALT_DEL, CTL_BSP, SFT_ENT, KC_PGUP,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
+    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_PGUP,          _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO,
+    CTL_ESC, ALT_SPC, CTL_ENT, SFT_BSP, KC_DEL,           KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
     _______, C(KC_S), C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
-                               _______, XXXXXXX,          SYM_ESC, _______
+                               EMOJI,   XXXXXXX,          SYM_ESC, _______
   ),
 
   [L_SYMBOL] = LAYOUT(
     KC_AT,   KC_ASTR, KC_EXLM, KC_DQUO, KC_LCBR,          KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_AMPR,
     KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN,          KC_RPRN, M_AE,    M_OE,    M_UE,    M_SZ,
     KC_BSLS, KC_PIPE, KC_UNDS, KC_GRV,  KC_LBRC,          KC_RBRC, KC_LABK, KC_EQL,  KC_RABK, KC_CIRC,
-                               KC_MINS, NAV_SPC,          XXXXXXX, KC_TILD
+                               KC_MINS, NAV_ENT,          XXXXXXX, KC_TILD
   ),
 
   [L_FUNCTION] = LAYOUT(
@@ -207,7 +209,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HA_L:
     case HA_R:
     case HA_S:
-      return TAPPING_TERM + 85;
+    case HC_E:
+      return TAPPING_TERM + 65;
     default:
       return TAPPING_TERM;
   }
@@ -321,7 +324,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_CURLY_L]  = COMBO_ACTION(COMBO_CURLY_L),
   [C_CURLY_R]  = COMBO_ACTION(COMBO_CURLY_R),
   [C_COPY]     = COMBO_ACTION(COMBO_COPY),
-  [C_CUT]      = COMBO_ACTION(COMBO_CUT),
+  [C_CUT]
+   = COMBO_ACTION(COMBO_CUT),
   [C_PASTE]    = COMBO_ACTION(COMBO_PASTE),
 };
 
