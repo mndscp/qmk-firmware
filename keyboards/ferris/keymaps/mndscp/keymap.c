@@ -2,6 +2,7 @@
 
 enum layers {
   L_COLEMAK_QI,
+  L_COLEMAQ,
   L_QWERTY,
   L_DONTSTARVE,
   L_NUMPAD,
@@ -23,10 +24,12 @@ enum combos {
   C_SMILEY_5,
   C_PAREN_L,
   C_PAREN_R,
-  C_CURLY_L,
-  C_CURLY_R,
   C_BRACK_L,
   C_BRACK_R,
+  C_CURLY_L,
+  C_CURLY_R,
+  C_EQUALS,
+  C_FATARROW,
   C_CUT,
   C_COPY,
   C_PASTE,
@@ -36,6 +39,7 @@ enum combos {
 
 enum macros {
   M_CLMK = SAFE_RANGE,
+  M_CLMQ,
   M_QWRT,
   M_AE,
   M_OE,
@@ -80,9 +84,11 @@ enum macros {
 #define DF_DST    DF(L_DONTSTARVE)
 #define FUN_ESC   LT(L_FUNCTION, KC_ESC)
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
+#define LTQ_Q     LT(L_Z, KC_Q)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_A      LT(L_A, KC_A)
 #define LT_Z      LT(L_Z, KC_Z)
+#define LTQ_Z     LT(L_Q, KC_Z)
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
@@ -117,6 +123,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_A,    HA_R,    HC_S,    HS_T,    KC_G,             KC_P,    HS_N,    HC_E,    HA_I,    KC_O,
     LT_Z,    KC_X,    KC_W,    KC_D,    KC_V,             KC_B,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH,
                                NUM_DEL, NAV_ENT,          SYM_SPC, FUN_PLY
+  ),
+
+  [L_COLEMAQ] = LAYOUT(
+    LT_Q,    KC_W,    KC_C,    KC_P,    KC_B,             KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT,
+    LT_A,    HA_R,    HC_S,    HS_T,    KC_F,             KC_M,    HS_N,    HC_E,    HA_I,    KC_O,
+    LT_Z,    KC_X,    KC_G,    KC_D,    KC_K,             KC_V,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH,
+                               _______, _______,          _______, _______
   ),
 
   [L_QWERTY] = LAYOUT(
@@ -156,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_FUNCTION] = LAYOUT(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
-    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           _______, M_CLMK,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_CLMQ,  M_CLMK,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          KC_MPLY, XXXXXXX
   ),
@@ -302,17 +315,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Combos
 // ----------------------------------------------------------------------------
 
-const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_X, KC_D, COMBO_END};      // :)
-const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_X, KC_W, COMBO_END};      // :P
-const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_W, KC_D, COMBO_END};      // : D
-const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_D, KC_V, COMBO_END};      // :D
-const uint16_t PROGMEM COMBO_SMILEY_5[]   = {LT_Z, KC_D, COMBO_END};      // ^_^
-const uint16_t PROGMEM COMBO_PAREN_L[]    = {KC_L, KC_C, COMBO_END};      // (
-const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_C, KC_M, COMBO_END};      // )
-const uint16_t PROGMEM COMBO_BRACK_L[]    = {KC_F, KC_U, COMBO_END};      // [
-const uint16_t PROGMEM COMBO_BRACK_R[]    = {KC_U, KC_Y, COMBO_END};      // ]
-const uint16_t PROGMEM COMBO_CURLY_L[]    = {KC_H, KC_COMM, COMBO_END};   // {
-const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_COMM, KC_DOT, COMBO_END}; // }
+const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_L, KC_M, COMBO_END};      // :)
+const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_L, KC_C, COMBO_END};      // :P
+const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_C, KC_K, COMBO_END};      // : D
+const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_C, KC_M, COMBO_END};      // :D
+const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_K, COMBO_END};      // ^_^
+const uint16_t PROGMEM COMBO_PAREN_L[]    = {HS_T, KC_G, COMBO_END};      // (
+const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_P, HS_N, COMBO_END};      // )
+const uint16_t PROGMEM COMBO_BRACK_L[]    = {KC_D, KC_V, COMBO_END};      // [
+const uint16_t PROGMEM COMBO_BRACK_R[]    = {KC_B, KC_H, COMBO_END};      // ]
+const uint16_t PROGMEM COMBO_CURLY_L[]    = {KC_M, KC_K, COMBO_END};      // {
+const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_J, KC_F, COMBO_END};      // }
+const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_H, KC_COMM, COMBO_END};   // " = "
+const uint16_t PROGMEM COMBO_FATARROW[]   = {KC_COMM, KC_DOT, COMBO_END}; // " => "
 const uint16_t PROGMEM COMBO_COPY[]       = {KC_X, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
@@ -331,6 +346,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_BRACK_R]    = COMBO_ACTION(COMBO_BRACK_R),
   [C_CURLY_L]    = COMBO_ACTION(COMBO_CURLY_L),
   [C_CURLY_R]    = COMBO_ACTION(COMBO_CURLY_R),
+  [C_EQUALS]     = COMBO_ACTION(COMBO_EQUALS),
+  [C_FATARROW]   = COMBO_ACTION(COMBO_FATARROW),
   [C_COPY]       = COMBO_ACTION(COMBO_COPY),
   [C_CUT]        = COMBO_ACTION(COMBO_CUT),
   [C_PASTE]      = COMBO_ACTION(COMBO_PASTE),
@@ -395,6 +412,23 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_CURLY_R:
       if (pressed) tap_code16(KC_RCBR);
       break;
+    case C_EQUALS:
+      if (pressed) {
+        tap_code16(KC_SPACE);
+        tap_code16(KC_EQL);
+        tap_code16(KC_SPACE);
+      }
+
+      break;
+    case C_FATARROW:
+      if (pressed) {
+        tap_code16(KC_SPACE);
+        tap_code16(KC_EQL);
+        tap_code16(KC_RABK);
+        tap_code16(KC_SPACE);
+      }
+
+      break;
     case C_COPY:
       if (pressed) tap_code16(C(KC_C));
       break;
@@ -436,6 +470,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         tap_code16(KC_HAEN);
         set_single_persistent_default_layer(L_COLEMAK_QI);
+      }
+
+      return false;
+      break;
+    case M_CLMQ:
+      if (record->event.pressed) {
+        tap_code16(KC_HAEN);
+        set_single_persistent_default_layer(L_COLEMAQ);
       }
 
       return false;

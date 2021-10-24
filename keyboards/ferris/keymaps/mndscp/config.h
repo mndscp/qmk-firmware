@@ -1,6 +1,6 @@
 #pragma once
 
-#define COMBO_COUNT 16
+#define COMBO_COUNT 18
 #define COMBO_STRICT_TIMER
 #define COMBO_TERM 48
 #define IGNORE_MOD_TAP_INTERRUPT
