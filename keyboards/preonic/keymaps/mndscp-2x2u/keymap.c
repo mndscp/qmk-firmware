@@ -2,56 +2,71 @@
 #include "muse.h"
 
 enum preonic_layers {
-  LAYER_COLEMAK,
-  LAYER_QIMP,
-  LAYER_QWERTY,
-  LAYER_GAME,
-  LAYER_LOWER,
-  LAYER_RAISE,
-  LAYER_ADJUST,
-  LAYER_A,
-  LAYER_TAB,
-  LAYER_CTRL
+  L_COLEMAK_QI,
+  L_QWERTY,
+  L_GAME,
+  L_NUMPAD,
+  L_NAVIGATION,
+  L_SYMBOL,
+  L_FUNCTION,
+  L_CAPS,
+  L_TAB,
+  L_CTRL,
+  L_LSFT,
 };
 
-enum preonic_keycodes {
-  COLEMAK = SAFE_RANGE,
-  QWERTY,
-  QIMP,
-  GAME,
-  LOWER,
-  RAISE
+enum combos {
+  C_SMILEY_1,
+  C_SMILEY_2,
+  C_SMILEY_3,
+  C_SMILEY_4,
+  C_SMILEY_5,
+  C_PAREN_L,
+  C_PAREN_R,
+  C_BRACK_L,
+  C_BRACK_R,
+  C_CURLY_L,
+  C_CURLY_R,
+  C_EQUALS,
+  C_FATARROW,
+  C_CUT,
+  C_COPY,
+  C_PASTE,
+  C_PASTEANDGO,
+  C_SELECTALL,
 };
 
-#define _LOCK     G(KC_L)
-#define _REDO     C(KC_Y)
-#define _UNDO     C(KC_Z)
+enum macros {
+  M_CLMK = SAFE_RANGE,
+  M_CLMQ,
+  M_QWRT,
+  M_AE,
+  M_OE,
+  M_UE,
+  M_SZ,
+};
+
+// enum tap_dances {
+//   TD_EXCLAMATIONMARK,
+//   TD_QUESTIONMARK,
+// };
 
 // Hold-taps
-#define LT_TAB    LT(LAYER_TAB, KC_TAB)
-#define LT_CTRL   LT(LAYER_CTRL, KC_ESC)
-#define LT_A      LT(LAYER_A, KC_A)
-#define LT_I      LT(LAYER_A, KC_I)
-#define LT_R      LT(LAYER_A, KC_R)
-#define LT_SPC    LT(LAYER_A, KC_SPC)
-#define SFT_ENT   SFT_T(KC_ENT)
+#define LT_TAB    LT(L_TAB, KC_TAB)
+#define LT_CTRL   LT(L_CTRL, KC_ESC)
+#define LT_I      LT(L_NAVIGATION, KC_I)
+#define LT_R      LT(L_NAVIGATION, KC_R)
+#define LT_ENT    LT(L_NAVIGATION, KC_ENT)
+#define LT_LSFT   MO(L_LSFT)
 #define SFT_MIN   SFT_T(KC_MINS)
-#define SFT_SPC   SFT_T(KC_SPC)
 #define SFT_TAB   SFT_T(KC_TAB)
 
-// Homerow mods APT
-#define HA_S      LALT_T(KC_S)
-#define HC_T      LCTL_T(KC_T)
-#define HS_H      RSFT_T(KC_H)
-#define HS_N      RSFT_T(KC_N)
-#define HC_E      LCTL_T(KC_E)
-#define HA_I      LALT_T(KC_I)
-
 // Homerow mods Colemak
-#define HA_4      LALT_T(KC_4)
-#define HC_5      LCTL_T(KC_5)
-#define HS_6      RSFT_T(KC_6)
+#define HS_6      LALT_T(KC_6)
+#define HC_E      LCTL_T(KC_E)
+#define HS_N      RSFT_T(KC_N)
 #define HA_R      LALT_T(KC_R)
+#define HA_S      LALT_T(KC_S)
 #define HC_S      LCTL_T(KC_S)
 #define HS_T      RSFT_T(KC_T)
 #define HA_I      LALT_T(KC_I)
@@ -106,10 +121,50 @@ enum preonic_keycodes {
 #define C_B       C(KC_B)
 #define C_N       C(KC_N)
 #define C_M       C(KC_M)
-#define S_TAB     S(KC_TAB)
+
+// Mod and Layer keys
+#define ALT_BSP   LALT_T(KC_BSPC)
+#define ALT_DEL   LALT_T(KC_DEL)
+#define ALT_SPC   LALT_T(KC_SPC)
+#define CTL_BSP   LCTL_T(KC_BSPC)
+#define CTL_ESC   LCTL_T(KC_ESC)
+#define CTL_ENT   LCTL_T(KC_ENT)
+#define CTL_SPC   LCTL_T(KC_SPC)
+#define DF_DST    DF(L_DONTSTARVE)
+#define FUN_ESC   LT(L_FUNCTION, KC_ESC)
+#define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
+#define LT_A      LT(L_NAVIGATION, KC_A)
+#define LT_SLSH   LT(L_SLSH, KC_SLSH)
+#define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
+#define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
+#define NAV_SPC   LT(L_NAVIGATION, KC_SPC)
+#define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
+#define NUM_DEL   LT(L_NUMPAD, KC_DEL)
+#define NUM_ENT   LT(L_NUMPAD, KC_ENT)
+#define NUM_BSP   LT(L_NUMPAD, KC_BSPC)
+#define NUM_TAB   LT(L_NUMPAD, KC_TAB)
+#define SFT_BSP   LSFT_T(KC_BSPC)
+#define SFT_DEL   LSFT_T(KC_DEL)
+#define SFT_ENT   LSFT_T(KC_ENT)
+#define SFT_F22   LSFT_T(KC_F22)
+#define SFT_GRV   LSFT_T(KC_GRV)
+#define SFT_QUO   LSFT_T(KC_QUOT)
+#define SFT_SPC   LSFT_T(KC_SPC)
+#define SYM_ESC   LT(L_SYMBOL, KC_ESC)
+#define SYM_SPC   LT(L_SYMBOL, KC_SPC)
+#define LOW_SPC   LT(L_SYMBOL, KC_SPC)
+#define TD_EXLM   TD(TD_EXCLAMATIONMARK)
+#define TD_QUES   TD(TD_QUESTIONMARK)
+
+// Custom keys
+#define LOCK      G(KC_L)
+#define BACKTAB   S(KC_TAB)
+#define ZOOMIN    C(KC_PLUS)
+#define ZOOMOUT   C(KC_MINS)
+#define EMOJI     G(KC_DOT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [LAYER_COLEMAK] = LAYOUT_preonic_2x2u(
+  [L_COLEMAK_QI] = LAYOUT_preonic_2x2u(
   // ,-----------------------------------------------------------------------------------.
   // |  Esc |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -124,19 +179,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     LT_TAB,  KC_Q,    KC_L,    KC_C,    KC_M,    KC_K,    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT, KC_BSPC,
     LT_CTRL, LT_A,    HA_R,    HC_S,    HS_T,    KC_G,    KC_P,    HS_N,    HC_E,    HA_I,    KC_O,    KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, LOWER,        LT_SPC,         SFT_SPC,       RAISE,   KC_LEFT, KC_UP,   KC_RGHT
+    LT_LSFT, KC_Z,    KC_X,    KC_W,    KC_D,    KC_V,    KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_DEL,
+    KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_PLY,          KC_LEFT, KC_UP,   KC_RGHT
   ),
 
-  [LAYER_QIMP] = LAYOUT_preonic_2x2u(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
-  ),
-
-  [LAYER_QWERTY] = LAYOUT_preonic_2x2u(
+  [L_QWERTY] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
     _______, LT_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, _______,
@@ -144,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
-  [LAYER_GAME] = LAYOUT_preonic_2x2u(
+  [L_GAME] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, _______,
@@ -152,64 +199,80 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
-  [LAYER_LOWER] = LAYOUT_preonic_2x2u(
+  [L_NUMPAD] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    KC_COMM, KC_TILD, KC_SCLN, KC_EXLM, _______, _______, SFT_MIN, KC_7,    KC_8,    KC_9,    KC_RABK, _______,
-    _______, KC_GRV,  KC_COLN, KC_QUES, SFT_MIN, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
-    _______, KC_BSLS, KC_PIPE, KC_SLSH, KC_UNDS, _______, KC_EQL,  KC_1,    KC_2,    KC_3,    KC_COMM, _______,
-    _______, _______, _______, _______,      _______,        KC_0,          _______, _______, _______, _______
+    _______, KC_EQL,  KC_7,    KC_8,    KC_9,    KC_ASTR, KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
+    _______, KC_0,    KC_4,    KC_5,    HS_6,    KC_PLUS, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
+    _______, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS, KC_MINS, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
+    _______, _______, _______, XXXXXXX,      _______,        KC_0,          _______, _______, _______, _______
   ),
 
-  [LAYER_RAISE] = LAYOUT_preonic_2x2u(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-    _______, _______, _______, _______, _______, _______, _______, _______, KC_F19,  _______, _______, KC_F12,
-    _______, KC_F17,  _______, KC_F18,  _______, _______, _______, _______, _______, _______, KC_F20,  _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, C_UP,    _______,
-    _______, _______, _______, _______,      _______,        _______,       _______, C_LEFT,  C_DOWN,  C_RGHT
-  ),
-
-  [LAYER_ADJUST] = LAYOUT_preonic_2x2u(
-    RESET,   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, QWERTY,  COLEMAK, QIMP,    GAME,    RGB_TOG,
-    _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______,
-    KC_RCTL, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
-  ),
-
-  [LAYER_A] = LAYOUT_preonic_2x2u(
+  [L_NAVIGATION] = LAYOUT_preonic_2x2u(
   // ,-----------------------------------------------------------------------------------.
   // |      |      |      |      |      |      |      |   &  |   *  |   (  |   )  |   ~  |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      |      | S+Tab|  Tab |      | Undo | Home |  Up  |  End |   "  | C+Bsp|
+  // |      |      | PrScr| S+Tab|  Tab | PgUp |      | Bspc |  Up  |  Del |   "  | C+Bsp|
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      |  ALt | Ctrl | Shift| PgUp | Bspc | Left | Down | Right|  Del |   '  |
+  // |      |      | Space| Bksp | Enter|  Del | Home | Left | Down | Right|  End |  C+' |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      |  Cut | Copy | Paste| PgDn |  Del | Paste| Copy |  Cut |SelAll|      |
+  // |      |      | Save | Undo | Redo | PgDn |      | Copy | Paste|  Cut |      |      |
   // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      |      |      |             |     Tab     |      |      |      |      |
+  // |      |      |      | Emoji|             |     Esc     |      |      |      |      |
   // `-----------------------------------------------------------------------------------'
     _______, _______, _______, _______, _______, _______, _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
-    _______, S_TAB,   KC_7,    KC_8,    KC_9,    KC_TAB,  _UNDO,   KC_HOME, KC_UP,   KC_END,  KC_DQUO, C_BSPC,
-    _______, KC_0,    HA_4,    HC_5,    HS_6,    KC_PGUP, KC_BSPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  C_QUOT,
-    _______, _______, KC_1,    KC_2,    KC_3,    KC_PGDN, KC_DEL,  C_V,     C_C,     C_X,     C_A,     _______,
-    _______, _______, _______, _______,      _______,        SFT_TAB,       _______, _______, _______, _______
+    _______, _______, KC_PSCR, BACKTAB, KC_TAB,  KC_PGUP, _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO, C_BSPC,
+    _______, _______, ALT_SPC, CTL_BSP, SFT_ENT, KC_DEL,  KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  C_QUOT,
+    _______, _______, C(KC_S), C(KC_Z), C(KC_Y), KC_PGDN, _______, C(KC_C), C(KC_V), C(KC_X), _______, _______,
+    _______, _______, _______, EMOJI,        XXXXXXX,        SYM_ESC,       _______, _______, _______, _______
   ),
 
-  [LAYER_TAB] = LAYOUT_preonic_2x2u(
+  [L_SYMBOL] = LAYOUT_preonic_2x2u(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_COMM, KC_AT,   KC_SCLN, KC_EXLM, KC_DQUO, KC_LCBR, KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_AMPR, _______,
+    _______, KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN, KC_RPRN, M_AE,    M_OE,    M_UE,    M_SZ,    _______,
+    _______, KC_BSLS, KC_PIPE, KC_UNDS, KC_GRV,  KC_LBRC, KC_RBRC, KC_LABK, KC_EQL,  KC_RABK, KC_CIRC, _______,
+    _______, _______, _______, KC_MINS,      NAV_ENT,        XXXXXXX,       KC_TILD, _______, _______, _______
+  ),
+
+  [L_CTRL] = LAYOUT_preonic_2x2u(
+    _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, _______, LOCK,
+    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     _______, _______, _______, _______, _______,
+    _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     _______, _______, _______, _______, _______,
+    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     _______, C_COMM,  C_DOT,   C_SLSH,  _______,
+    _______, _______, _______, KC_BSPC,      SFT_ENT,        _______,       _______, C_MINS,  C_0,     C_EQL
+  ),
+
+  [L_FUNCTION] = LAYOUT_preonic_2x2u(
+    RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+    RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_F12,
+    _______, _______, _______, _______, _______, _______, _______, M_CLMK,  M_QWRT,  ZOOMOUT, C(KC_0), ZOOMIN,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, C_UP,    _______,
+    _______, _______, _______, _______,      _______,        _______,       XXXXXXX, C_LEFT,  C_DOWN,  C_RGHT
+  ),
+
+  [L_CAPS] = LAYOUT_preonic_2x2u(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K), S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO, _______,
+    _______, S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O), _______,
+    _______, S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V), S(KC_B), S(KC_H), KC_LABK, KC_RABK, KC_QUES, _______,
+    _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
+  ),
+
+  [L_TAB] = LAYOUT_preonic_2x2u(
     _______, KC_F21,  KC_F22,  KC_PSCR, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, C_Q,     C_W,     C_E,     C_R,     _______, _______, _______, _______, _______, _______, _______,
+    XXXXXXX, C_Q,     C_W,     C_E,     C_R,     _______, _______, _______, _______, _______, _______, _______,
     _______, C_A,     C_S,     C_D,     C_F,     _______, _______, _______, _______, _______, _______, _______,
     _______, C_Z,     C_X,     C_C,     C_V,     _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
-  [LAYER_CTRL] = LAYOUT_preonic_2x2u(
-    _______, C_1,     C_2,     C_3,     _______, _______, _______, _______, _______, _______, _______, _LOCK,
-    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     C_Y,     _______, _______, _______, _______, _______,
-    _______, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     _______, _______, _______, _______, _______,
-    _______, C_Z,     C_X,     C_C,     C_V,     C_B,     C_N,     _______, C_COMM,  C_DOT,   C_SLSH,  _______,
-    _______, _______, _______, KC_BSPC,      SFT_ENT,        _______,       _______, C_MINS,  C_0,     C_EQL
-  )
+  [L_LSFT] = LAYOUT_preonic_2x2u(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_BSPC, KC_UP,   KC_DEL,  _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, KC_LSFT,      CTL_SPC,        _______,       _______, _______, _______, _______
+  ),
 
   // [TEMPLATE] = LAYOUT_preonic_2x2u(
   //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -222,21 +285,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Set different tapping terms for some key groups
 // ----------------------------------------------------------------------------
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case HA_I:
     case HA_L:
     case HA_R:
     case HA_S:
-      return TAPPING_TERM + 85;
-    case LT_CTRL:
-      return 100;
-    case LT_TAB:
-      return 120;
+    case HC_E:
+      return TAPPING_TERM + 65;
     default:
       return TAPPING_TERM;
   }
-}
+};
 
 // Turn off key repeat for a few keys
 // ----------------------------------------------------------------------------
@@ -246,11 +307,12 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     case LT_A:
     case LT_R:
     case HS_F:
-    case HS_H:
     case HS_J:
     case HC_K:
     case HS_N:
     case HS_T:
+    case NUM_ENT:
+    case SYM_SPC:
       return true;
     default:
       return false;
@@ -264,7 +326,7 @@ layer_state_t layer_state_set_user(layer_state_t state)
 {
   static bool TAB_is_pressed;
 
-  if (layer_state_cmp(state, LAYER_TAB)) {
+  if (layer_state_cmp(state, L_TAB)) {
     register_code(KC_F14);
     TAB_is_pressed = true;
   } else {
@@ -274,7 +336,7 @@ layer_state_t layer_state_set_user(layer_state_t state)
 
   static bool CTRL_is_pressed;
 
-  if (layer_state_cmp(state, LAYER_CTRL)) {
+  if (layer_state_cmp(state, L_CTRL)) {
     register_code(KC_F13);
     CTRL_is_pressed = true;
   } else {
@@ -284,191 +346,298 @@ layer_state_t layer_state_set_user(layer_state_t state)
 
   static bool A_is_pressed;
 
-  if (layer_state_cmp(state, LAYER_A)) {
-    register_code(KC_F16);
+  if (layer_state_cmp(state, L_NAVIGATION)) {
+    register_code(KC_F13);
     A_is_pressed = true;
   } else {
-    if (A_is_pressed) unregister_code(KC_F16);
+    if (A_is_pressed) unregister_code(KC_F13);
     A_is_pressed = false;
   }
 
-  return state;
+  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
 }
 
 // Combos
 // ----------------------------------------------------------------------------
 
-enum combo_events {
-  SMLY1,
-  LPRN,
-  RPRN,
-  SMLY2,
-  LCBR,
-  RCBR,
-  SMLY3,
-  LBRC,
-  RBRC,
-  SMLY4,
-  LABK,
-  RABK
-};
-
-const uint16_t PROGMEM combo01[] = {KC_L, KC_M, COMBO_END};
-const uint16_t PROGMEM combo02[] = {KC_L, KC_C, COMBO_END};
-const uint16_t PROGMEM combo03[] = {KC_C, KC_M, COMBO_END};
-
-const uint16_t PROGMEM combo04[] = {KC_X, KC_D, COMBO_END};
-const uint16_t PROGMEM combo05[] = {KC_X, KC_W, COMBO_END};
-const uint16_t PROGMEM combo06[] = {KC_W, KC_D, COMBO_END};
-
-const uint16_t PROGMEM combo07[] = {KC_F, KC_Y, COMBO_END};
-const uint16_t PROGMEM combo08[] = {KC_F, KC_U, COMBO_END};
-const uint16_t PROGMEM combo09[] = {KC_U, KC_Y, COMBO_END};
-
-const uint16_t PROGMEM combo10[] = {KC_H, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo11[] = {KC_H, KC_COMM, COMBO_END};
-const uint16_t PROGMEM combo12[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_L, KC_M, COMBO_END};      // :)
+const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_L, KC_C, COMBO_END};      // :P
+const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_C, KC_K, COMBO_END};      // : D
+const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_C, KC_M, COMBO_END};      // :D
+const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_K, COMBO_END};      // ^_^
+const uint16_t PROGMEM COMBO_PAREN_L[]    = {HS_T, KC_G, COMBO_END};      // (
+const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_P, HS_N, COMBO_END};      // )
+const uint16_t PROGMEM COMBO_BRACK_L[]    = {KC_D, KC_V, COMBO_END};      // [
+const uint16_t PROGMEM COMBO_BRACK_R[]    = {KC_B, KC_H, COMBO_END};      // ]
+const uint16_t PROGMEM COMBO_CURLY_L[]    = {KC_M, KC_K, COMBO_END};      // {
+const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_J, KC_F, COMBO_END};      // }
+const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_H, KC_COMM, COMBO_END};   // " = "
+const uint16_t PROGMEM COMBO_FATARROW[]   = {KC_COMM, KC_DOT, COMBO_END}; // " => "
+const uint16_t PROGMEM COMBO_COPY[]       = {KC_X, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
+const uint16_t PROGMEM COMBO_SELECTALL[]  = {KC_Z, KC_D, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-  [SMLY1] = COMBO_ACTION(combo01),
-  [LPRN] = COMBO_ACTION(combo02),
-  [RPRN] = COMBO_ACTION(combo03),
-  [SMLY2] = COMBO_ACTION(combo07),
-  [LCBR] = COMBO_ACTION(combo08),
-  [RCBR] = COMBO_ACTION(combo09),
-  [SMLY3] = COMBO_ACTION(combo04),
-  [LBRC] = COMBO_ACTION(combo05),
-  [RBRC] = COMBO_ACTION(combo06),
-  [SMLY4] = COMBO_ACTION(combo10),
-  [LABK] = COMBO_ACTION(combo11),
-  [RABK] = COMBO_ACTION(combo12)
+  [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
+  [C_SMILEY_2]   = COMBO_ACTION(COMBO_SMILEY_2),
+  [C_SMILEY_3]   = COMBO_ACTION(COMBO_SMILEY_3),
+  [C_SMILEY_4]   = COMBO_ACTION(COMBO_SMILEY_4),
+  [C_SMILEY_5]   = COMBO_ACTION(COMBO_SMILEY_5),
+  [C_PAREN_L]    = COMBO_ACTION(COMBO_PAREN_L),
+  [C_PAREN_R]    = COMBO_ACTION(COMBO_PAREN_R),
+  [C_BRACK_L]    = COMBO_ACTION(COMBO_BRACK_L),
+  [C_BRACK_R]    = COMBO_ACTION(COMBO_BRACK_R),
+  [C_CURLY_L]    = COMBO_ACTION(COMBO_CURLY_L),
+  [C_CURLY_R]    = COMBO_ACTION(COMBO_CURLY_R),
+  [C_EQUALS]     = COMBO_ACTION(COMBO_EQUALS),
+  [C_FATARROW]   = COMBO_ACTION(COMBO_FATARROW),
+  [C_COPY]       = COMBO_ACTION(COMBO_COPY),
+  [C_CUT]        = COMBO_ACTION(COMBO_CUT),
+  [C_PASTE]      = COMBO_ACTION(COMBO_PASTE),
+  [C_PASTEANDGO] = COMBO_ACTION(COMBO_PASTEANDGO),
+  [C_SELECTALL]  = COMBO_ACTION(COMBO_SELECTALL),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
-    case SMLY1:
+    case C_SMILEY_1:
       if (pressed) {
         tap_code16(KC_COLN);
         tap_code16(KC_RPRN);
       }
+
       break;
-    case LPRN:
+    case C_SMILEY_2:
       if (pressed) {
-        tap_code16(KC_LPRN);
+        tap_code16(KC_COLN);
+        tap_code16(S(KC_P));
       }
+
       break;
-    case RPRN:
-      if (pressed) {
-        tap_code16(KC_RPRN);
-      }
-      break;
-    case SMLY2:
+    case C_SMILEY_3:
       if (pressed) {
         tap_code16(KC_COLN);
         tap_code16(KC_SPC);
         tap_code16(S(KC_D));
       }
+
       break;
-    case LCBR:
-      if (pressed) {
-        tap_code16(KC_LCBR);
-      }
-      break;
-    case RCBR:
-      if (pressed) {
-        tap_code16(KC_RCBR);
-      }
-      break;
-    case SMLY3:
-      if (pressed) {
-        tap_code16(KC_COLN);
-        tap_code16(S(KC_P));
-      }
-      break;
-    case LBRC:
-      if (pressed) {
-        tap_code16(KC_LBRC);
-      }
-      break;
-    case RBRC:
-      if (pressed) {
-        tap_code16(KC_RBRC);
-      }
-      break;
-    case SMLY4:
+    case C_SMILEY_4:
       if (pressed) {
         tap_code16(KC_COLN);
         tap_code16(S(KC_D));
       }
+
       break;
-    case LABK:
+    case C_SMILEY_5:
       if (pressed) {
-        tap_code16(KC_LABK);
+        tap_code16(KC_CIRC);
+        tap_code16(KC_UNDS);
+        tap_code16(KC_CIRC);
       }
+
       break;
-    case RABK:
+    case C_PAREN_L:
+      if (pressed) tap_code16(KC_LPRN);
+      break;
+    case C_PAREN_R:
+      if (pressed) tap_code16(KC_RPRN);
+      break;
+    case C_BRACK_L:
+      if (pressed) tap_code16(KC_LBRC);
+      break;
+    case C_BRACK_R:
+      if (pressed) tap_code16(KC_RBRC);
+      break;
+    case C_CURLY_L:
+      if (pressed) tap_code16(KC_LCBR);
+      break;
+    case C_CURLY_R:
+      if (pressed) tap_code16(KC_RCBR);
+      break;
+    case C_EQUALS:
       if (pressed) {
+        tap_code16(KC_SPACE);
+        tap_code16(KC_EQL);
+        tap_code16(KC_SPACE);
+      }
+
+      break;
+    case C_FATARROW:
+      if (pressed) {
+        tap_code16(KC_SPACE);
+        tap_code16(KC_EQL);
         tap_code16(KC_RABK);
+        tap_code16(KC_SPACE);
       }
+
       break;
+    case C_COPY:
+      if (pressed) tap_code16(C(KC_C));
+      break;
+    case C_CUT:
+      if (pressed) tap_code16(C(KC_X));
+      break;
+    case C_PASTE:
+      if (pressed) tap_code16(C(KC_V));
+      break;
+    case C_PASTEANDGO:
+      if (pressed) {
+        tap_code16(C(KC_V));
+        tap_code16(KC_ENT);
+      }
+
+      break;
+    case C_SELECTALL:
+      if (pressed) tap_code16(C(KC_A));
+      break;
+  }
+};
+
+// Always enable numlock
+// ----------------------------------------------------------------------------
+
+void led_set_keymap(uint8_t usb_led) {
+  if (!(usb_led & (1<<USB_LED_NUM_LOCK))) {
+    register_code(KC_NUMLOCK);
+    unregister_code(KC_NUMLOCK);
   }
 }
 
-// Preonic
+// Macros
 // ----------------------------------------------------------------------------
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-        case COLEMAK:
-          if (record->event.pressed) {
-            tap_code16(KC_HAEN);
-            set_single_persistent_default_layer(LAYER_COLEMAK);
-          }
-          return false;
-          break;
-        case QWERTY:
-          if (record->event.pressed) {
-            tap_code16(KC_HAEN);
-            set_single_persistent_default_layer(LAYER_QWERTY);
-          }
-          return false;
-          break;
-        case QIMP:
-          if (record->event.pressed) {
-            tap_code16(KC_HAEN);
-            set_single_persistent_default_layer(LAYER_QIMP);
-          }
-          return false;
-          break;
-        case GAME:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(LAYER_GAME);
-          }
-          return false;
-          break;
-        case LOWER:
-          if (record->event.pressed) {
-            layer_on(LAYER_LOWER);
-            update_tri_layer(LAYER_LOWER, LAYER_RAISE, LAYER_ADJUST);
-          } else {
-            layer_off(LAYER_LOWER);
-            update_tri_layer(LAYER_LOWER, LAYER_RAISE, LAYER_ADJUST);
-          }
-          return false;
-          break;
-        case RAISE:
-          if (record->event.pressed) {
-            layer_on(LAYER_RAISE);
-            update_tri_layer(LAYER_LOWER, LAYER_RAISE, LAYER_ADJUST);
-          } else {
-            layer_off(LAYER_RAISE);
-            update_tri_layer(LAYER_LOWER, LAYER_RAISE, LAYER_ADJUST);
-          }
-          return false;
-          break;
+    case M_CLMK:
+      if (record->event.pressed) {
+        tap_code16(KC_HAEN);
+        set_single_persistent_default_layer(L_COLEMAK_QI);
       }
-    return true;
+
+      return false;
+      break;
+    case M_QWRT:
+      if (record->event.pressed) {
+        tap_code16(KC_HAEN);
+        set_single_persistent_default_layer(L_QWERTY);
+      }
+
+      return false;
+      break;
+    case M_AE:
+      if (record->event.pressed) {
+        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+          unregister_code(KC_LSFT);
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_9);
+          tap_code16(KC_KP_6);
+          unregister_code(KC_LALT);
+          register_code(KC_LSFT);
+        } else {
+          register_code(KC_LALT);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_3);
+          tap_code16(KC_KP_2);
+          unregister_code(KC_LALT);
+        }
+      }
+
+      return false;
+      break;
+    case M_OE:
+      if (record->event.pressed) {
+        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+          unregister_code(KC_LSFT);
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_4);
+          unregister_code(KC_LALT);
+          register_code(KC_LSFT);
+        } else {
+          register_code(KC_LALT);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_4);
+          tap_code16(KC_KP_8);
+          unregister_code(KC_LALT);
+        }
+      }
+
+      return false;
+      break;
+    case M_UE:
+      if (record->event.pressed) {
+        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+          unregister_code(KC_LSFT);
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_0);
+          unregister_code(KC_LALT);
+          register_code(KC_LSFT);
+        } else {
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_5);
+          tap_code16(KC_KP_2);
+          unregister_code(KC_LALT);
+        }
+      }
+
+      return false;
+      break;
+    case M_SZ:
+      if (record->event.pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_5);
+        unregister_code(KC_LALT);
+      }
+
+      return false;
+      break;
+    }
+
+  return true;
 };
+
+// Preonic
+// ----------------------------------------------------------------------------
+
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//   switch (keycode) {
+//         case LOWER:
+//           if (record->event.pressed) {
+//             layer_on(L_SYMBOL);
+//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
+//           } else {
+//             layer_off(L_SYMBOL);
+//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
+//           }
+//           return false;
+//           break;
+//         case RAISE:
+//           if (record->event.pressed) {
+//             layer_on(L_FUNCTION);
+//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
+//           } else {
+//             layer_off(L_FUNCTION);
+//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
+//           }
+//           return false;
+//           break;
+//       }
+//     return true;
+// };
 
 bool muse_mode = false;
 uint8_t last_muse_note = 0;
@@ -476,23 +645,23 @@ uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
 
-void dip_switch_update_user(uint8_t index, bool active) {
-    switch (index) {
-        case 0:
-            if (active) {
-                layer_on(LAYER_ADJUST);
-            } else {
-                layer_off(LAYER_ADJUST);
-            }
-            break;
-        case 1:
-            if (active) {
-                muse_mode = true;
-            } else {
-                muse_mode = false;
-            }
-    }
-}
+// void dip_switch_update_user(uint8_t index, bool active) {
+//     switch (index) {
+//         case 0:
+//             if (active) {
+//                 layer_on(L_ADJUST);
+//             } else {
+//                 layer_off(L_ADJUST);
+//             }
+//             break;
+//         case 1:
+//             if (active) {
+//                 muse_mode = true;
+//             } else {
+//                 muse_mode = false;
+//             }
+//     }
+// }
 
 void matrix_scan_user(void) {
 #ifdef AUDIO_ENABLE
@@ -515,12 +684,12 @@ void matrix_scan_user(void) {
 #endif
 }
 
-bool music_mask_user(uint16_t keycode) {
-  switch (keycode) {
-    case RAISE:
-    case LOWER:
-      return false;
-    default:
-      return true;
-  }
-}
+// bool music_mask_user(uint16_t keycode) {
+//   switch (keycode) {
+//     case RAISE:
+//     case LOWER:
+//       return false;
+//     default:
+//       return true;
+//   }
+// }
