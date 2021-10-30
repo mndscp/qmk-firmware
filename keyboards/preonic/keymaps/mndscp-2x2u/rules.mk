@@ -1,4 +1,5 @@
 SRC += muse.c
+USER_NAME := mndscp
 
 BOOTMAGIC_ENABLE   = no
 COMBO_ENABLE       = yes
