@@ -335,17 +335,6 @@ layer_state_t layer_state_set_user(layer_state_t state)
   return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
 }
 
-
-// Always enable numlock
-// ----------------------------------------------------------------------------
-
-void led_set_keymap(uint8_t usb_led) {
-  if (!(usb_led & (1<<USB_LED_NUM_LOCK))) {
-    register_code(KC_NUMLOCK);
-    unregister_code(KC_NUMLOCK);
-  }
-}
-
 // Macros
 // ----------------------------------------------------------------------------
 

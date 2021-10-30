@@ -1,4 +1,6 @@
 // Homerow mods Colemak
+// ----------------------------------------------------------------------------
+
 #define HG_A      LGUI_T(KC_A)
 #define HA_R      LALT_T(KC_R)
 #define HC_S      LCTL_T(KC_S)
@@ -7,6 +9,9 @@
 #define HC_E      LCTL_T(KC_E)
 #define HA_I      LALT_T(KC_I)
 #define HG_O      LGUI_T(KC_O)
+
+// Layer row definitions
+// ----------------------------------------------------------------------------
 
 #define _______________COLEMAK_QI_L1_______________    LT_Q,    KC_L,    KC_C,    KC_M,    KC_K
 #define _______________COLEMAK_QI_L2_______________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
@@ -39,3 +44,13 @@
 #define _________________SYMBOL_R1_________________    KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_AMPR
 #define _________________SYMBOL_R2_________________    KC_RPRN, M_AE,    M_OE,    M_UE,    M_SZ
 #define _________________SYMBOL_R3_________________    KC_RBRC, KC_LABK, KC_EQL,  KC_RABK, KC_CIRC
+
+// Always enable numlock
+// ----------------------------------------------------------------------------
+
+void led_set_keymap(uint8_t usb_led) {
+  if (!(usb_led & (1<<USB_LED_NUM_LOCK))) {
+    register_code(KC_NUMLOCK);
+    unregister_code(KC_NUMLOCK);
+  }
+}
