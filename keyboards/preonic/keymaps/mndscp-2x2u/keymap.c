@@ -158,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_EQL,  KC_7,    KC_8,    KC_9,    KC_ASTR, KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
     _______, KC_0,    KC_4,    KC_5,    HS_6,    KC_PLUS, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
     _______, KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS, KC_MINS, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
-    _______, _______, _______, XXXXXXX,      _______,        KC_0,          _______, _______, _______, _______
+    _______, _______, _______, XXXXXXX,      _______,        KC_0,          KC_BSPC, _______, _______, _______
   ),
 
   [L_NAVIGATION] = LAYOUT_preonic_2x2u_wrapper(
@@ -312,19 +312,19 @@ layer_state_t layer_state_set_user(layer_state_t state)
     TAB_is_pressed = false;
   }
 
-  static bool CTRL_is_pressed;
+  static bool NAV_is_pressed;
 
-  if (layer_state_cmp(state, L_CTRL)) {
+  if (layer_state_cmp(state, L_NAVIGATION)) {
     register_code(KC_F13);
-    CTRL_is_pressed = true;
+    NAV_is_pressed = true;
   } else {
-    if (CTRL_is_pressed) unregister_code(KC_F13);
-    CTRL_is_pressed = false;
+    if (NAV_is_pressed) unregister_code(KC_F13);
+    NAV_is_pressed = false;
   }
 
   static bool A_is_pressed;
 
-  if (layer_state_cmp(state, L_NAVIGATION)) {
+  if (layer_state_cmp(state, L_A)) {
     register_code(KC_F13);
     A_is_pressed = true;
   } else {

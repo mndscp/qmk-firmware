@@ -36,7 +36,7 @@ const uint16_t PROGMEM COMBO_COPY[]       = {KC_X, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
-const uint16_t PROGMEM COMBO_SELECTALL[]  = {KC_Z, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
