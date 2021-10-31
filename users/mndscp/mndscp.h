@@ -5,6 +5,7 @@
 #define HA_R      LALT_T(KC_R)
 #define HC_S      LCTL_T(KC_S)
 #define HS_T      LSFT_T(KC_T)
+
 #define HS_N      RSFT_T(KC_N)
 #define HC_E      LCTL_T(KC_E)
 #define HA_I      LALT_T(KC_I)
@@ -21,6 +22,14 @@
 #define _______________COLEMAK_QI_R2_______________    KC_P,    HS_N,    HC_E,    HA_I,    KC_O
 #define _______________COLEMAK_QI_R3_______________    KC_B,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
 
+#define _________________COLEMAQ_L1________________    LT_Q,    KC_W,    KC_C,    KC_P,    KC_K
+#define _________________COLEMAQ_L2________________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
+#define _________________COLEMAQ_L3________________    LT_Z,    KC_X,    KC_F,    KC_D,    KC_B
+
+#define _________________COLEMAQ_R1________________    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT
+#define _________________COLEMAQ_R2________________    KC_M,    HS_N,    HC_E,    HA_I,    KC_O
+#define _________________COLEMAQ_R3________________    KC_V,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
+
 #define _________________QWERTY_L1_________________    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
 #define _________________QWERTY_L2_________________    KC_A,    HA_S,    HC_D,    HS_F,    KC_G
 #define _________________QWERTY_L3_________________    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
@@ -29,13 +38,13 @@
 #define _________________QWERTY_R2_________________    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN
 #define _________________QWERTY_R3_________________    KC_N,    KC_M,    KC_COMM, KC_DOT,  LT_SLSH
 
-#define _______________NAVIGATION_L1_______________    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_PGUP
-#define _______________NAVIGATION_L2_______________    CTL_ESC, ALT_SPC, CTL_BSP, SFT_ENT, KC_DEL
-#define _______________NAVIGATION_L3_______________    _______, C(KC_S), C(KC_Z), C(KC_Y), KC_PGDN
+#define _______________NAVIGATION_L1_______________    KC_PSCR, BACKTAB, KC_SPC,  KC_TAB,  KC_PSCR
+#define _______________NAVIGATION_L2_______________    CTL_ESC, ALT_ESC, CTL_BSP, SFT_ENT, KC_PGUP
+#define _______________NAVIGATION_L3_______________    C(KC_S), C(KC_Y), C(KC_Z), KC_DEL,  KC_PGDN
 
 #define _______________NAVIGATION_R1_______________    _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO
 #define _______________NAVIGATION_R2_______________    KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END
-#define _______________NAVIGATION_R3_______________    _______, C(KC_C), C(KC_V), C(KC_X), _______
+#define _______________NAVIGATION_R3_______________    C(KC_Z), C(KC_C), C(KC_V), C(KC_X), _______
 
 #define _________________SYMBOL_L1_________________    KC_AT,   KC_ASTR, KC_EXLM, KC_DQUO, KC_LCBR
 #define _________________SYMBOL_L2_________________    KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN

@@ -3,6 +3,7 @@
 
 enum preonic_layers {
   L_COLEMAK_QI,
+  L_COLEMAQ,
   L_QWERTY,
   L_GAME,
   L_NUMPAD,
@@ -10,6 +11,7 @@ enum preonic_layers {
   L_SYMBOL,
   L_FUNCTION,
   L_CAPS,
+  L_CAPSQ,
   L_TAB,
   L_CTRL,
   L_LSFT,
@@ -17,15 +19,6 @@ enum preonic_layers {
   L_A,
   L_Z,
   L_SLSH,
-};
-
-enum macros {
-  M_CLMK = SAFE_RANGE,
-  M_QWRT,
-  M_AE,
-  M_OE,
-  M_UE,
-  M_SZ,
 };
 
 // enum tap_dances {
@@ -71,6 +64,7 @@ enum macros {
 // Mod and Layer keys
 #define ALT_BSP   LALT_T(KC_BSPC)
 #define ALT_DEL   LALT_T(KC_DEL)
+#define ALT_ESC   LALT_T(KC_ESC)
 #define ALT_SPC   LALT_T(KC_SPC)
 #define CTL_BSP   LCTL_T(KC_BSPC)
 #define CTL_ESC   LCTL_T(KC_ESC)
@@ -113,27 +107,25 @@ enum macros {
 
 #include "mndscp.h"
 #include "combos.h"
+#include "macros.h"
 
 // Using a wrapper enables expanding of imported row definitions
 #define LAYOUT_preonic_2x2u_wrapper(...) LAYOUT_preonic_2x2u(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT_preonic_2x2u_wrapper(
-  // ,-----------------------------------------------------------------------------------.
-  // |  Esc |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Mply |
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |  Tab |   Q  |   L  |   C  |   M  |   K  |   J  |   F  |   U  |   Y  |   '  | Bksp |
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |   A  |   R  |   S  |   T  |   G  |   P  |   N  |   E  |   I  |   O  | Enter|
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Shift|   Z  |   X  |   W  |   D  |   V  |   B  |   H  |   ,  |   .  |   /  |  Del |
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // | Ctrl |  GUI |  Alt | Lower|     Nav     |    Space    | Raise| Left |  Up  | Right|
-  // `-----------------------------------------------------------------------------------'
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     LT_TAB,  _______________COLEMAK_QI_L1_______________, _______________COLEMAK_QI_R1_______________, KC_BSPC,
     LT_CTRL, _______________COLEMAK_QI_L2_______________, _______________COLEMAK_QI_R2_______________, KC_ENT,
     LT_LSFT, _______________COLEMAK_QI_L3_______________, _______________COLEMAK_QI_R3_______________, KC_DEL,
+    KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_PLY,          KC_LEFT, KC_UP,   KC_RGHT
+  ),
+
+  [L_COLEMAQ] = LAYOUT_preonic_2x2u_wrapper(
+    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
+    LT_TAB,  _________________COLEMAQ_L1________________, _________________COLEMAQ_R1________________, KC_BSPC,
+    LT_CTRL, _________________COLEMAQ_L2________________, _________________COLEMAQ_R2________________, KC_ENT,
+    LT_LSFT, _________________COLEMAQ_L3________________, _________________COLEMAQ_R3________________, KC_DEL,
     KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_PLY,          KC_LEFT, KC_UP,   KC_RGHT
   ),
 
@@ -162,17 +154,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NAVIGATION] = LAYOUT_preonic_2x2u_wrapper(
-  // ,-----------------------------------------------------------------------------------.
-  // |      |      |      |      |      |      |      |   &  |   *  |   (  |   )  |   ~  |
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      | PrScr| S+Tab|  Tab | PgUp |      | Bspc |  Up  |  Del |   "  | C+Bsp|
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      | Space| Bksp | Enter|  Del | Home | Left | Down | Right|  End |  C+' |
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      | Save | Undo | Redo | PgDn |      | Copy | Paste|  Cut |      |      |
-  // |------+------+------+------+------+------+------+------+------+------+------+------|
-  // |      |      |      | Emoji|             |     Esc     |      |      |      |      |
-  // `-----------------------------------------------------------------------------------'
     _______, _______, _______, _______, _______, _______, _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
     _______, _______________NAVIGATION_L1_______________, _______________NAVIGATION_R1_______________, C_BSPC,
     _______, _______________NAVIGATION_L2_______________, _______________NAVIGATION_R2_______________, C_QUOT,
@@ -200,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
     RGB_TOG, _______, _______, _______, _______, _______, _______, _______, KC_F15,  KC_F16,  KC_F17,  KC_F12,
     _______, _______, _______, _______, _______, _______, _______, M_CLMK,  M_QWRT,  ZOOMOUT, C(KC_0), ZOOMIN,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, C_UP,    _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, M_CLMQ,  _______, C_UP,    _______,
     _______, _______, _______, _______,      _______,        _______,       XXXXXXX, C_LEFT,  C_DOWN,  C_RGHT
   ),
 
@@ -209,6 +190,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K), S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO, _______,
     _______, S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O), _______,
     _______, S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V), S(KC_B), S(KC_H), KC_LABK, KC_RABK, KC_QUES, _______,
+    _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
+  ),
+
+  [L_CAPSQ] = LAYOUT_preonic_2x2u_wrapper(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, S(KC_Q), S(KC_W), S(KC_C), S(KC_P), S(KC_K), S(KC_J), S(KC_L), S(KC_U), S(KC_Y), KC_DQUO, _______,
+    _______, S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O), _______,
+    _______, S(KC_Z), S(KC_X), S(KC_F), S(KC_D), S(KC_B), S(KC_V), S(KC_H), KC_LABK, KC_RABK, KC_QUES, _______,
     _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
   ),
 
@@ -261,6 +250,44 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // )
 };
 
+// Wrap keypresses from mod-tap layers in F keys for AHK
+// ----------------------------------------------------------------------------
+
+layer_state_t layer_state_set_user(layer_state_t state)
+{
+  static bool TAB_is_pressed;
+
+  if (layer_state_cmp(state, L_TAB)) {
+    register_code(KC_F14);
+    TAB_is_pressed = true;
+  } else {
+    if (TAB_is_pressed) unregister_code(KC_F14);
+    TAB_is_pressed = false;
+  }
+
+  static bool NAV_is_pressed;
+
+  if (layer_state_cmp(state, L_NAVIGATION)) {
+    register_code(KC_F13);
+    NAV_is_pressed = true;
+  } else {
+    if (NAV_is_pressed) unregister_code(KC_F13);
+    NAV_is_pressed = false;
+  }
+
+  static bool A_is_pressed;
+
+  if (layer_state_cmp(state, L_A)) {
+    register_code(KC_F13);
+    A_is_pressed = true;
+  } else {
+    if (A_is_pressed) unregister_code(KC_F13);
+    A_is_pressed = false;
+  }
+
+  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPSQ);
+}
+
 // Set different tapping terms for some key groups
 // ----------------------------------------------------------------------------
 
@@ -297,200 +324,11 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
-// Wrap keypresses from mod-tap layers in F keys for AHK
-// ----------------------------------------------------------------------------
-
-layer_state_t layer_state_set_user(layer_state_t state)
-{
-  static bool TAB_is_pressed;
-
-  if (layer_state_cmp(state, L_TAB)) {
-    register_code(KC_F14);
-    TAB_is_pressed = true;
-  } else {
-    if (TAB_is_pressed) unregister_code(KC_F14);
-    TAB_is_pressed = false;
-  }
-
-  static bool NAV_is_pressed;
-
-  if (layer_state_cmp(state, L_NAVIGATION)) {
-    register_code(KC_F13);
-    NAV_is_pressed = true;
-  } else {
-    if (NAV_is_pressed) unregister_code(KC_F13);
-    NAV_is_pressed = false;
-  }
-
-  static bool A_is_pressed;
-
-  if (layer_state_cmp(state, L_A)) {
-    register_code(KC_F13);
-    A_is_pressed = true;
-  } else {
-    if (A_is_pressed) unregister_code(KC_F13);
-    A_is_pressed = false;
-  }
-
-  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
-}
-
-// Macros
-// ----------------------------------------------------------------------------
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case M_CLMK:
-      if (record->event.pressed) {
-        tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_COLEMAK_QI);
-      }
-
-      return false;
-      break;
-    case M_QWRT:
-      if (record->event.pressed) {
-        tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_QWERTY);
-      }
-
-      return false;
-      break;
-    case M_AE:
-      if (record->event.pressed) {
-        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
-          unregister_code(KC_LSFT);
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_9);
-          tap_code16(KC_KP_6);
-          unregister_code(KC_LALT);
-          register_code(KC_LSFT);
-        } else {
-          register_code(KC_LALT);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_3);
-          tap_code16(KC_KP_2);
-          unregister_code(KC_LALT);
-        }
-      }
-
-      return false;
-      break;
-    case M_OE:
-      if (record->event.pressed) {
-        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
-          unregister_code(KC_LSFT);
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_4);
-          unregister_code(KC_LALT);
-          register_code(KC_LSFT);
-        } else {
-          register_code(KC_LALT);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_4);
-          tap_code16(KC_KP_8);
-          unregister_code(KC_LALT);
-        }
-      }
-
-      return false;
-      break;
-    case M_UE:
-      if (record->event.pressed) {
-        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
-          unregister_code(KC_LSFT);
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_0);
-          unregister_code(KC_LALT);
-          register_code(KC_LSFT);
-        } else {
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_5);
-          tap_code16(KC_KP_2);
-          unregister_code(KC_LALT);
-        }
-      }
-
-      return false;
-      break;
-    case M_SZ:
-      if (record->event.pressed) {
-        register_code(KC_LALT);
-        tap_code16(KC_KP_2);
-        tap_code16(KC_KP_2);
-        tap_code16(KC_KP_5);
-        unregister_code(KC_LALT);
-      }
-
-      return false;
-      break;
-    }
-
-  return true;
-};
-
-// Preonic
-// ----------------------------------------------------------------------------
-
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//   switch (keycode) {
-//         case LOWER:
-//           if (record->event.pressed) {
-//             layer_on(L_SYMBOL);
-//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
-//           } else {
-//             layer_off(L_SYMBOL);
-//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
-//           }
-//           return false;
-//           break;
-//         case RAISE:
-//           if (record->event.pressed) {
-//             layer_on(L_FUNCTION);
-//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
-//           } else {
-//             layer_off(L_FUNCTION);
-//             update_tri_layer(L_SYMBOL, L_FUNCTION, L_ADJUST);
-//           }
-//           return false;
-//           break;
-//       }
-//     return true;
-// };
-
 bool muse_mode = false;
 uint8_t last_muse_note = 0;
 uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
-
-// void dip_switch_update_user(uint8_t index, bool active) {
-//     switch (index) {
-//         case 0:
-//             if (active) {
-//                 layer_on(L_ADJUST);
-//             } else {
-//                 layer_off(L_ADJUST);
-//             }
-//             break;
-//         case 1:
-//             if (active) {
-//                 muse_mode = true;
-//             } else {
-//                 muse_mode = false;
-//             }
-//     }
-// }
 
 void matrix_scan_user(void) {
 #ifdef AUDIO_ENABLE
