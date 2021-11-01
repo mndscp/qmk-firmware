@@ -22,22 +22,22 @@ enum combos {
   C_SELECTALL,
 };
 
-const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_L, KC_M, COMBO_END};      // :)
-const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_L, KC_C, COMBO_END};      // :P
+const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_W, KC_P, COMBO_END};      // :)
+const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_W, KC_C, COMBO_END};      // :P
 const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_C, KC_K, COMBO_END};      // : D
-const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_C, KC_M, COMBO_END};      // :D
-const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_K, COMBO_END};      // ^_^
+const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_C, KC_P, COMBO_END};      // :D
+const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_W, KC_K, COMBO_END};      // ^_^
 const uint16_t PROGMEM COMBO_PAREN_L[]    = {HS_T, KC_G, COMBO_END};      // (
-const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_P, HS_N, COMBO_END};      // )
-const uint16_t PROGMEM COMBO_BRACK_L[]    = {KC_D, KC_V, COMBO_END};      // [
-const uint16_t PROGMEM COMBO_BRACK_R[]    = {KC_B, KC_H, COMBO_END};      // ]
-const uint16_t PROGMEM COMBO_CURLY_L[]    = {KC_M, KC_K, COMBO_END};      // {
-const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_J, KC_F, COMBO_END};      // }
+const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_M, HS_N, COMBO_END};      // )
+const uint16_t PROGMEM COMBO_BRACK_L[]    = {KC_D, KC_B, COMBO_END};      // [
+const uint16_t PROGMEM COMBO_BRACK_R[]    = {KC_V, KC_H, COMBO_END};      // ]
+const uint16_t PROGMEM COMBO_CURLY_L[]    = {KC_P, KC_K, COMBO_END};      // {
+const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_J, KC_L, COMBO_END};      // }
 const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_H, KC_COMM, COMBO_END};   // " = "
 const uint16_t PROGMEM COMBO_FATARROW[]   = {KC_COMM, KC_DOT, COMBO_END}; // " => "
 const uint16_t PROGMEM COMBO_COPY[]       = {KC_X, KC_D, COMBO_END};
-const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
-const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_F, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTE[]      = {KC_F, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
 

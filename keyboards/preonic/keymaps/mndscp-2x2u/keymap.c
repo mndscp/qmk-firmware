@@ -73,6 +73,7 @@ enum preonic_layers {
 #define DF_DST    DF(L_DONTSTARVE)
 #define FUN_ESC   LT(L_FUNCTION, KC_ESC)
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
+#define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_A      LT(L_A, KC_A)
 #define LT_Z      LT(L_Z, KC_Z)
@@ -118,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_TAB,  _______________COLEMAK_QI_L1_______________, _______________COLEMAK_QI_R1_______________, KC_BSPC,
     LT_CTRL, _______________COLEMAK_QI_L2_______________, _______________COLEMAK_QI_R2_______________, KC_ENT,
     LT_LSFT, _______________COLEMAK_QI_L3_______________, _______________COLEMAK_QI_R3_______________, KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_PLY,          KC_LEFT, KC_UP,   KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_TAB,          KC_LEFT, KC_UP,   KC_RGHT
   ),
 
   [L_COLEMAQ] = LAYOUT_preonic_2x2u_wrapper(
@@ -187,17 +188,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_CAPS] = LAYOUT_preonic_2x2u_wrapper(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K), S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO, _______,
-    _______, S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O), _______,
-    _______, S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V), S(KC_B), S(KC_H), KC_LABK, KC_RABK, KC_QUES, _______,
+    _______, _____________COLEMAK_QI_CAPS_L1____________, _____________COLEMAK_QI_CAPS_R1____________, _______,
+    _______, _____________COLEMAK_QI_CAPS_L2____________, _____________COLEMAK_QI_CAPS_R2____________, _______,
+    _______, _____________COLEMAK_QI_CAPS_L3____________, _____________COLEMAK_QI_CAPS_R3____________, _______,
     _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
   ),
 
   [L_CAPSQ] = LAYOUT_preonic_2x2u_wrapper(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, S(KC_Q), S(KC_W), S(KC_C), S(KC_P), S(KC_K), S(KC_J), S(KC_L), S(KC_U), S(KC_Y), KC_DQUO, _______,
-    _______, S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G), S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O), _______,
-    _______, S(KC_Z), S(KC_X), S(KC_F), S(KC_D), S(KC_B), S(KC_V), S(KC_H), KC_LABK, KC_RABK, KC_QUES, _______,
+    _______, ______________COLEMAQ_CAPS_L1______________, ______________COLEMAQ_CAPS_R1______________, _______,
+    _______, ______________COLEMAQ_CAPS_L2______________, ______________COLEMAQ_CAPS_R2______________, _______,
+    _______, ______________COLEMAQ_CAPS_L3______________, ______________COLEMAQ_CAPS_R3______________, _______,
     _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
   ),
 
