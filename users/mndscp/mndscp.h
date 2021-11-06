@@ -51,7 +51,7 @@
 // Crustmak
 #define ________________CRUSTMAK_L1________________    LT_Q,    KC_W,    KC_F,    KC_P,    KC_K
 #define ________________CRUSTMAK_L2________________    LT_C,    HA_R,    HC_S,    HS_T,    KC_G
-#define ________________CRUSTMAK_L3________________    LT_Y,    KC_X,    KC_B,    KC_D,    KC_V
+#define ________________CRUSTMAK_L3________________    LT_Y,    KC_X,    KC_V,    KC_D,    KC_B
 
 #define ________________CRUSTMAK_R1________________    KC_J,    KC_L,    KC_U,    KC_O,    KC_Y
 #define ________________CRUSTMAK_R2________________    KC_M,    HS_N,    HC_E,    HA_A,    KC_I
@@ -59,7 +59,7 @@
 
 #define _____________CRUSTMAK_CAPS_L1______________    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_K)
 #define _____________CRUSTMAK_CAPS_L2______________    S(KC_C), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
-#define _____________CRUSTMAK_CAPS_L3______________    S(KC_Y), S(KC_X), S(KC_B), S(KC_D), S(KC_V)
+#define _____________CRUSTMAK_CAPS_L3______________    S(KC_Y), S(KC_X), S(KC_V), S(KC_D), S(KC_B)
 
 #define _____________CRUSTMAK_CAPS_R1______________    S(KC_J), S(KC_L), S(KC_U), S(KC_O), S(KC_Y)
 #define _____________CRUSTMAK_CAPS_R2______________    S(KC_M), S(KC_N), S(KC_E), S(KC_A), S(KC_I)

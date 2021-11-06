@@ -303,7 +303,7 @@ layer_state_t layer_state_set_user(layer_state_t state)
     A_is_pressed = false;
   }
 
-  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CRUSTCAPS);
+  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
 }
 
 // Set different tapping terms for some key groups
