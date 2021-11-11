@@ -29,7 +29,7 @@
 
 #define _____________COLEMAK_QI_CAPS_R1____________    S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO
 #define _____________COLEMAK_QI_CAPS_R2____________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O)
-#define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_LABK, KC_RABK, KC_QUES
+#define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
 // ColemaQ
 #define _________________COLEMAQ_L1________________    LT_Q,    KC_W,    KC_C,    KC_P,    KC_K
@@ -84,7 +84,7 @@
 #define _______________NAVIGATION_R3_______________    C(KC_Z), C(KC_C), C(KC_V), C(KC_X), _______
 
 // Symbols
-#define _________________SYMBOL_L1_________________    KC_AT,   KC_ASTR, KC_EXLM, KC_DQUO, KC_LCBR
+#define _________________SYMBOL_L1_________________    KC_ASTR, KC_AT,   KC_EXLM, KC_DQUO, KC_LCBR
 #define _________________SYMBOL_L2_________________    KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN
 #define _________________SYMBOL_L3_________________    KC_BSLS, KC_PIPE, KC_UNDS, KC_GRV,  KC_LBRC
 

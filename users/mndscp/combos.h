@@ -20,6 +20,8 @@ enum combos {
   C_PASTE,
   C_PASTEANDGO,
   C_SELECTALL,
+  C_SCREENSHOT,
+  C_ESCAPE,
 };
 
 // Colemak-Qi
@@ -41,6 +43,8 @@ const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_SCREENSHOT[] = {KC_L, KC_C, KC_M, COMBO_END};
+const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_A, HS_T, COMBO_END};
 
 // // Crustmak
 // const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_F, KC_P, COMBO_END};      // :)
@@ -81,6 +85,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_PASTE]      = COMBO_ACTION(COMBO_PASTE),
   [C_PASTEANDGO] = COMBO_ACTION(COMBO_PASTEANDGO),
   [C_SELECTALL]  = COMBO_ACTION(COMBO_SELECTALL),
+  [C_SCREENSHOT] = COMBO_ACTION(COMBO_SCREENSHOT),
+  [C_ESCAPE]     = COMBO_ACTION(COMBO_ESCAPE),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -175,6 +181,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
     case C_SELECTALL:
       if (pressed) tap_code16(C(KC_A));
+      break;
+    case C_SCREENSHOT:
+      if (pressed) tap_code16(KC_PSCR);
+      break;
+    case C_ESCAPE:
+      if (pressed) tap_code16(KC_ESC);
       break;
   }
 };
