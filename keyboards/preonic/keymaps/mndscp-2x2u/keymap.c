@@ -116,11 +116,11 @@ enum preonic_layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT_preonic_2x2u_wrapper(
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
+    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_EQL,  KC_MPLY,
     LT_TAB,  _______________COLEMAK_QI_L1_______________, _______________COLEMAK_QI_R1_______________, KC_BSPC,
     LT_CTRL, _______________COLEMAK_QI_L2_______________, _______________COLEMAK_QI_R2_______________, KC_ENT,
     LT_LSFT, _______________COLEMAK_QI_L3_______________, _______________COLEMAK_QI_R3_______________, KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_TAB,          KC_LEFT, KC_UP,   KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_TAB, KC_LEFT, KC_UP,   KC_RGHT
   ),
 
   [L_COLEMAQ] = LAYOUT_preonic_2x2u_wrapper(
@@ -224,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, C(KC_Q), C(KC_W), C(KC_E), C(KC_R), _______, _______, _______, _______, _______, _______, _______,
     _______, C(KC_A), C(KC_S), C(KC_D), C(KC_F), _______, _______, _______, _______, _______, _______, _______,
     _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______,      KC_LSFT,        _______,       _______, _______, _______, _______
+    _______, _______, _______, _______,      SFT_ENT,        _______,       _______, _______, _______, _______
   ),
 
   [L_LSFT] = LAYOUT_preonic_2x2u_wrapper(
