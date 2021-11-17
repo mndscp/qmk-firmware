@@ -15,7 +15,7 @@
 // ----------------------------------------------------------------------------
 
 // Colemak-Qi
-#define _______________COLEMAK_QI_L1_______________    LT_Q,    KC_L,    KC_C,    KC_M,    KC_K
+#define _______________COLEMAK_QI_L1_______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
 #define _______________COLEMAK_QI_L2_______________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
 #define _______________COLEMAK_QI_L3_______________    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V
 
@@ -31,39 +31,22 @@
 #define _____________COLEMAK_QI_CAPS_R2____________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O)
 #define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
-// ColemaQ
-#define _________________COLEMAQ_L1________________    LT_Q,    KC_W,    KC_C,    KC_P,    KC_K
-#define _________________COLEMAQ_L2________________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
-#define _________________COLEMAQ_L3________________    LT_Z,    KC_X,    KC_F,    KC_D,    KC_B
+// // Crustmak
+// #define ________________CRUSTMAK_L1________________    LT_Q,    KC_W,    KC_F,    KC_P,    KC_K
+// #define ________________CRUSTMAK_L2________________    LT_C,    HA_R,    HC_S,    HS_T,    KC_G
+// #define ________________CRUSTMAK_L3________________    LT_Y,    KC_X,    KC_V,    KC_D,    KC_B
 
-#define _________________COLEMAQ_R1________________    KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT
-#define _________________COLEMAQ_R2________________    KC_M,    HS_N,    HC_E,    HA_I,    KC_O
-#define _________________COLEMAQ_R3________________    KC_V,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
+// #define ________________CRUSTMAK_R1________________    KC_J,    KC_L,    KC_U,    KC_O,    KC_Y
+// #define ________________CRUSTMAK_R2________________    KC_M,    HS_N,    HC_E,    HA_A,    KC_I
+// #define ________________CRUSTMAK_R3________________    KC_Z,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
 
-#define ______________COLEMAQ_CAPS_L1______________    S(KC_Q), S(KC_W), S(KC_C), S(KC_P), S(KC_K)
-#define ______________COLEMAQ_CAPS_L2______________    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
-#define ______________COLEMAQ_CAPS_L3______________    S(KC_Z), S(KC_X), S(KC_F), S(KC_D), S(KC_B)
+// #define _____________CRUSTMAK_CAPS_L1______________    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_K)
+// #define _____________CRUSTMAK_CAPS_L2______________    S(KC_C), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
+// #define _____________CRUSTMAK_CAPS_L3______________    S(KC_Y), S(KC_X), S(KC_V), S(KC_D), S(KC_B)
 
-#define ______________COLEMAQ_CAPS_R1______________    S(KC_J), S(KC_L), S(KC_U), S(KC_Y), KC_DQUO
-#define ______________COLEMAQ_CAPS_R2______________    S(KC_M), S(KC_N), S(KC_E), S(KC_I), S(KC_O)
-#define ______________COLEMAQ_CAPS_R3______________    S(KC_V), S(KC_H), KC_LABK, KC_RABK, KC_QUES
-
-// Crustmak
-#define ________________CRUSTMAK_L1________________    LT_Q,    KC_W,    KC_F,    KC_P,    KC_K
-#define ________________CRUSTMAK_L2________________    LT_C,    HA_R,    HC_S,    HS_T,    KC_G
-#define ________________CRUSTMAK_L3________________    LT_Y,    KC_X,    KC_V,    KC_D,    KC_B
-
-#define ________________CRUSTMAK_R1________________    KC_J,    KC_L,    KC_U,    KC_O,    KC_Y
-#define ________________CRUSTMAK_R2________________    KC_M,    HS_N,    HC_E,    HA_A,    KC_I
-#define ________________CRUSTMAK_R3________________    KC_Z,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
-
-#define _____________CRUSTMAK_CAPS_L1______________    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_K)
-#define _____________CRUSTMAK_CAPS_L2______________    S(KC_C), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
-#define _____________CRUSTMAK_CAPS_L3______________    S(KC_Y), S(KC_X), S(KC_V), S(KC_D), S(KC_B)
-
-#define _____________CRUSTMAK_CAPS_R1______________    S(KC_J), S(KC_L), S(KC_U), S(KC_O), S(KC_Y)
-#define _____________CRUSTMAK_CAPS_R2______________    S(KC_M), S(KC_N), S(KC_E), S(KC_A), S(KC_I)
-#define _____________CRUSTMAK_CAPS_R3______________    S(KC_Z), S(KC_H), KC_LABK, KC_RABK, KC_QUES
+// #define _____________CRUSTMAK_CAPS_R1______________    S(KC_J), S(KC_L), S(KC_U), S(KC_O), S(KC_Y)
+// #define _____________CRUSTMAK_CAPS_R2______________    S(KC_M), S(KC_N), S(KC_E), S(KC_A), S(KC_I)
+// #define _____________CRUSTMAK_CAPS_R3______________    S(KC_Z), S(KC_H), KC_LABK, KC_RABK, KC_QUES
 
 // QWERTY
 #define _________________QWERTY_L1_________________    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T

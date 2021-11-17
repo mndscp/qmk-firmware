@@ -3,8 +3,7 @@
 
 enum preonic_layers {
   L_COLEMAK_QI,
-  L_COLEMAQ,
-  L_CRUSTMAK,
+  // L_CRUSTMAK,
   L_QWERTY,
   L_GAME,
   L_NUMPAD,
@@ -19,6 +18,7 @@ enum preonic_layers {
   L_LSFT,
   L_Q,
   L_A,
+  L_C,
   L_Z,
   L_SLSH,
 };
@@ -67,10 +67,10 @@ enum preonic_layers {
 #define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LOW_SPC   LT(L_SYMBOL, KC_SPC)
 #define LT_A      LT(L_A, KC_A)
-#define LT_C      LT(L_A, KC_C)
+#define LT_C      LT(L_C, KC_C)
 #define LT_CTRL   LT(L_CTRL, KC_ESC)
 #define LT_ENT    LT(L_NAVIGATION, KC_ENT)
-#define LT_I      LT(L_NAVIGATION, KC_I)
+// #define LT_I      LT(L_NAVIGATION, KC_I)
 #define LT_LSFT   MO(L_LSFT)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_R      LT(L_NAVIGATION, KC_R)
@@ -116,28 +116,20 @@ enum preonic_layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT_preonic_2x2u_wrapper(
-    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_EQL,  KC_MPLY,
+    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_EQL,  KC_MPLY,
     LT_TAB,  _______________COLEMAK_QI_L1_______________, _______________COLEMAK_QI_R1_______________, KC_BSPC,
     LT_CTRL, _______________COLEMAK_QI_L2_______________, _______________COLEMAK_QI_R2_______________, KC_ENT,
     LT_LSFT, _______________COLEMAK_QI_L3_______________, _______________COLEMAK_QI_R3_______________, KC_DEL,
     KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_TAB, KC_LEFT, KC_UP,   KC_RGHT
   ),
 
-  [L_COLEMAQ] = LAYOUT_preonic_2x2u_wrapper(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _________________COLEMAQ_L1________________, _________________COLEMAQ_R1________________, _______,
-    _______, _________________COLEMAQ_L2________________, _________________COLEMAQ_R2________________, _______,
-    _______, _________________COLEMAQ_L3________________, _________________COLEMAQ_R3________________, _______,
-    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
-  ),
-
-  [L_CRUSTMAK] = LAYOUT_preonic_2x2u_wrapper(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, ________________CRUSTMAK_L1________________, ________________CRUSTMAK_R1________________, _______,
-    _______, ________________CRUSTMAK_L2________________, ________________CRUSTMAK_R2________________, _______,
-    _______, ________________CRUSTMAK_L3________________, ________________CRUSTMAK_R3________________, _______,
-    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
-  ),
+  // [L_CRUSTMAK] = LAYOUT_preonic_2x2u_wrapper(
+  //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+  //   _______, ________________CRUSTMAK_L1________________, ________________CRUSTMAK_R1________________, _______,
+  //   _______, ________________CRUSTMAK_L2________________, ________________CRUSTMAK_R2________________, _______,
+  //   _______, ________________CRUSTMAK_L3________________, ________________CRUSTMAK_R3________________, _______,
+  //   _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
+  // ),
 
   [L_QWERTY] = LAYOUT_preonic_2x2u_wrapper(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -191,7 +183,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
     RGB_TOG, _______, _______, _______, _______, _______, _______, _______, KC_F15,  KC_F16,  KC_F17,  KC_F12,
     _______, _______, _______, _______, _______, _______, _______, M_CLMK,  M_QWRT,  ZOOMOUT, C(KC_0), ZOOMIN,
-    _______, _______, _______, _______, _______, _______, _______, _______, M_CLMQ,  M_CRST,  C_UP,    _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, C_UP,    _______,
     _______, _______, _______, _______,      _______,        _______,       XXXXXXX, C_LEFT,  C_DOWN,  C_RGHT
   ),
 
@@ -200,14 +192,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _____________COLEMAK_QI_CAPS_L1____________, _____________COLEMAK_QI_CAPS_R1____________, _______,
     _______, _____________COLEMAK_QI_CAPS_L2____________, _____________COLEMAK_QI_CAPS_R2____________, _______,
     _______, _____________COLEMAK_QI_CAPS_L3____________, _____________COLEMAK_QI_CAPS_R3____________, _______,
-    _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
-  ),
-
-  [L_CAPSQ] = LAYOUT_preonic_2x2u_wrapper(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, ______________COLEMAQ_CAPS_L1______________, ______________COLEMAQ_CAPS_R1______________, _______,
-    _______, ______________COLEMAQ_CAPS_L2______________, ______________COLEMAQ_CAPS_R2______________, _______,
-    _______, ______________COLEMAQ_CAPS_L3______________, ______________COLEMAQ_CAPS_R3______________, _______,
     _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
   ),
 
@@ -241,6 +225,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, KC_A,    KC_S,    KC_D,    KC_F,    _______, _______, _______, _______, _______, _______,
     _______, _______, KC_Z,    KC_X,    KC_C,    KC_V,    _______, _______, _______, _______, _______, _______,
     _______, _______, _______, KC_F21,       SFT_F22,        _______,       _______, _______, _______, _______
+  ),
+
+  [L_C] = LAYOUT_preonic_2x2u_wrapper(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, XXXXXXX, KC_BSPC, _______, KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
+    _______, _______, _______, _______, _______, _______, KC_MINS, KC_4,    KC_5,    KC_6,    KC_PLUS, _______,
+    _______, _______, _______, _______, _______, _______, KC_SLSH, KC_1,    KC_2,    KC_3,    KC_EQL,  _______,
+    _______, _______, _______, _______,      SFT_SPC,        KC_0,          KC_DOT,  _______, _______, _______
   ),
 
   [L_A] = LAYOUT_preonic_2x2u_wrapper(
@@ -293,15 +285,15 @@ layer_state_t layer_state_set_user(layer_state_t state)
     NAV_is_pressed = false;
   }
 
-  static bool A_is_pressed;
+  // static bool A_is_pressed;
 
-  if (layer_state_cmp(state, L_A)) {
-    register_code(KC_F13);
-    A_is_pressed = true;
-  } else {
-    if (A_is_pressed) unregister_code(KC_F13);
-    A_is_pressed = false;
-  }
+  // if (layer_state_cmp(state, L_A)) {
+  //   register_code(KC_F13);
+  //   A_is_pressed = true;
+  // } else {
+  //   if (A_is_pressed) unregister_code(KC_F13);
+  //   A_is_pressed = false;
+  // }
 
   return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
 }
