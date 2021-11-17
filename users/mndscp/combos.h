@@ -25,10 +25,10 @@ enum combos {
 };
 
 // Colemak-Qi
-const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_C, KC_M, COMBO_END};      // :)
+const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_C, KC_M, COMBO_END};      // :)
 const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_Q, KC_M, COMBO_END};      // :P
 const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_L, KC_M, COMBO_END};      // : D
-const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_L, KC_C, COMBO_END};      // :D
+const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_L, LT_C, COMBO_END};      // :D
 const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_K, COMBO_END};      // ^_^
 const uint16_t PROGMEM COMBO_PAREN_L[]    = {HS_T, KC_G, COMBO_END};      // (
 const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_P, HS_N, COMBO_END};      // )
@@ -43,7 +43,7 @@ const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
-const uint16_t PROGMEM COMBO_SCREENSHOT[] = {KC_L, KC_C, KC_M, COMBO_END};
+const uint16_t PROGMEM COMBO_SCREENSHOT[] = {KC_L, LT_C, KC_M, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_A, HS_T, COMBO_END};
 
 // // Crustmak
