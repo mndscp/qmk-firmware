@@ -3,7 +3,7 @@
 
 enum macros {
   M_CLMK = SAFE_RANGE,
-  // M_CRST,
+  M_SNU,
   M_QWRT,
   M_AE,
   M_OE,
@@ -21,14 +21,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
       return false;
       break;
-    // case M_CRST:
-    //   if (record->event.pressed) {
-    //     tap_code16(KC_HAEN);
-    //     set_single_persistent_default_layer(L_CRUSTMAK);
-    //   }
+    case M_SNU:
+      if (record->event.pressed) {
+        tap_code16(KC_HAEN);
+        set_single_persistent_default_layer(L_SNUSNU);
+      }
 
-    //   return false;
-    //   break;
+      return false;
+      break;
     case M_QWRT:
       if (record->event.pressed) {
         tap_code16(KC_HAEN);

@@ -3,7 +3,7 @@
 
 enum preonic_layers {
   L_COLEMAK_QI,
-  // L_CRUSTMAK,
+  L_SNUSNU,
   L_QWERTY,
   L_GAME,
   L_NUMPAD,
@@ -12,10 +12,11 @@ enum preonic_layers {
   L_FUNCTION,
   L_CAPS,
   L_CAPSQ,
-  L_CRUSTCAPS,
+  L_SNUSNUCAPS,
   L_TAB,
   L_CTRL,
   L_LSFT,
+  L_X,
   L_Q,
   L_A,
   L_C,
@@ -66,12 +67,14 @@ enum preonic_layers {
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
 #define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LOW_SPC   LT(L_SYMBOL, KC_SPC)
+#define LT_S      LT(L_A, KC_S)
 #define LT_A      LT(L_A, KC_A)
 #define LT_C      LT(L_C, KC_C)
 #define LT_CTRL   LT(L_CTRL, KC_ESC)
 #define LT_ENT    LT(L_NAVIGATION, KC_ENT)
 // #define LT_I      LT(L_NAVIGATION, KC_I)
 #define LT_LSFT   MO(L_LSFT)
+#define LT_X      LT(L_Q, KC_X)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_R      LT(L_NAVIGATION, KC_R)
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
@@ -123,13 +126,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_TAB, KC_LEFT, KC_UP,   KC_RGHT
   ),
 
-  // [L_CRUSTMAK] = LAYOUT_preonic_2x2u_wrapper(
-  //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  //   _______, ________________CRUSTMAK_L1________________, ________________CRUSTMAK_R1________________, _______,
-  //   _______, ________________CRUSTMAK_L2________________, ________________CRUSTMAK_R2________________, _______,
-  //   _______, ________________CRUSTMAK_L3________________, ________________CRUSTMAK_R3________________, _______,
-  //   _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
-  // ),
+  [L_SNUSNU] = LAYOUT_preonic_2x2u_wrapper(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _________________SNUSNU_L1_________________, _________________SNUSNU_R1_________________, _______,
+    _______, _________________SNUSNU_L2_________________, _________________SNUSNU_R2_________________, _______,
+    _______, _________________SNUSNU_L3_________________, _________________SNUSNU_R3_________________, _______,
+    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
+  ),
 
   [L_QWERTY] = LAYOUT_preonic_2x2u_wrapper(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -183,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
     RGB_TOG, _______, _______, _______, _______, _______, _______, _______, KC_F15,  KC_F16,  KC_F17,  KC_F12,
     _______, _______, _______, _______, _______, _______, _______, M_CLMK,  M_QWRT,  ZOOMOUT, C(KC_0), ZOOMIN,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, C_UP,    _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, M_SNU,  _______,  C_UP,    _______,
     _______, _______, _______, _______,      _______,        _______,       XXXXXXX, C_LEFT,  C_DOWN,  C_RGHT
   ),
 
@@ -195,13 +198,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
   ),
 
-  // [L_CRUSTCAPS] = LAYOUT_preonic_2x2u_wrapper(
-  //   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  //   _______, _____________CRUSTMAK_CAPS_L1______________, _____________CRUSTMAK_CAPS_R1______________, _______,
-  //   _______, _____________CRUSTMAK_CAPS_L2______________, _____________CRUSTMAK_CAPS_R2______________, _______,
-  //   _______, _____________CRUSTMAK_CAPS_L3______________, _____________CRUSTMAK_CAPS_R3______________, _______,
-  //   _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
-  // ),
+  [L_SNUSNUCAPS] = LAYOUT_preonic_2x2u_wrapper(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, ______________SNUSNU_CAPS_L1_______________, ______________SNUSNU_CAPS_R1_______________, _______,
+    _______, ______________SNUSNU_CAPS_L2_______________, ______________SNUSNU_CAPS_R2_______________, _______,
+    _______, ______________SNUSNU_CAPS_L3_______________, ______________SNUSNU_CAPS_R3_______________, _______,
+    _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
+  ),
 
   [L_TAB] = LAYOUT_preonic_2x2u_wrapper(
     _______, KC_F21,  KC_F22,  KC_PSCR, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -307,7 +310,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HA_L:
     case HA_R:
     case HA_S:
-    case HC_E:
       return TAPPING_TERM + 65;
     default:
       return TAPPING_TERM;
@@ -324,6 +326,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     case HS_F:
     case HS_J:
     case HC_K:
+    case HS_W:
     case HS_N:
     case HS_T:
     case NUM_ENT:

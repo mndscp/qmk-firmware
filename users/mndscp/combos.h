@@ -46,7 +46,7 @@ const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_SCREENSHOT[] = {KC_L, LT_C, KC_M, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_A, HS_T, COMBO_END};
 
-// // Crustmak
+// // Snu Snu
 // const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_F, KC_P, COMBO_END};      // :)
 // const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_Q, KC_P, COMBO_END};      // :P
 // const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_W, KC_P, COMBO_END};      // : D

@@ -11,6 +11,9 @@
 #define HA_I      LALT_T(KC_I)
 #define HG_O      LGUI_T(KC_O)
 
+#define HC_T      LCTL_T(KC_T)
+#define HS_W      RSFT_T(KC_W)
+
 // Layer row definitions
 // ----------------------------------------------------------------------------
 
@@ -31,22 +34,22 @@
 #define _____________COLEMAK_QI_CAPS_R2____________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O)
 #define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
-// // Crustmak
-// #define ________________CRUSTMAK_L1________________    LT_Q,    KC_W,    KC_F,    KC_P,    KC_K
-// #define ________________CRUSTMAK_L2________________    LT_C,    HA_R,    HC_S,    HS_T,    KC_G
-// #define ________________CRUSTMAK_L3________________    LT_Y,    KC_X,    KC_V,    KC_D,    KC_B
+// Snu Snu
+#define _________________SNUSNU_L1_________________    LT_X,    KC_L,    KC_D,    KC_K,    KC_V
+#define _________________SNUSNU_L2_________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
+#define _________________SNUSNU_L3_________________    KC_Q,    KC_J,    KC_M,    KC_H,    KC_B
 
-// #define ________________CRUSTMAK_R1________________    KC_J,    KC_L,    KC_U,    KC_O,    KC_Y
-// #define ________________CRUSTMAK_R2________________    KC_M,    HS_N,    HC_E,    HA_A,    KC_I
-// #define ________________CRUSTMAK_R3________________    KC_Z,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
+#define _________________SNUSNU_R1_________________    KC_P,    KC_C,    KC_O,    KC_U,    KC_QUOT
+#define _________________SNUSNU_R2_________________    KC_Y,    HS_W,    HC_E,    HA_I,    KC_A
+#define _________________SNUSNU_R3_________________    KC_Z,    KC_G,    KC_COMM, KC_DOT,  LT_SLSH
 
-// #define _____________CRUSTMAK_CAPS_L1______________    S(KC_Q), S(KC_W), S(KC_F), S(KC_P), S(KC_K)
-// #define _____________CRUSTMAK_CAPS_L2______________    S(KC_C), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
-// #define _____________CRUSTMAK_CAPS_L3______________    S(KC_Y), S(KC_X), S(KC_V), S(KC_D), S(KC_B)
+#define ______________SNUSNU_CAPS_L1_______________    S(KC_X), S(KC_L), S(KC_D), S(KC_K), S(KC_V)
+#define ______________SNUSNU_CAPS_L2_______________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_F)
+#define ______________SNUSNU_CAPS_L3_______________    S(KC_Q), S(KC_J), S(KC_M), S(KC_H), S(KC_B)
 
-// #define _____________CRUSTMAK_CAPS_R1______________    S(KC_J), S(KC_L), S(KC_U), S(KC_O), S(KC_Y)
-// #define _____________CRUSTMAK_CAPS_R2______________    S(KC_M), S(KC_N), S(KC_E), S(KC_A), S(KC_I)
-// #define _____________CRUSTMAK_CAPS_R3______________    S(KC_Z), S(KC_H), KC_LABK, KC_RABK, KC_QUES
+#define ______________SNUSNU_CAPS_R1_______________    S(KC_P), S(KC_C), S(KC_O), S(KC_U), KC_DQUO
+#define ______________SNUSNU_CAPS_R2_______________    S(KC_Y), S(KC_W), S(KC_E), S(KC_I), S(KC_A)
+#define ______________SNUSNU_CAPS_R3_______________    S(KC_Z), S(KC_G), KC_LABK, KC_RABK, KC_QUES
 
 // QWERTY
 #define _________________QWERTY_L1_________________    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
