@@ -35,7 +35,7 @@
 #define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
 // Snu Snu
-#define _________________SNUSNU_L1_________________    LT_X,    KC_L,    KC_D,    KC_K,    KC_V
+#define _________________SNUSNU_L1_________________    LT_X,    KC_L,    LT_D,    KC_K,    KC_V
 #define _________________SNUSNU_L2_________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
 #define _________________SNUSNU_L3_________________    KC_Q,    KC_J,    KC_M,    KC_H,    KC_B
 
