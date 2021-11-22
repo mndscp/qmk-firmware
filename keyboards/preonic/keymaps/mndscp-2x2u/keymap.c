@@ -11,15 +11,14 @@ enum preonic_layers {
   L_SYMBOL,
   L_FUNCTION,
   L_CAPS,
-  L_CAPSQ,
   L_SNUSNUCAPS,
   L_TAB,
   L_CTRL,
   L_LSFT,
-  L_X,
-  L_Q,
   L_A,
   L_C,
+  L_Q,
+  L_X,
   L_Z,
   L_SLSH,
 };
@@ -67,20 +66,20 @@ enum preonic_layers {
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
 #define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LOW_SPC   LT(L_SYMBOL, KC_SPC)
-#define LT_S      LT(L_A, KC_S)
 #define LT_A      LT(L_A, KC_A)
 #define LT_C      LT(L_C, KC_C)
-#define LT_CTRL   LT(L_CTRL, KC_ESC)
-#define LT_ENT    LT(L_NAVIGATION, KC_ENT)
-// #define LT_I      LT(L_NAVIGATION, KC_I)
-#define LT_LSFT   MO(L_LSFT)
-#define LT_X      LT(L_Q, KC_X)
+#define LT_D      LT(L_C, KC_D)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_R      LT(L_NAVIGATION, KC_R)
+#define LT_S      LT(L_A, KC_S)
+#define LT_Y      LT(L_Z, KC_Y)
+#define LT_X      LT(L_Q, KC_X)
+#define LT_Z      LT(L_Z, KC_Z)
+#define LT_CTRL   LT(L_CTRL, KC_ESC)
+#define LT_ENT    LT(L_NAVIGATION, KC_ENT)
+#define LT_LSFT   MO(L_LSFT)
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
 #define LT_TAB    LT(L_TAB, KC_TAB)
-#define LT_Y      LT(L_Z, KC_Y)
-#define LT_Z      LT(L_Z, KC_Z)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
@@ -252,6 +251,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
+  ),
+
+  [L_Z] = LAYOUT_preonic_2x2u_wrapper(
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   )
 
   // [TEMPLATE] = LAYOUT_preonic_2x2u_wrapper(
@@ -299,6 +306,7 @@ layer_state_t layer_state_set_user(layer_state_t state)
   // }
 
   return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
+  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_SNUSNUCAPS);
 }
 
 // Set different tapping terms for some key groups
@@ -310,7 +318,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HA_L:
     case HA_R:
     case HA_S:
-      return TAPPING_TERM + 65;
+      return TAPPING_TERM + 100;
     default:
       return TAPPING_TERM;
   }
