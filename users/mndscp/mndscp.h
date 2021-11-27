@@ -11,6 +11,7 @@
 #define HA_I      LALT_T(KC_I)
 #define HG_O      LGUI_T(KC_O)
 
+// #define HA_A      LALT_T(KC_A)
 #define HC_T      LCTL_T(KC_T)
 #define HS_W      RSFT_T(KC_W)
 
@@ -33,6 +34,23 @@
 #define _____________COLEMAK_QI_CAPS_R1____________    S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO
 #define _____________COLEMAK_QI_CAPS_R2____________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O)
 #define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
+
+// IRST
+#define __________________IRST_L1__________________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
+#define __________________IRST_L2__________________    LT_I,    HA_R,    HC_S,    HS_T,    KC_G
+#define __________________IRST_L3__________________    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V
+
+#define __________________IRST_R1__________________    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT
+#define __________________IRST_R2__________________    KC_P,    HS_N,    HC_E,    HA_A,    KC_O
+#define __________________IRST_R3__________________    KC_B,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
+
+#define ________________IRST_CAPS_L1_______________    S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K)
+#define ________________IRST_CAPS_L2_______________    S(KC_I), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
+#define ________________IRST_CAPS_L3_______________    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V)
+
+#define ________________IRST_CAPS_R1_______________    S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO
+#define ________________IRST_CAPS_R2_______________    S(KC_P), S(KC_N), S(KC_E), S(KC_A), S(KC_O)
+#define ________________IRST_CAPS_R3_______________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
 // Snu Snu
 #define _________________SNUSNU_L1_________________    LT_X,    KC_L,    LT_D,    KC_K,    KC_V
@@ -63,7 +81,7 @@
 // Navigation
 #define _______________NAVIGATION_L1_______________    KC_PSCR, BACKTAB, KC_SPC,  KC_TAB,  _______
 #define _______________NAVIGATION_L2_______________    KC_LCTL, ALT_ESC, CTL_BSP, SFT_ENT, KC_PGUP
-#define _______________NAVIGATION_L3_______________    C(KC_S), C(KC_Y), C(KC_Z), KC_DEL,  KC_PGDN
+#define _______________NAVIGATION_L3_______________    C(KC_S), C(KC_A), C(KC_Z), KC_DEL,  KC_PGDN
 
 #define _______________NAVIGATION_R1_______________    _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO
 #define _______________NAVIGATION_R2_______________    KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END

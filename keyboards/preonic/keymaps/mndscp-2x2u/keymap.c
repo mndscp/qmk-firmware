@@ -3,7 +3,7 @@
 
 enum preonic_layers {
   L_COLEMAK_QI,
-  L_SNUSNU,
+  L_IRST,
   L_QWERTY,
   L_GAME,
   L_NUMPAD,
@@ -11,7 +11,7 @@ enum preonic_layers {
   L_SYMBOL,
   L_FUNCTION,
   L_CAPS,
-  L_SNUSNUCAPS,
+  L_IRSTCAPS,
   L_TAB,
   L_CTRL,
   L_LSFT,
@@ -67,6 +67,7 @@ enum preonic_layers {
 #define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LOW_SPC   LT(L_SYMBOL, KC_SPC)
 #define LT_A      LT(L_A, KC_A)
+#define LT_I      LT(L_A, KC_I)
 #define LT_C      LT(L_C, KC_C)
 #define LT_D      LT(L_C, KC_D)
 #define LT_Q      LT(L_Q, KC_Q)
@@ -125,11 +126,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL, KC_LGUI, KC_LALT, NUM_DEL,      NAV_ENT,        SYM_SPC,       FUN_TAB, KC_LEFT, KC_UP,   KC_RGHT
   ),
 
-  [L_SNUSNU] = LAYOUT_preonic_2x2u_wrapper(
+  [L_IRST] = LAYOUT_preonic_2x2u_wrapper(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _________________SNUSNU_L1_________________, _________________SNUSNU_R1_________________, _______,
-    _______, _________________SNUSNU_L2_________________, _________________SNUSNU_R2_________________, _______,
-    _______, _________________SNUSNU_L3_________________, _________________SNUSNU_R3_________________, _______,
+    _______, __________________IRST_L1__________________, __________________IRST_R1__________________, _______,
+    _______, __________________IRST_L2__________________, __________________IRST_R2__________________, _______,
+    _______, __________________IRST_L3__________________, __________________IRST_R3__________________, _______,
     _______, _______, _______, _______,      _______,        _______,       _______, _______, _______, _______
   ),
 
@@ -185,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
     RGB_TOG, _______, _______, _______, _______, _______, _______, _______, KC_F15,  KC_F16,  KC_F17,  KC_F12,
     _______, _______, _______, _______, _______, _______, _______, M_CLMK,  M_QWRT,  ZOOMOUT, C(KC_0), ZOOMIN,
-    _______, _______, _______, _______, _______, _______, _______, _______, M_SNU,  _______,  C_UP,    _______,
+    _______, _______, _______, _______, _______, _______, _______, M_IRST,  _______, _______, C_UP,    _______,
     _______, _______, _______, _______,      _______,        _______,       XXXXXXX, C_LEFT,  C_DOWN,  C_RGHT
   ),
 
@@ -197,11 +198,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
   ),
 
-  [L_SNUSNUCAPS] = LAYOUT_preonic_2x2u_wrapper(
+  [L_IRSTCAPS] = LAYOUT_preonic_2x2u_wrapper(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, ______________SNUSNU_CAPS_L1_______________, ______________SNUSNU_CAPS_R1_______________, _______,
-    _______, ______________SNUSNU_CAPS_L2_______________, ______________SNUSNU_CAPS_R2_______________, _______,
-    _______, ______________SNUSNU_CAPS_L3_______________, ______________SNUSNU_CAPS_R3_______________, _______,
+    _______, ________________IRST_CAPS_L1_______________, ________________IRST_CAPS_R1_______________, _______,
+    _______, ________________IRST_CAPS_L2_______________, ________________IRST_CAPS_R2_______________, _______,
+    _______, ________________IRST_CAPS_L3_______________, ________________IRST_CAPS_R3_______________, _______,
     _______, _______, _______, _______,      XXXXXXX,        XXXXXXX,       _______, _______, _______, _______
   ),
 
@@ -305,8 +306,8 @@ layer_state_t layer_state_set_user(layer_state_t state)
   //   A_is_pressed = false;
   // }
 
-  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
-  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_SNUSNUCAPS);
+  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
+  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_IRSTCAPS);
 }
 
 // Set different tapping terms for some key groups
