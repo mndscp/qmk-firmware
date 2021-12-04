@@ -21,6 +21,10 @@ enum combos {
   C_PASTEANDGO,
   C_SELECTALL,
   C_ESCAPE,
+  C_AE,
+  C_OE,
+  C_UE,
+  C_SZ,
 };
 
 // Colemak-Qi
@@ -43,6 +47,10 @@ const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_A, HS_T, COMBO_END};
+const uint16_t PROGMEM COMBO_AE[]         = {HS_N, SYM_SPC, COMBO_END};
+const uint16_t PROGMEM COMBO_OE[]         = {HC_E, SYM_SPC, COMBO_END};
+const uint16_t PROGMEM COMBO_UE[]         = {HA_I, SYM_SPC, COMBO_END};
+const uint16_t PROGMEM COMBO_SZ[]         = {KC_O, SYM_SPC, COMBO_END};
 
 // // Snu Snu
 // const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_D, KC_K, COMBO_END};      // :)
@@ -85,6 +93,10 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_PASTEANDGO] = COMBO_ACTION(COMBO_PASTEANDGO),
   [C_SELECTALL]  = COMBO_ACTION(COMBO_SELECTALL),
   [C_ESCAPE]     = COMBO_ACTION(COMBO_ESCAPE),
+  [C_AE]         = COMBO_ACTION(COMBO_AE),
+  [C_OE]         = COMBO_ACTION(COMBO_OE),
+  [C_UE]         = COMBO_ACTION(COMBO_UE),
+  [C_SZ]         = COMBO_ACTION(COMBO_SZ),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -183,5 +195,76 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_ESCAPE:
       if (pressed) tap_code16(KC_ESC);
       break;
+    case C_AE:
+      if (pressed) {
+        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+          unregister_code(KC_LSFT);
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_9);
+          tap_code16(KC_KP_6);
+          unregister_code(KC_LALT);
+          register_code(KC_LSFT);
+        } else {
+          register_code(KC_LALT);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_3);
+          tap_code16(KC_KP_2);
+          unregister_code(KC_LALT);
+        }
+      }
+      break;
+    case C_OE:
+      if (pressed) {
+        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+          unregister_code(KC_LSFT);
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_4);
+          unregister_code(KC_LALT);
+          register_code(KC_LSFT);
+        } else {
+          register_code(KC_LALT);
+          tap_code16(KC_KP_1);
+          tap_code16(KC_KP_4);
+          tap_code16(KC_KP_8);
+          unregister_code(KC_LALT);
+        }
+      }
+      break;
+    case C_UE:
+      if (pressed) {
+        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+          unregister_code(KC_LSFT);
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_0);
+          unregister_code(KC_LALT);
+          register_code(KC_LSFT);
+        } else {
+          register_code(KC_LALT);
+          tap_code16(KC_KP_0);
+          tap_code16(KC_KP_2);
+          tap_code16(KC_KP_5);
+          tap_code16(KC_KP_2);
+          unregister_code(KC_LALT);
+        }
+      }
+      break;
+    case C_SZ:
+      if (pressed) {
+        register_code(KC_LALT);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_2);
+        tap_code16(KC_KP_5);
+        unregister_code(KC_LALT);
+      }
+      break;
   }
 };
+

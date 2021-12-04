@@ -11,7 +11,7 @@
 #define HA_I      LALT_T(KC_I)
 #define HG_O      LGUI_T(KC_O)
 
-// #define HA_A      LALT_T(KC_A)
+#define HA_A      LALT_T(KC_A)
 #define HC_T      LCTL_T(KC_T)
 #define HS_W      RSFT_T(KC_W)
 

@@ -36,7 +36,6 @@ enum preonic_layers {
 #define HS_J      RSFT_T(KC_J)
 #define HC_K      LCTL_T(KC_K)
 #define HA_L      LALT_T(KC_L)
-#define HA_A      LALT_T(KC_A)
 
 // Modified keys
 #define C_TAB     C(KC_TAB)
@@ -111,15 +110,15 @@ enum preonic_layers {
 #define EMOJI     G(KC_DOT)
 
 #include "mndscp.h"
-#include "combos.h"
 #include "macros.h"
+#include "combos.h"
 
 // Using a wrapper enables expanding of imported row definitions
 #define LAYOUT_preonic_2x2u_wrapper(...) LAYOUT_preonic_2x2u(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_COLEMAK_QI] = LAYOUT_preonic_2x2u_wrapper(
-    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS, KC_EQL,  KC_MPLY,
+    KC_TILD, KC_PLUS, KC_LCBR, KC_LPRN, KC_LBRC, KC_MINS, KC_UNDS, KC_RBRC, KC_RPRN, KC_RCBR, KC_EQL,  KC_MPLY,
     LT_TAB,  _______________COLEMAK_QI_L1_______________, _______________COLEMAK_QI_R1_______________, KC_BSPC,
     LT_CTRL, _______________COLEMAK_QI_L2_______________, _______________COLEMAK_QI_R2_______________, KC_ENT,
     LT_LSFT, _______________COLEMAK_QI_L3_______________, _______________COLEMAK_QI_R3_______________, KC_DEL,
@@ -208,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_TAB] = LAYOUT_preonic_2x2u_wrapper(
     _______, KC_F21,  KC_F22,  KC_PSCR, _______, _______, _______, _______, _______, _______, _______, _______,
-    XXXXXXX, C(KC_Q), C(KC_W), C(KC_E), C(KC_R), _______, _______, _______, _______, _______, _______, _______,
+    XXXXXXX, C(KC_Q), C(KC_W), C(KC_E), C(KC_R), C(KC_T), _______, _______, _______, _______, _______, _______,
     _______, C(KC_A), C(KC_S), C(KC_D), C(KC_F), _______, _______, _______, _______, _______, _______, _______,
     _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______,      SFT_ENT,        _______,       _______, _______, _______, _______
@@ -306,8 +305,8 @@ layer_state_t layer_state_set_user(layer_state_t state)
   //   A_is_pressed = false;
   // }
 
-  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
-  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_IRSTCAPS);
+  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
+  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_IRSTCAPS);
 }
 
 // Set different tapping terms for some key groups
