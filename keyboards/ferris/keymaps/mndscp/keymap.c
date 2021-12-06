@@ -2,7 +2,6 @@
 
 enum layers {
   L_COLEMAK_QI,
-  L_COLEMAQ,
   L_QWERTY,
   L_DONTSTARVE,
   L_NUMPAD,
@@ -13,102 +12,53 @@ enum layers {
   L_Q,
   L_A,
   L_Z,
+  L_C,
   L_SLSH,
 };
-
-enum combos {
-  C_SMILEY_1,
-  C_SMILEY_2,
-  C_SMILEY_3,
-  C_SMILEY_4,
-  C_SMILEY_5,
-  C_PAREN_L,
-  C_PAREN_R,
-  C_BRACK_L,
-  C_BRACK_R,
-  C_CURLY_L,
-  C_CURLY_R,
-  C_EQUALS,
-  C_FATARROW,
-  C_CUT,
-  C_COPY,
-  C_PASTE,
-  C_PASTEANDGO,
-  C_SELECTALL,
-};
-
-enum macros {
-  M_CLMK = SAFE_RANGE,
-  M_CLMQ,
-  M_QWRT,
-  M_AE,
-  M_OE,
-  M_UE,
-  M_SZ,
-};
-
-// enum tap_dances {
-//   TD_EXCLAMATIONMARK,
-//   TD_QUESTIONMARK,
-// };
-
-// Homerow mods Colemak-Qi
-#define HA_R      LALT_T(KC_R)
-#define HC_S      LCTL_T(KC_S)
-#define HS_T      LSFT_T(KC_T)
-#define HS_N      RSFT_T(KC_N)
-#define HC_E      LCTL_T(KC_E)
-#define HA_I      LALT_T(KC_I)
-
-// Homerow mods QWERTY
-#define HA_S      LALT_T(KC_S)
-#define HC_D      LCTL_T(KC_D)
-#define HS_F      LSFT_T(KC_F)
-#define HS_J      RSFT_T(KC_J)
-#define HC_K      LCTL_T(KC_K)
-#define HA_L      LALT_T(KC_L)
-
-// Homerow mods Numpad
-#define HA_4      LALT_T(KC_4)
-#define HC_5      LCTL_T(KC_5)
-#define HS_6      LSFT_T(KC_6)
 
 // Mod and Layer keys
 #define ALT_BSP   LALT_T(KC_BSPC)
 #define ALT_DEL   LALT_T(KC_DEL)
+#define ALT_ESC   LALT_T(KC_ESC)
 #define ALT_SPC   LALT_T(KC_SPC)
 #define CTL_BSP   LCTL_T(KC_BSPC)
-#define CTL_ESC   LCTL_T(KC_ESC)
 #define CTL_ENT   LCTL_T(KC_ENT)
+#define CTL_ESC   LCTL_T(KC_ESC)
 #define CTL_SPC   LCTL_T(KC_SPC)
 #define DF_DST    DF(L_DONTSTARVE)
 #define FUN_ESC   LT(L_FUNCTION, KC_ESC)
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
-#define LTQ_Q     LT(L_Z, KC_Q)
-#define LT_Q      LT(L_Q, KC_Q)
+#define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LT_A      LT(L_A, KC_A)
-#define LT_Z      LT(L_Z, KC_Z)
-#define LTQ_Z     LT(L_Q, KC_Z)
+#define LT_C      LT(L_NUMPAD, KC_C)
+#define LT_D      LT(L_C, KC_D)
+#define LT_I      LT(L_A, KC_I)
+#define LT_Q      LT(L_Q, KC_Q)
+#define LT_S      LT(L_A, KC_S)
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
+#define LT_X      LT(L_Q, KC_X)
+#define LT_Y      LT(L_Z, KC_Y)
+#define LT_Z      LT(L_Z, KC_Z)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
+#define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
 #define NAV_SPC   LT(L_NAVIGATION, KC_SPC)
-#define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
+#define NUM_BSP   LT(L_NUMPAD, KC_BSPC)
 #define NUM_DEL   LT(L_NUMPAD, KC_DEL)
 #define NUM_ENT   LT(L_NUMPAD, KC_ENT)
-#define NUM_BSP   LT(L_NUMPAD, KC_BSPC)
 #define NUM_TAB   LT(L_NUMPAD, KC_TAB)
 #define SFT_BSP   LSFT_T(KC_BSPC)
 #define SFT_DEL   LSFT_T(KC_DEL)
 #define SFT_ENT   LSFT_T(KC_ENT)
 #define SFT_F22   LSFT_T(KC_F22)
 #define SFT_GRV   LSFT_T(KC_GRV)
+#define SFT_MIN   LSFT_T(KC_MINS)
 #define SFT_QUO   LSFT_T(KC_QUOT)
 #define SFT_SPC   LSFT_T(KC_SPC)
+#define SFT_TAB   LSFT_T(KC_TAB)
 #define SYM_ESC   LT(L_SYMBOL, KC_ESC)
 #define SYM_SPC   LT(L_SYMBOL, KC_SPC)
-#define TD_EXLM   TD(TD_EXCLAMATIONMARK)
-#define TD_QUES   TD(TD_QUESTIONMARK)
+#define NAV_SFT   LT(L_NAVIGATION, XXXXXXX)
 
 // Custom keys
 #define LOCK      G(KC_L)
@@ -117,99 +67,106 @@ enum macros {
 #define ZOOMOUT   C(KC_MINS)
 #define EMOJI     G(KC_DOT)
 
+#include "macros.h"
+#include "mndscp.h"
+#include "combos.h"
+
+// Using a wrapper enables expanding of imported row definitions
+#define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [L_COLEMAK_QI] = LAYOUT(
-    LT_Q,    KC_L,    KC_C,    KC_M,    KC_K,             KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT,
-    LT_A,    HA_R,    HC_S,    HS_T,    KC_G,             KC_P,    HS_N,    HC_E,    HA_I,    KC_O,
-    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V,             KC_B,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH,
-                               NUM_DEL, NAV_ENT,          SYM_SPC, FUN_PLY
+  [L_COLEMAK_QI] = LAYOUT_wrapper(
+    _______________COLEMAK_QI_L1_______________,          _______________COLEMAK_QI_R1_______________,
+    _______________COLEMAK_QI_L2_______________,          _______________COLEMAK_QI_R2_______________,
+    _______________COLEMAK_QI_L3_______________,          _______________COLEMAK_QI_R3_______________,
+                               NUM_ENT, NAV_SFT,          SYM_SPC, FUN_PLY
   ),
 
-  [L_COLEMAQ] = LAYOUT(
-    LT_Q,    KC_W,    KC_C,    KC_P,    KC_B,             KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT,
-    LT_A,    HA_R,    HC_S,    HS_T,    KC_F,             KC_M,    HS_N,    HC_E,    HA_I,    KC_O,
-    LT_Z,    KC_X,    KC_G,    KC_D,    KC_K,             KC_V,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH,
+  [L_QWERTY] = LAYOUT_wrapper(
+    _________________QWERTY_L1_________________,          _________________QWERTY_R1_________________,
+    _________________QWERTY_L2_________________,          _________________QWERTY_R2_________________,
+    _________________QWERTY_L3_________________,          _________________QWERTY_R3_________________,
                                _______, _______,          _______, _______
   ),
 
-  [L_QWERTY] = LAYOUT(
-    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
-    KC_A,    HA_S,    HC_D,    HS_F,    KC_G,             KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN,
-    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  LT_SLSH,
-                               _______, _______,          _______, _______
-  ),
-
-  [L_DONTSTARVE] = LAYOUT(
+  [L_DONTSTARVE] = LAYOUT_wrapper(
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,             _______, _______, _______, _______, _______,
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,             _______, _______, _______, _______, _______,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,             _______, _______, _______, _______, _______,
                                KC_LALT, KC_SPC,           _______, _______
   ),
 
-  [L_NUMPAD] = LAYOUT(
+  [L_NUMPAD] = LAYOUT_wrapper(
     KC_EQL,  KC_7,    KC_8,    KC_9,    KC_ASTR,          KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,
-    KC_0,    KC_4,    KC_5,    HS_6,    KC_PLUS,          KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,
+    KC_0,    KC_4,    KC_5,    KC_6,    KC_PLUS,          KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,
     KC_DOT,  KC_1,    KC_2,    KC_3,    KC_MINS,          KC_MINS, KC_1,    KC_2,    KC_3,    KC_SLSH,
-                               XXXXXXX, _______,          KC_0,    KC_BSPC
+                               XXXXXXX, SFT_ENT,          KC_0,    KC_BSPC
   ),
 
-  [L_NAVIGATION] = LAYOUT(
-    KC_ESC,  KC_PSCR, BACKTAB, KC_TAB,  KC_PGUP,          _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO,
-    CTL_ESC, ALT_SPC, CTL_BSP, SFT_ENT, KC_DEL,           KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,
-    _______, C(KC_S), C(KC_Z), C(KC_Y), KC_PGDN,          _______, C(KC_C), C(KC_V), C(KC_X), _______,
+  [L_NAVIGATION] = LAYOUT_wrapper(
+    _______________NAVIGATION_L1_______________,          _______________NAVIGATION_R1_______________,
+    _______________NAVIGATION_L2_______________,          _______________NAVIGATION_R2_______________,
+    _______________NAVIGATION_L3_______________,          _______________NAVIGATION_R3_______________,
                                EMOJI,   XXXXXXX,          SYM_ESC, _______
   ),
 
-  [L_SYMBOL] = LAYOUT(
-    KC_AT,   KC_ASTR, KC_EXLM, KC_DQUO, KC_LCBR,          KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_AMPR,
-    KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN,          KC_RPRN, M_AE,    M_OE,    M_UE,    M_SZ,
-    KC_BSLS, KC_PIPE, KC_UNDS, KC_GRV,  KC_LBRC,          KC_RBRC, KC_LABK, KC_EQL,  KC_RABK, KC_CIRC,
-                               KC_MINS, NAV_ENT,          XXXXXXX, KC_TILD
+  [L_SYMBOL] = LAYOUT_wrapper(
+    _________________SYMBOL_L1_________________,          _________________SYMBOL_R1_________________,
+    _________________SYMBOL_L2_________________,          _________________SYMBOL_R2_________________,
+    _________________SYMBOL_L3_________________,          _________________SYMBOL_R3_________________,
+                               KC_UNDS, NAV_ENT,          XXXXXXX, KC_TILD
   ),
 
-  [L_FUNCTION] = LAYOUT(
+  [L_FUNCTION] = LAYOUT_wrapper(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
-    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_CLMQ,  M_CLMK,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           _______, M_CLMK,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          KC_MPLY, XXXXXXX
   ),
 
-  [L_CAPS] = LAYOUT(
-    S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K),          S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO,
-    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G),          S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O),
-    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V),          S(KC_B), S(KC_H), KC_LABK, KC_RABK, KC_QUES,
+  [L_CAPS] = LAYOUT_wrapper(
+    _____________COLEMAK_QI_CAPS_L1____________,          _____________COLEMAK_QI_CAPS_R1____________,
+    _____________COLEMAK_QI_CAPS_L2____________,          _____________COLEMAK_QI_CAPS_R2____________,
+    _____________COLEMAK_QI_CAPS_L3____________,          _____________COLEMAK_QI_CAPS_R3____________,
                                _______, XXXXXXX,          XXXXXXX, _______
   ),
 
-  [L_Q] = LAYOUT(
+  [L_Q] = LAYOUT_wrapper(
     XXXXXXX, KC_Q,    KC_W,    KC_E,    KC_R,             _______, _______, _______, _______, _______,
     _______, KC_A,    KC_S,    KC_D,    KC_F,             _______, _______, _______, _______, _______,
     _______, KC_Z,    KC_X,    KC_C,    KC_V,             _______, _______, _______, _______, _______,
                                KC_F21,  SFT_F22,          _______, _______
   ),
 
-  [L_A] = LAYOUT(
+  [L_A] = LAYOUT_wrapper(
     _______, C(KC_Q), C(KC_W), C(KC_E), C(KC_R),          _______, _______, _______, _______, _______,
     XXXXXXX, C(KC_A), C(KC_S), C(KC_D), C(KC_F),          _______, _______, _______, _______, _______,
     _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V),          _______, _______, _______, _______, _______,
                                ALT_SPC, SFT_ENT,          _______, _______
   ),
 
-  [L_Z] = LAYOUT(
+  [L_Z] = LAYOUT_wrapper(
     _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
     _______, KC_BSPC, KC_UP,   KC_DEL,  _______,          _______, _______, _______, _______, _______,
     XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, _______,          _______, _______, _______, _______, _______,
                                KC_LSFT, CTL_SPC,          _______, _______
   ),
 
-  [L_SLSH] = LAYOUT(
+  [L_C] = LAYOUT_wrapper(
+    _______, _______, XXXXXXX, _______, _______,          KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,
+    _______, _______, _______, _______, _______,          KC_MINS, KC_4,    KC_5,    KC_6,    KC_PLUS,
+    _______, _______, _______, _______, _______,          KC_SLSH, KC_1,    KC_2,    KC_3,    KC_EQL,
+                               _______, _______,          KC_0,    KC_DOT
+  ),
+
+  [L_SLSH] = LAYOUT_wrapper(
     _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______,          _______, KC_BSPC, KC_UP,   KC_DEL,  _______,
     _______, _______, _______, _______, _______,          _______, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX,
                                _______, _______,          CTL_SPC, KC_LSFT
-  ),
+  )
 
-  // [L_TEMPLATE] = LAYOUT(
+  // [L_TEMPLATE] = LAYOUT_wrapper(
   //   _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
   //   _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
   //   _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
@@ -226,8 +183,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HA_L:
     case HA_R:
     case HA_S:
-    case HC_E:
-      return TAPPING_TERM + 65;
+      return TAPPING_TERM + 115;
     default:
       return TAPPING_TERM;
   }
@@ -238,6 +194,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+    case LT_A:
+    case HS_F:
+    case HS_J:
+    case HC_K:
+    // case HS_W:
     case HS_N:
     case HS_T:
     case NUM_ENT:
@@ -272,303 +233,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     thumb2_is_pressed = false;
   }
 
-  static bool A_is_pressed;
+  // static bool A_is_pressed;
 
-  if (layer_state_cmp(state, L_A)) {
-    register_code(KC_F13);
-    A_is_pressed = true;
-  } else {
-    if (A_is_pressed) unregister_code(KC_F13);
-    A_is_pressed = false;
-  }
+  // if (layer_state_cmp(state, L_A)) {
+  //   register_code(KC_F13);
+  //   A_is_pressed = true;
+  // } else {
+  //   if (A_is_pressed) unregister_code(KC_F13);
+  //   A_is_pressed = false;
+  // }
 
   return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
-};
-
-// Tap Dance
-// ----------------------------------------------------------------------------
-
-// void td_exlm(qk_tap_dance_state_t *state, void *user_data) {
-//   if (state->count == 1) {
-//     tap_code16(KC_EXLM);
-//   } else {
-//     tap_code16(KC_EXLM);
-//     tap_code16(KC_ENT);
-//   }
-// }
-
-// void td_ques(qk_tap_dance_state_t *state, void *user_data) {
-//   if (state->count == 1) {
-//     tap_code16(KC_QUES);
-//   } else {
-//     tap_code16(KC_QUES);
-//     tap_code16(KC_ENT);
-//   }
-// }
-
-// // All tap dance functions would go here. Only showing this one.
-// qk_tap_dance_action_t tap_dance_actions[] = {
-//   [TD_EXCLAMATIONMARK] = ACTION_TAP_DANCE_FN(td_exlm),
-//   [TD_QUESTIONMARK] = ACTION_TAP_DANCE_FN(td_ques),
-// };
-
-// Combos
-// ----------------------------------------------------------------------------
-
-const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_L, KC_M, COMBO_END};      // :)
-const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_L, KC_C, COMBO_END};      // :P
-const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_C, KC_K, COMBO_END};      // : D
-const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_C, KC_M, COMBO_END};      // :D
-const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_K, COMBO_END};      // ^_^
-const uint16_t PROGMEM COMBO_PAREN_L[]    = {HS_T, KC_G, COMBO_END};      // (
-const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_P, HS_N, COMBO_END};      // )
-const uint16_t PROGMEM COMBO_BRACK_L[]    = {KC_D, KC_V, COMBO_END};      // [
-const uint16_t PROGMEM COMBO_BRACK_R[]    = {KC_B, KC_H, COMBO_END};      // ]
-const uint16_t PROGMEM COMBO_CURLY_L[]    = {KC_M, KC_K, COMBO_END};      // {
-const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_J, KC_F, COMBO_END};      // }
-const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_H, KC_COMM, COMBO_END};   // " = "
-const uint16_t PROGMEM COMBO_FATARROW[]   = {KC_COMM, KC_DOT, COMBO_END}; // " => "
-const uint16_t PROGMEM COMBO_COPY[]       = {KC_X, KC_D, COMBO_END};
-const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
-const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
-const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, NAV_ENT, COMBO_END};
-const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-  [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
-  [C_SMILEY_2]   = COMBO_ACTION(COMBO_SMILEY_2),
-  [C_SMILEY_3]   = COMBO_ACTION(COMBO_SMILEY_3),
-  [C_SMILEY_4]   = COMBO_ACTION(COMBO_SMILEY_4),
-  [C_SMILEY_5]   = COMBO_ACTION(COMBO_SMILEY_5),
-  [C_PAREN_L]    = COMBO_ACTION(COMBO_PAREN_L),
-  [C_PAREN_R]    = COMBO_ACTION(COMBO_PAREN_R),
-  [C_BRACK_L]    = COMBO_ACTION(COMBO_BRACK_L),
-  [C_BRACK_R]    = COMBO_ACTION(COMBO_BRACK_R),
-  [C_CURLY_L]    = COMBO_ACTION(COMBO_CURLY_L),
-  [C_CURLY_R]    = COMBO_ACTION(COMBO_CURLY_R),
-  [C_EQUALS]     = COMBO_ACTION(COMBO_EQUALS),
-  [C_FATARROW]   = COMBO_ACTION(COMBO_FATARROW),
-  [C_COPY]       = COMBO_ACTION(COMBO_COPY),
-  [C_CUT]        = COMBO_ACTION(COMBO_CUT),
-  [C_PASTE]      = COMBO_ACTION(COMBO_PASTE),
-  [C_PASTEANDGO] = COMBO_ACTION(COMBO_PASTEANDGO),
-  [C_SELECTALL]  = COMBO_ACTION(COMBO_SELECTALL),
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-  switch(combo_index) {
-    case C_SMILEY_1:
-      if (pressed) {
-        tap_code16(KC_COLN);
-        tap_code16(KC_RPRN);
-      }
-
-      break;
-    case C_SMILEY_2:
-      if (pressed) {
-        tap_code16(KC_COLN);
-        tap_code16(S(KC_P));
-      }
-
-      break;
-    case C_SMILEY_3:
-      if (pressed) {
-        tap_code16(KC_COLN);
-        tap_code16(KC_SPC);
-        tap_code16(S(KC_D));
-      }
-
-      break;
-    case C_SMILEY_4:
-      if (pressed) {
-        tap_code16(KC_COLN);
-        tap_code16(S(KC_D));
-      }
-
-      break;
-    case C_SMILEY_5:
-      if (pressed) {
-        tap_code16(KC_CIRC);
-        tap_code16(KC_UNDS);
-        tap_code16(KC_CIRC);
-      }
-
-      break;
-    case C_PAREN_L:
-      if (pressed) tap_code16(KC_LPRN);
-      break;
-    case C_PAREN_R:
-      if (pressed) tap_code16(KC_RPRN);
-      break;
-    case C_BRACK_L:
-      if (pressed) tap_code16(KC_LBRC);
-      break;
-    case C_BRACK_R:
-      if (pressed) tap_code16(KC_RBRC);
-      break;
-    case C_CURLY_L:
-      if (pressed) tap_code16(KC_LCBR);
-      break;
-    case C_CURLY_R:
-      if (pressed) tap_code16(KC_RCBR);
-      break;
-    case C_EQUALS:
-      if (pressed) {
-        tap_code16(KC_SPACE);
-        tap_code16(KC_EQL);
-        tap_code16(KC_SPACE);
-      }
-
-      break;
-    case C_FATARROW:
-      if (pressed) {
-        tap_code16(KC_SPACE);
-        tap_code16(KC_EQL);
-        tap_code16(KC_RABK);
-        tap_code16(KC_SPACE);
-      }
-
-      break;
-    case C_COPY:
-      if (pressed) tap_code16(C(KC_C));
-      break;
-    case C_CUT:
-      if (pressed) tap_code16(C(KC_X));
-      break;
-    case C_PASTE:
-      if (pressed) tap_code16(C(KC_V));
-      break;
-    case C_PASTEANDGO:
-      if (pressed) {
-        tap_code16(C(KC_V));
-        tap_code16(KC_ENT);
-      }
-
-      break;
-    case C_SELECTALL:
-      if (pressed) tap_code16(C(KC_A));
-      break;
-  }
-};
-
-// Always enable numlock
-// ----------------------------------------------------------------------------
-
-void led_set_keymap(uint8_t usb_led) {
-  if (!(usb_led & (1<<USB_LED_NUM_LOCK))) {
-    register_code(KC_NUMLOCK);
-    unregister_code(KC_NUMLOCK);
-  }
-}
-
-// Macros
-// ----------------------------------------------------------------------------
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case M_CLMK:
-      if (record->event.pressed) {
-        tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_COLEMAK_QI);
-      }
-
-      return false;
-      break;
-    case M_CLMQ:
-      if (record->event.pressed) {
-        tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_COLEMAQ);
-      }
-
-      return false;
-      break;
-    case M_QWRT:
-      if (record->event.pressed) {
-        tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_QWERTY);
-      }
-
-      return false;
-      break;
-    case M_AE:
-      if (record->event.pressed) {
-        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
-          unregister_code(KC_LSFT);
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_9);
-          tap_code16(KC_KP_6);
-          unregister_code(KC_LALT);
-          register_code(KC_LSFT);
-        } else {
-          register_code(KC_LALT);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_3);
-          tap_code16(KC_KP_2);
-          unregister_code(KC_LALT);
-        }
-      }
-
-      return false;
-      break;
-    case M_OE:
-      if (record->event.pressed) {
-        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
-          unregister_code(KC_LSFT);
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_4);
-          unregister_code(KC_LALT);
-          register_code(KC_LSFT);
-        } else {
-          register_code(KC_LALT);
-          tap_code16(KC_KP_1);
-          tap_code16(KC_KP_4);
-          tap_code16(KC_KP_8);
-          unregister_code(KC_LALT);
-        }
-      }
-
-      return false;
-      break;
-    case M_UE:
-      if (record->event.pressed) {
-        if ((get_mods() & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
-          unregister_code(KC_LSFT);
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_0);
-          unregister_code(KC_LALT);
-          register_code(KC_LSFT);
-        } else {
-          register_code(KC_LALT);
-          tap_code16(KC_KP_0);
-          tap_code16(KC_KP_2);
-          tap_code16(KC_KP_5);
-          tap_code16(KC_KP_2);
-          unregister_code(KC_LALT);
-        }
-      }
-
-      return false;
-      break;
-    case M_SZ:
-      if (record->event.pressed) {
-        register_code(KC_LALT);
-        tap_code16(KC_KP_2);
-        tap_code16(KC_KP_2);
-        tap_code16(KC_KP_5);
-        unregister_code(KC_LALT);
-      }
-
-      return false;
-      break;
-    }
-
-  return true;
 };
