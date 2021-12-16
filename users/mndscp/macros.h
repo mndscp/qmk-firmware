@@ -3,6 +3,7 @@
 
 enum macros {
   M_CLMK = SAFE_RANGE,
+  M_QIOU,
   M_QWRT,
   M_AE,
   M_OE,
@@ -11,6 +12,10 @@ enum macros {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_adaptive_key(keycode, record)) {
+    return false;
+  }
+
   switch (keycode) {
     case NAV_SFT:
       if (record->tap.count && record->event.pressed) {
@@ -23,6 +28,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         tap_code16(KC_HAEN);
         set_single_persistent_default_layer(L_COLEMAK_QI);
+      }
+
+      return false;
+      break;
+    case M_QIOU:
+      if (record->event.pressed) {
+        tap_code16(KC_HAEN);
+        set_single_persistent_default_layer(L_COLEMAK_QIOU);
       }
 
       return false;

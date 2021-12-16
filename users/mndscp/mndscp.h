@@ -42,6 +42,23 @@
 #define _____________COLEMAK_QI_CAPS_R2____________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O)
 #define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
+// Colemak-Qiou
+#define ______________COLEMAK_QIOU_L1______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
+#define ______________COLEMAK_QIOU_L2______________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
+#define ______________COLEMAK_QIOU_L3______________    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V
+
+#define ______________COLEMAK_QIOU_R1______________    KC_J,    KC_F,    KC_O,    KC_Y,    KC_QUOT
+#define ______________COLEMAK_QIOU_R2______________    KC_B,    HS_N,    HC_E,    HA_I,    KC_U
+#define ______________COLEMAK_QIOU_R3______________    KC_P,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
+
+#define ____________COLEMAK_QIOU_CAPS_L1___________    S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K)
+#define ____________COLEMAK_QIOU_CAPS_L2___________    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
+#define ____________COLEMAK_QIOU_CAPS_L3___________    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V)
+
+#define ____________COLEMAK_QIOU_CAPS_R1___________    S(KC_J), S(KC_F), S(KC_O), S(KC_Y), KC_DQUO
+#define ____________COLEMAK_QIOU_CAPS_R2___________    S(KC_B), S(KC_N), S(KC_E), S(KC_I), S(KC_U)
+#define ____________COLEMAK_QIOU_CAPS_R3___________    S(KC_P), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
+
 // IRST
 #define __________________IRST_L1__________________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
 #define __________________IRST_L2__________________    LT_I,    HA_R,    HC_S,    HS_T,    KC_G

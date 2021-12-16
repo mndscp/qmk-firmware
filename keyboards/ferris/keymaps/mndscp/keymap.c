@@ -2,6 +2,7 @@
 
 enum layers {
   L_COLEMAK_QI,
+  L_COLEMAK_QIOU,
   L_QWERTY,
   L_DONTSTARVE,
   L_NUMPAD,
@@ -9,6 +10,7 @@ enum layers {
   L_SYMBOL,
   L_FUNCTION,
   L_CAPS,
+  L_QIOUCAPS,
   L_Q,
   L_A,
   L_Z,
@@ -67,6 +69,7 @@ enum layers {
 #define ZOOMOUT   C(KC_MINS)
 #define EMOJI     G(KC_DOT)
 
+#include "adaptivekeys.c"
 #include "macros.h"
 #include "mndscp.h"
 #include "combos.h"
@@ -79,6 +82,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______________COLEMAK_QI_L1_______________,          _______________COLEMAK_QI_R1_______________,
     _______________COLEMAK_QI_L2_______________,          _______________COLEMAK_QI_R2_______________,
     _______________COLEMAK_QI_L3_______________,          _______________COLEMAK_QI_R3_______________,
+                               NUM_ENT, NAV_SFT,          SYM_SPC, FUN_PLY
+  ),
+
+  [L_COLEMAK_QIOU] = LAYOUT_wrapper(
+    ______________COLEMAK_QIOU_L1______________,          ______________COLEMAK_QIOU_R1______________,
+    ______________COLEMAK_QIOU_L2______________,          ______________COLEMAK_QIOU_R2______________,
+    ______________COLEMAK_QIOU_L3______________,          ______________COLEMAK_QIOU_R3______________,
                                NUM_ENT, NAV_SFT,          SYM_SPC, FUN_PLY
   ),
 
@@ -119,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_FUNCTION] = LAYOUT_wrapper(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
-    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           _______, M_CLMK,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_QIOU,  M_CLMK,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          KC_MPLY, XXXXXXX
   ),
@@ -128,6 +138,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _____________COLEMAK_QI_CAPS_L1____________,          _____________COLEMAK_QI_CAPS_R1____________,
     _____________COLEMAK_QI_CAPS_L2____________,          _____________COLEMAK_QI_CAPS_R2____________,
     _____________COLEMAK_QI_CAPS_L3____________,          _____________COLEMAK_QI_CAPS_R3____________,
+                               _______, XXXXXXX,          XXXXXXX, _______
+  ),
+
+  [L_QIOUCAPS] = LAYOUT_wrapper(
+    ____________COLEMAK_QIOU_CAPS_L1___________,          ____________COLEMAK_QIOU_CAPS_R1___________,
+    ____________COLEMAK_QIOU_CAPS_L2___________,          ____________COLEMAK_QIOU_CAPS_R2___________,
+    ____________COLEMAK_QIOU_CAPS_L3___________,          ____________COLEMAK_QIOU_CAPS_R3___________,
                                _______, XXXXXXX,          XXXXXXX, _______
   ),
 
@@ -243,5 +260,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   //   A_is_pressed = false;
   // }
 
-  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
+  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
+  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_QIOUCAPS);
 };

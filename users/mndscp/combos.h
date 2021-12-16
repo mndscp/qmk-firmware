@@ -17,7 +17,9 @@ enum combos {
   C_FATARROW,
   C_CUT,
   C_COPY,
+  C_COPYALL,
   C_PASTE,
+  C_PASTEALL,
   C_PASTEANDGO,
   C_SELECTALL,
   C_ESCAPE,
@@ -42,15 +44,17 @@ const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_J, KC_F, COMBO_END};      // }
 const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_H, KC_COMM, COMBO_END};   // " = "
 const uint16_t PROGMEM COMBO_FATARROW[]   = {KC_COMM, KC_DOT, COMBO_END}; // " => "
 const uint16_t PROGMEM COMBO_COPY[]       = {KC_X, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_COPYALL[]    = {LT_Z, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTE[]      = {KC_W, KC_D, COMBO_END};
-const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, NAV_ENT, COMBO_END};
-const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTEALL[]   = {KC_D, KC_V, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, NAV_SFT, COMBO_END};
+const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_A, HS_T, COMBO_END};
 const uint16_t PROGMEM COMBO_AE[]         = {HS_N, SYM_SPC, COMBO_END};
 const uint16_t PROGMEM COMBO_OE[]         = {HC_E, SYM_SPC, COMBO_END};
 const uint16_t PROGMEM COMBO_UE[]         = {HA_I, SYM_SPC, COMBO_END};
-const uint16_t PROGMEM COMBO_SZ[]         = {KC_O, SYM_SPC, COMBO_END};
+const uint16_t PROGMEM COMBO_SZ[]         = {KC_U, SYM_SPC, COMBO_END};
 
 // // Snu Snu
 // const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_D, KC_K, COMBO_END};      // :)
@@ -88,8 +92,10 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_EQUALS]     = COMBO_ACTION(COMBO_EQUALS),
   [C_FATARROW]   = COMBO_ACTION(COMBO_FATARROW),
   [C_COPY]       = COMBO_ACTION(COMBO_COPY),
+  [C_COPYALL]    = COMBO_ACTION(COMBO_COPYALL),
   [C_CUT]        = COMBO_ACTION(COMBO_CUT),
   [C_PASTE]      = COMBO_ACTION(COMBO_PASTE),
+  [C_PASTEALL]   = COMBO_ACTION(COMBO_PASTEALL),
   [C_PASTEANDGO] = COMBO_ACTION(COMBO_PASTEANDGO),
   [C_SELECTALL]  = COMBO_ACTION(COMBO_SELECTALL),
   [C_ESCAPE]     = COMBO_ACTION(COMBO_ESCAPE),
@@ -176,11 +182,25 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_COPY:
       if (pressed) tap_code16(C(KC_C));
       break;
+    case C_COPYALL:
+      if (pressed) {
+        tap_code16(C(KC_A));
+        tap_code16(C(KC_C));
+      }
+
+      break;
     case C_CUT:
       if (pressed) tap_code16(C(KC_X));
       break;
     case C_PASTE:
       if (pressed) tap_code16(C(KC_V));
+      break;
+    case C_PASTEALL:
+      if (pressed) {
+        tap_code16(C(KC_A));
+        tap_code16(C(KC_V));
+      }
+
       break;
     case C_PASTEANDGO:
       if (pressed) {
