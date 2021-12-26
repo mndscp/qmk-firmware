@@ -2,9 +2,9 @@
 // ----------------------------------------------------------------------------
 
 enum macros {
-  M_CLMK = SAFE_RANGE,
-  M_QIOU,
+  M_QIOU = SAFE_RANGE,
   M_QWRT,
+  M_SNUG,
   M_AE,
   M_OE,
   M_UE,
@@ -24,18 +24,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
 
       break;
-    case M_CLMK:
-      if (record->event.pressed) {
-        tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_COLEMAK_QI);
-      }
-
-      return false;
-      break;
     case M_QIOU:
       if (record->event.pressed) {
         tap_code16(KC_HAEN);
         set_single_persistent_default_layer(L_COLEMAK_QIOU);
+      }
+
+      return false;
+      break;
+    case M_SNUG:
+      if (record->event.pressed) {
+        tap_code16(KC_HAEN);
+        set_single_persistent_default_layer(L_SNUG);
       }
 
       return false;

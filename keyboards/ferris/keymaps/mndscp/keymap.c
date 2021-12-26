@@ -1,16 +1,16 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-  L_COLEMAK_QI,
   L_COLEMAK_QIOU,
+  L_SNUG,
   L_QWERTY,
   L_DONTSTARVE,
   L_NUMPAD,
   L_NAVIGATION,
   L_SYMBOL,
   L_FUNCTION,
-  L_CAPS,
   L_QIOUCAPS,
+  L_SNUGCAPS,
   L_Q,
   L_A,
   L_Z,
@@ -33,7 +33,7 @@ enum layers {
 #define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LT_A      LT(L_A, KC_A)
 #define LT_C      LT(L_NUMPAD, KC_C)
-#define LT_D      LT(L_C, KC_D)
+#define LT_D      LT(L_NUMPAD, KC_D)
 #define LT_I      LT(L_A, KC_I)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_S      LT(L_A, KC_S)
@@ -41,6 +41,7 @@ enum layers {
 #define LT_X      LT(L_Q, KC_X)
 #define LT_Y      LT(L_Z, KC_Y)
 #define LT_Z      LT(L_Z, KC_Z)
+#define LT_ZZ     LT(L_Q, KC_Z)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
@@ -78,18 +79,17 @@ enum layers {
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [L_COLEMAK_QI] = LAYOUT_wrapper(
-    _______________COLEMAK_QI_L1_______________,          _______________COLEMAK_QI_R1_______________,
-    _______________COLEMAK_QI_L2_______________,          _______________COLEMAK_QI_R2_______________,
-    _______________COLEMAK_QI_L3_______________,          _______________COLEMAK_QI_R3_______________,
-                               NUM_ENT, NAV_SFT,          SYM_SPC, FUN_PLY
-  ),
-
   [L_COLEMAK_QIOU] = LAYOUT_wrapper(
     ______________COLEMAK_QIOU_L1______________,          ______________COLEMAK_QIOU_R1______________,
     ______________COLEMAK_QIOU_L2______________,          ______________COLEMAK_QIOU_R2______________,
     ______________COLEMAK_QIOU_L3______________,          ______________COLEMAK_QIOU_R3______________,
                                NUM_ENT, NAV_SFT,          SYM_SPC, FUN_PLY
+  ),
+  [L_SNUG] = LAYOUT_wrapper(
+    __________________SNUG_L1__________________,          __________________SNUG_R1__________________,
+    __________________SNUG_L2__________________,          __________________SNUG_R2__________________,
+    __________________SNUG_L3__________________,          __________________SNUG_R3__________________,
+                               _______, _______,          _______, _______
   ),
 
   [L_QWERTY] = LAYOUT_wrapper(
@@ -129,22 +129,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_FUNCTION] = LAYOUT_wrapper(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
-    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_QIOU,  M_CLMK,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_SNUG,  M_QIOU,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          KC_MPLY, XXXXXXX
-  ),
-
-  [L_CAPS] = LAYOUT_wrapper(
-    _____________COLEMAK_QI_CAPS_L1____________,          _____________COLEMAK_QI_CAPS_R1____________,
-    _____________COLEMAK_QI_CAPS_L2____________,          _____________COLEMAK_QI_CAPS_R2____________,
-    _____________COLEMAK_QI_CAPS_L3____________,          _____________COLEMAK_QI_CAPS_R3____________,
-                               _______, XXXXXXX,          XXXXXXX, _______
   ),
 
   [L_QIOUCAPS] = LAYOUT_wrapper(
     ____________COLEMAK_QIOU_CAPS_L1___________,          ____________COLEMAK_QIOU_CAPS_R1___________,
     ____________COLEMAK_QIOU_CAPS_L2___________,          ____________COLEMAK_QIOU_CAPS_R2___________,
     ____________COLEMAK_QIOU_CAPS_L3___________,          ____________COLEMAK_QIOU_CAPS_R3___________,
+                               _______, XXXXXXX,          XXXXXXX, _______
+  ),
+
+  [L_SNUGCAPS] = LAYOUT_wrapper(
+    _______________SNUG_CAPS_L1________________,          _______________SNUG_CAPS_R1________________,
+    _______________SNUG_CAPS_L1________________,          _______________SNUG_CAPS_R1________________,
+    _______________SNUG_CAPS_L1________________,          _______________SNUG_CAPS_R1________________,
                                _______, XXXXXXX,          XXXXXXX, _______
   ),
 
@@ -260,6 +260,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   //   A_is_pressed = false;
   // }
 
-  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CAPS);
+  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_SNUGCAPS);
   return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_QIOUCAPS);
 };

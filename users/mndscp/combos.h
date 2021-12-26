@@ -56,7 +56,7 @@ const uint16_t PROGMEM COMBO_OE[]         = {HC_E, SYM_SPC, COMBO_END};
 const uint16_t PROGMEM COMBO_UE[]         = {HA_I, SYM_SPC, COMBO_END};
 const uint16_t PROGMEM COMBO_SZ[]         = {KC_U, SYM_SPC, COMBO_END};
 
-// // Snu Snu
+// // Snug
 // const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_D, KC_K, COMBO_END};      // :)
 // const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_X, KC_K, COMBO_END};      // :P
 // const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_L, KC_K, COMBO_END};      // : D

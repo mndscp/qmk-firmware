@@ -59,4 +59,3 @@ bool process_adaptive_key(uint16_t keycode, const keyrecord_t *record) {
   }
   return return_state; //
 }
-

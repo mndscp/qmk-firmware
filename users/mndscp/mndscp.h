@@ -17,6 +17,7 @@
 #define HS_W      RSFT_T(KC_W)
 #define HA_S      LALT_T(KC_S)
 #define HC_D      LCTL_T(KC_D)
+#define HS_C      LSFT_T(KC_C)
 #define HS_F      LSFT_T(KC_F)
 #define HS_J      RSFT_T(KC_J)
 #define HC_K      LCTL_T(KC_K)
@@ -24,23 +25,6 @@
 
 // Layer row definitions
 // ----------------------------------------------------------------------------
-
-// Colemak-Qi
-#define _______________COLEMAK_QI_L1_______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
-#define _______________COLEMAK_QI_L2_______________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
-#define _______________COLEMAK_QI_L3_______________    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V
-
-#define _______________COLEMAK_QI_R1_______________    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT
-#define _______________COLEMAK_QI_R2_______________    KC_P,    HS_N,    HC_E,    HA_I,    KC_O
-#define _______________COLEMAK_QI_R3_______________    KC_B,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
-
-#define _____________COLEMAK_QI_CAPS_L1____________    S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K)
-#define _____________COLEMAK_QI_CAPS_L2____________    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
-#define _____________COLEMAK_QI_CAPS_L3____________    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V)
-
-#define _____________COLEMAK_QI_CAPS_R1____________    S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO
-#define _____________COLEMAK_QI_CAPS_R2____________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_O)
-#define _____________COLEMAK_QI_CAPS_R3____________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
 // Colemak-Qiou
 #define ______________COLEMAK_QIOU_L1______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
@@ -59,39 +43,22 @@
 #define ____________COLEMAK_QIOU_CAPS_R2___________    S(KC_B), S(KC_N), S(KC_E), S(KC_I), S(KC_U)
 #define ____________COLEMAK_QIOU_CAPS_R3___________    S(KC_P), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
 
-// IRST
-#define __________________IRST_L1__________________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
-#define __________________IRST_L2__________________    LT_I,    HA_R,    HC_S,    HS_T,    KC_G
-#define __________________IRST_L3__________________    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V
+// Snug
+#define __________________SNUG_L1__________________    LT_ZZ,   KC_L,    LT_D,    KC_F,    KC_V
+#define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_P
+#define __________________SNUG_L3__________________    LT_X,    KC_J,    KC_K,    KC_H,    KC_B
 
-#define __________________IRST_R1__________________    KC_J,    KC_F,    KC_U,    KC_Y,    KC_QUOT
-#define __________________IRST_R2__________________    KC_P,    HS_N,    HC_E,    HA_A,    KC_O
-#define __________________IRST_R3__________________    KC_B,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH
+#define __________________SNUG_R1__________________    KC_Q,    KC_W,    KC_O,    KC_U,    KC_QUOT
+#define __________________SNUG_R2__________________    KC_M,    HS_C,    HC_E,    HA_I,    KC_A
+#define __________________SNUG_R3__________________    KC_Y,    KC_G,    KC_COMM, KC_DOT,  KC_SLSH
 
-#define ________________IRST_CAPS_L1_______________    S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K)
-#define ________________IRST_CAPS_L2_______________    S(KC_I), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
-#define ________________IRST_CAPS_L3_______________    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V)
+#define _______________SNUG_CAPS_L1________________    S(KC_Z), S(KC_L), S(KC_D), S(KC_F), S(KC_V)
+#define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_P)
+#define _______________SNUG_CAPS_L3________________    S(KC_X), S(KC_J), S(KC_K), S(KC_H), S(KC_B)
 
-#define ________________IRST_CAPS_R1_______________    S(KC_J), S(KC_F), S(KC_U), S(KC_Y), KC_DQUO
-#define ________________IRST_CAPS_R2_______________    S(KC_P), S(KC_N), S(KC_E), S(KC_A), S(KC_O)
-#define ________________IRST_CAPS_R3_______________    S(KC_B), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
-
-// Snu Snu
-#define _________________SNUSNU_L1_________________    LT_X,    KC_L,    LT_D,    KC_K,    KC_V
-#define _________________SNUSNU_L2_________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
-#define _________________SNUSNU_L3_________________    KC_Q,    KC_J,    KC_M,    KC_H,    KC_B
-
-#define _________________SNUSNU_R1_________________    KC_P,    KC_C,    KC_O,    KC_U,    KC_QUOT
-#define _________________SNUSNU_R2_________________    KC_Y,    HS_W,    HC_E,    HA_I,    KC_A
-#define _________________SNUSNU_R3_________________    KC_Z,    KC_G,    KC_COMM, KC_DOT,  KC_SLSH
-
-#define ______________SNUSNU_CAPS_L1_______________    S(KC_X), S(KC_L), S(KC_D), S(KC_K), S(KC_V)
-#define ______________SNUSNU_CAPS_L2_______________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_F)
-#define ______________SNUSNU_CAPS_L3_______________    S(KC_Q), S(KC_J), S(KC_M), S(KC_H), S(KC_B)
-
-#define ______________SNUSNU_CAPS_R1_______________    S(KC_P), S(KC_C), S(KC_O), S(KC_U), KC_DQUO
-#define ______________SNUSNU_CAPS_R2_______________    S(KC_Y), S(KC_W), S(KC_E), S(KC_I), S(KC_A)
-#define ______________SNUSNU_CAPS_R3_______________    S(KC_Z), S(KC_G), KC_LABK, KC_RABK, KC_QUES
+#define _______________SNUG_CAPS_R1________________    S(KC_Q), S(KC_W), S(KC_O), S(KC_U), KC_DQUO
+#define _______________SNUG_CAPS_R2________________    S(KC_M), S(KC_C), S(KC_E), S(KC_I), S(KC_A)
+#define _______________SNUG_CAPS_R3________________    S(KC_Y), S(KC_G), KC_LABK, KC_RABK, KC_QUES
 
 // QWERTY
 #define _________________QWERTY_L1_________________    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
