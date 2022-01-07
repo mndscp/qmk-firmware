@@ -41,7 +41,6 @@ enum layers {
 #define LT_X      LT(L_Q, KC_X)
 #define LT_Y      LT(L_Z, KC_Y)
 #define LT_Z      LT(L_Z, KC_Z)
-#define LT_ZZ     LT(L_Q, KC_Z)
 #define NAV_BSP   LT(L_NAVIGATION, KC_BSPC)
 #define NAV_ENT   LT(L_NAVIGATION, KC_ENT)
 #define NAV_MIN   LT(L_NAVIGATION, KC_MINS)
@@ -129,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_FUNCTION] = LAYOUT_wrapper(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
-    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_SNUG,  M_QIOU,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_QIOU,  M_SNUG,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          KC_MPLY, XXXXXXX
   ),
@@ -143,8 +142,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_SNUGCAPS] = LAYOUT_wrapper(
     _______________SNUG_CAPS_L1________________,          _______________SNUG_CAPS_R1________________,
-    _______________SNUG_CAPS_L1________________,          _______________SNUG_CAPS_R1________________,
-    _______________SNUG_CAPS_L1________________,          _______________SNUG_CAPS_R1________________,
+    _______________SNUG_CAPS_L2________________,          _______________SNUG_CAPS_R2________________,
+    _______________SNUG_CAPS_L3________________,          _______________SNUG_CAPS_R3________________,
                                _______, XXXXXXX,          XXXXXXX, _______
   ),
 
@@ -260,6 +259,6 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   //   A_is_pressed = false;
   // }
 
-  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_SNUGCAPS);
-  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_QIOUCAPS);
+  return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_SNUGCAPS);
+  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_QIOUCAPS);
 };

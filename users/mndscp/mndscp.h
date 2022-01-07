@@ -26,6 +26,23 @@
 // Layer row definitions
 // ----------------------------------------------------------------------------
 
+// Snug
+#define __________________SNUG_L1__________________    LT_X,    KC_L,    LT_D,    KC_F,    KC_B
+#define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_P
+#define __________________SNUG_L3__________________    LT_Z,    KC_J,    KC_K,    KC_H,    KC_V
+
+#define __________________SNUG_R1__________________    KC_Y,    KC_W,    KC_O,    KC_U,    KC_QUOT
+#define __________________SNUG_R2__________________    KC_M,    HS_C,    HC_E,    HA_I,    KC_A
+#define __________________SNUG_R3__________________    KC_Q,    KC_G,    KC_COMM, KC_DOT,  LT_SLSH
+
+#define _______________SNUG_CAPS_L1________________    S(KC_X), S(KC_L), S(KC_D), S(KC_F), S(KC_B)
+#define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_P)
+#define _______________SNUG_CAPS_L3________________    S(KC_Z), S(KC_J), S(KC_K), S(KC_H), S(KC_V)
+
+#define _______________SNUG_CAPS_R1________________    S(KC_Y), S(KC_W), S(KC_O), S(KC_U), KC_DQUO
+#define _______________SNUG_CAPS_R2________________    S(KC_M), S(KC_C), S(KC_E), S(KC_I), S(KC_A)
+#define _______________SNUG_CAPS_R3________________    S(KC_Q), S(KC_G), KC_LABK, KC_RABK, KC_QUES
+
 // Colemak-Qiou
 #define ______________COLEMAK_QIOU_L1______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
 #define ______________COLEMAK_QIOU_L2______________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
@@ -42,23 +59,6 @@
 #define ____________COLEMAK_QIOU_CAPS_R1___________    S(KC_J), S(KC_F), S(KC_O), S(KC_Y), KC_DQUO
 #define ____________COLEMAK_QIOU_CAPS_R2___________    S(KC_B), S(KC_N), S(KC_E), S(KC_I), S(KC_U)
 #define ____________COLEMAK_QIOU_CAPS_R3___________    S(KC_P), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
-
-// Snug
-#define __________________SNUG_L1__________________    LT_ZZ,   KC_L,    LT_D,    KC_F,    KC_V
-#define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_P
-#define __________________SNUG_L3__________________    LT_X,    KC_J,    KC_K,    KC_H,    KC_B
-
-#define __________________SNUG_R1__________________    KC_Q,    KC_W,    KC_O,    KC_U,    KC_QUOT
-#define __________________SNUG_R2__________________    KC_M,    HS_C,    HC_E,    HA_I,    KC_A
-#define __________________SNUG_R3__________________    KC_Y,    KC_G,    KC_COMM, KC_DOT,  KC_SLSH
-
-#define _______________SNUG_CAPS_L1________________    S(KC_Z), S(KC_L), S(KC_D), S(KC_F), S(KC_V)
-#define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_P)
-#define _______________SNUG_CAPS_L3________________    S(KC_X), S(KC_J), S(KC_K), S(KC_H), S(KC_B)
-
-#define _______________SNUG_CAPS_R1________________    S(KC_Q), S(KC_W), S(KC_O), S(KC_U), KC_DQUO
-#define _______________SNUG_CAPS_R2________________    S(KC_M), S(KC_C), S(KC_E), S(KC_I), S(KC_A)
-#define _______________SNUG_CAPS_R3________________    S(KC_Y), S(KC_G), KC_LABK, KC_RABK, KC_QUES
 
 // QWERTY
 #define _________________QWERTY_L1_________________    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
