@@ -27,21 +27,21 @@
 // ----------------------------------------------------------------------------
 
 // Snug
-#define __________________SNUG_L1__________________    LT_X,    KC_L,    LT_D,    KC_F,    KC_B
-#define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_P
+#define __________________SNUG_L1__________________    LT_X,    KC_L,    LT_D,    KC_M,    KC_B
+#define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
 #define __________________SNUG_L3__________________    LT_Z,    KC_J,    KC_K,    KC_H,    KC_V
 
-#define __________________SNUG_R1__________________    KC_Y,    KC_W,    KC_O,    KC_U,    KC_QUOT
-#define __________________SNUG_R2__________________    KC_M,    HS_C,    HC_E,    HA_I,    KC_A
-#define __________________SNUG_R3__________________    KC_Q,    KC_G,    KC_COMM, KC_DOT,  LT_SLSH
+#define __________________SNUG_R1__________________    KC_Y,    KC_W,    KC_O,    KC_U,    KC_Q
+#define __________________SNUG_R2__________________    KC_P,    HS_C,    HC_E,    HA_I,    KC_A
+#define __________________SNUG_R3__________________    KC_QUOT, KC_G,    KC_COMM, KC_DOT,  LT_SLSH
 
-#define _______________SNUG_CAPS_L1________________    S(KC_X), S(KC_L), S(KC_D), S(KC_F), S(KC_B)
-#define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_P)
+#define _______________SNUG_CAPS_L1________________    S(KC_X), S(KC_L), S(KC_D), S(KC_M), S(KC_B)
+#define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_F)
 #define _______________SNUG_CAPS_L3________________    S(KC_Z), S(KC_J), S(KC_K), S(KC_H), S(KC_V)
 
-#define _______________SNUG_CAPS_R1________________    S(KC_Y), S(KC_W), S(KC_O), S(KC_U), KC_DQUO
-#define _______________SNUG_CAPS_R2________________    S(KC_M), S(KC_C), S(KC_E), S(KC_I), S(KC_A)
-#define _______________SNUG_CAPS_R3________________    S(KC_Q), S(KC_G), KC_LABK, KC_RABK, KC_QUES
+#define _______________SNUG_CAPS_R1________________    S(KC_Y), S(KC_W), S(KC_O), S(KC_U), S(KC_Q)
+#define _______________SNUG_CAPS_R2________________    S(KC_P), S(KC_C), S(KC_E), S(KC_I), S(KC_A)
+#define _______________SNUG_CAPS_R3________________    KC_DQUO, S(KC_G), KC_LABK, KC_RABK, KC_QUES
 
 // Colemak-Qiou
 #define ______________COLEMAK_QIOU_L1______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
@@ -72,7 +72,7 @@
 // Navigation
 #define _______________NAVIGATION_L1_______________    KC_PSCR, BACKTAB, KC_SPC,  KC_TAB,  _______
 #define _______________NAVIGATION_L2_______________    KC_LCTL, ALT_ESC, CTL_BSP, SFT_ENT, KC_PGUP
-#define _______________NAVIGATION_L3_______________    C(KC_S), C(KC_A), C(KC_Z), KC_DEL,  KC_PGDN
+#define _______________NAVIGATION_L3_______________    C(KC_S), C(KC_Y), C(KC_Z), KC_DEL,  KC_PGDN
 
 #define _______________NAVIGATION_R1_______________    _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO
 #define _______________NAVIGATION_R2_______________    KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END

@@ -52,9 +52,9 @@ enum combos {
 // const uint16_t PROGMEM COMBO_SZ[]         = {KC_U, SYM_SPC, COMBO_END};
 
 // Snug
-const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_D, KC_F, COMBO_END};      // :)
-const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_X, KC_F, COMBO_END};      // :P
-const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_L, KC_F, COMBO_END};      // : D
+const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_D, KC_M, COMBO_END};      // :)
+const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_X, KC_M, COMBO_END};      // :P
+const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_L, KC_M, COMBO_END};      // : D
 const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_L, LT_D, COMBO_END};      // :D
 const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_V, COMBO_END};      // ^_^
 const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_G, KC_COMM, COMBO_END};   // " = "
@@ -63,7 +63,7 @@ const uint16_t PROGMEM COMBO_COPY[]       = {KC_J, KC_H, COMBO_END};
 const uint16_t PROGMEM COMBO_COPYALL[]    = {LT_Z, KC_H, COMBO_END};
 const uint16_t PROGMEM COMBO_CUT[]        = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTE[]      = {KC_K, KC_H, COMBO_END};
-const uint16_t PROGMEM COMBO_PASTEALL[]   = {KC_H, KC_B, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTEALL[]   = {KC_H, KC_V, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_H, NAV_SFT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_K, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_X, KC_L, COMBO_END};
