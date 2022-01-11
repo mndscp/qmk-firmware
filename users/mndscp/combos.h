@@ -24,6 +24,8 @@ enum combos {
   C_SELECTALL,
   C_ESCAPE,
   C_ESCAPE2,
+  C_DELWORD,
+  C_RELOAD,
   // C_AE,
   // C_OE,
   // C_UE,
@@ -56,7 +58,7 @@ const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_D, KC_M, COMBO_END};      // :)
 const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_X, KC_M, COMBO_END};      // :P
 const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_L, KC_M, COMBO_END};      // : D
 const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_L, LT_D, COMBO_END};      // :D
-const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_V, COMBO_END};      // ^_^
+const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_L, KC_B, COMBO_END};      // ^_^
 const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_G, KC_COMM, COMBO_END};   // " = "
 const uint16_t PROGMEM COMBO_FATARROW[]   = {KC_COMM, KC_DOT, COMBO_END}; // " => "
 const uint16_t PROGMEM COMBO_COPY[]       = {KC_J, KC_H, COMBO_END};
@@ -68,6 +70,8 @@ const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_H, NAV_SFT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_K, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_X, KC_L, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE2[]    = {LT_S, HS_N, COMBO_END};
+const uint16_t PROGMEM COMBO_DELWORD[]    = {HS_C, KC_A, COMBO_END};
+const uint16_t PROGMEM COMBO_RELOAD[]     = {HA_R, NAV_SFT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
@@ -91,7 +95,9 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_PASTEANDGO] = COMBO_ACTION(COMBO_PASTEANDGO),
   [C_SELECTALL]  = COMBO_ACTION(COMBO_SELECTALL),
   [C_ESCAPE]     = COMBO_ACTION(COMBO_ESCAPE),
-  [C_ESCAPE2]     = COMBO_ACTION(COMBO_ESCAPE2),
+  [C_ESCAPE2]    = COMBO_ACTION(COMBO_ESCAPE2),
+  [C_DELWORD]    = COMBO_ACTION(COMBO_DELWORD),
+  [C_RELOAD]     = COMBO_ACTION(COMBO_RELOAD),
   // [C_AE]         = COMBO_ACTION(COMBO_AE),
   // [C_OE]         = COMBO_ACTION(COMBO_OE),
   // [C_UE]         = COMBO_ACTION(COMBO_UE),
@@ -210,6 +216,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
     case C_ESCAPE2:
       if (pressed) tap_code16(KC_ESC);
+      break;
+    case C_DELWORD:
+      if (pressed) tap_code16(C(KC_BSPC));
+      break;
+    case C_RELOAD:
+      if (pressed) tap_code16(C(KC_R));
       break;
     // case C_AE:
     //   if (pressed) {

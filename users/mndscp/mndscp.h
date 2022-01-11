@@ -15,6 +15,7 @@
 #define HA_A      LALT_T(KC_A)
 #define HC_T      LCTL_T(KC_T)
 #define HS_W      RSFT_T(KC_W)
+#define HS_G      RSFT_T(KC_G)
 #define HA_S      LALT_T(KC_S)
 #define HC_D      LCTL_T(KC_D)
 #define HS_C      LSFT_T(KC_C)
@@ -26,7 +27,6 @@
 // Layer row definitions
 // ----------------------------------------------------------------------------
 
-// Snug
 #define __________________SNUG_L1__________________    LT_X,    KC_L,    LT_D,    KC_M,    KC_B
 #define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
 #define __________________SNUG_L3__________________    LT_Z,    KC_J,    KC_K,    KC_H,    KC_V
@@ -34,6 +34,14 @@
 #define __________________SNUG_R1__________________    KC_Y,    KC_W,    KC_O,    KC_U,    KC_Q
 #define __________________SNUG_R2__________________    KC_P,    HS_C,    HC_E,    HA_I,    KC_A
 #define __________________SNUG_R3__________________    KC_QUOT, KC_G,    KC_COMM, KC_DOT,  LT_SLSH
+
+#define _________________SNUGX_L1__________________    LT_X,    KC_L,    LT_D,    KC_M,    KC_B
+#define _________________SNUGX_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
+#define _________________SNUGX_L3__________________    LT_Z,    KC_J,    KC_K,    KC_H,    KC_V
+
+#define _________________SNUGX_R1__________________    KC_Y,    KC_W,    KC_O,    KC_U,    KC_Q
+#define _________________SNUGX_R2__________________    KC_P,    HS_G,    HC_E,    HA_I,    KC_A
+#define _________________SNUGX_R3__________________    KC_QUOT, KC_C,    KC_COMM, KC_DOT,  LT_SLSH
 
 #define _______________SNUG_CAPS_L1________________    S(KC_X), S(KC_L), S(KC_D), S(KC_M), S(KC_B)
 #define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_F)

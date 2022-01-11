@@ -3,6 +3,7 @@
 enum layers {
   L_COLEMAK_QIOU,
   L_SNUG,
+  L_SNUGX,
   L_QWERTY,
   L_DONTSTARVE,
   L_NUMPAD,
@@ -84,10 +85,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ______________COLEMAK_QIOU_L3______________,          ______________COLEMAK_QIOU_R3______________,
                                NUM_ENT, NAV_SFT,          SYM_SPC, FUN_PLY
   ),
+
   [L_SNUG] = LAYOUT_wrapper(
     __________________SNUG_L1__________________,          __________________SNUG_R1__________________,
     __________________SNUG_L2__________________,          __________________SNUG_R2__________________,
     __________________SNUG_L3__________________,          __________________SNUG_R3__________________,
+                               _______, _______,          _______, _______
+  ),
+
+  [L_SNUGX] = LAYOUT_wrapper(
+    _________________SNUGX_L1__________________,          _________________SNUGX_R1__________________,
+    _________________SNUGX_L2__________________,          _________________SNUGX_R2__________________,
+    _________________SNUGX_L3__________________,          _________________SNUGX_R3__________________,
                                _______, _______,          _______, _______
   ),
 
@@ -128,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_FUNCTION] = LAYOUT_wrapper(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
-    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_QIOU,  M_SNUG,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_SNUX,  M_SNUG,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          KC_MPLY, XXXXXXX
   ),

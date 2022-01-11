@@ -5,6 +5,7 @@ enum macros {
   M_QIOU = SAFE_RANGE,
   M_QWRT,
   M_SNUG,
+  M_SNUX,
   M_AE,
   M_OE,
   M_UE,
@@ -24,10 +25,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
 
       break;
-    case M_QIOU:
+    case M_SNUX:
       if (record->event.pressed) {
         tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_COLEMAK_QIOU);
+        set_single_persistent_default_layer(L_SNUGX);
       }
 
       return false;

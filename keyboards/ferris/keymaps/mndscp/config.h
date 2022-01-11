@@ -1,7 +1,7 @@
 #pragma once
 
 #define ADAPTIVE_TERM 1200
-#define COMBO_COUNT 16
+#define COMBO_COUNT 18
 #define COMBO_STRICT_TIMER
 #define COMBO_TERM 35
 #define IGNORE_MOD_TAP_INTERRUPT
