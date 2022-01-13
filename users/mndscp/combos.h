@@ -70,7 +70,7 @@ const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_H, NAV_SFT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_K, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_X, KC_L, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE2[]    = {LT_S, HS_N, COMBO_END};
-const uint16_t PROGMEM COMBO_DELWORD[]    = {HS_C, KC_A, COMBO_END};
+const uint16_t PROGMEM COMBO_DELWORD[]    = {HS_G, KC_A, COMBO_END};
 const uint16_t PROGMEM COMBO_RELOAD[]     = {HA_R, NAV_SFT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
