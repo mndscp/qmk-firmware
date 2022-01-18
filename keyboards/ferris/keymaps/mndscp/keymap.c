@@ -38,6 +38,7 @@ enum layers {
 #define LT_I      LT(L_A, KC_I)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_S      LT(L_A, KC_S)
+#define LT_MINS   LT(L_SLSH, KC_MINS)
 #define LT_SLSH   LT(L_SLSH, KC_SLSH)
 #define LT_X      LT(L_Q, KC_X)
 #define LT_Y      LT(L_Z, KC_Y)

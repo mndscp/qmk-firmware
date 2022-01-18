@@ -36,20 +36,20 @@
 #define __________________SNUG_R3__________________    KC_QUOT, KC_G,    KC_COMM, KC_DOT,  LT_SLSH
 
 #define _________________SNUGX_L1__________________    LT_X,    KC_L,    LT_D,    KC_M,    KC_B
-#define _________________SNUGX_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
-#define _________________SNUGX_L3__________________    LT_Z,    KC_J,    KC_K,    KC_H,    KC_V
+#define _________________SNUGX_L2__________________    LT_S,    HA_R,    HC_T,    HS_C,    KC_G
+#define _________________SNUGX_L3__________________    LT_Z,    KC_J,    KC_K,    KC_W,    KC_V
 
-#define _________________SNUGX_R1__________________    KC_Y,    KC_W,    KC_O,    KC_U,    KC_Q
-#define _________________SNUGX_R2__________________    KC_P,    HS_G,    HC_E,    HA_I,    KC_A
-#define _________________SNUGX_R3__________________    KC_QUOT, KC_C,    KC_COMM, KC_DOT,  LT_SLSH
+#define _________________SNUGX_R1__________________    KC_Y,    KC_F,    KC_O,    KC_U,    KC_QUOT
+#define _________________SNUGX_R2__________________    KC_P,    HS_N,    HC_E,    HA_I,    KC_A
+#define _________________SNUGX_R3__________________    KC_Q,    KC_H,    KC_COMM, KC_DOT,  LT_MINS
 
 #define _______________SNUG_CAPS_L1________________    S(KC_X), S(KC_L), S(KC_D), S(KC_M), S(KC_B)
-#define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_N), S(KC_F)
-#define _______________SNUG_CAPS_L3________________    S(KC_Z), S(KC_J), S(KC_K), S(KC_H), S(KC_V)
+#define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_C), S(KC_G)
+#define _______________SNUG_CAPS_L3________________    S(KC_Z), S(KC_J), S(KC_K), S(KC_W), S(KC_V)
 
-#define _______________SNUG_CAPS_R1________________    S(KC_Y), S(KC_W), S(KC_O), S(KC_U), S(KC_Q)
-#define _______________SNUG_CAPS_R2________________    S(KC_P), S(KC_C), S(KC_E), S(KC_I), S(KC_A)
-#define _______________SNUG_CAPS_R3________________    KC_DQUO, S(KC_G), KC_LABK, KC_RABK, KC_QUES
+#define _______________SNUG_CAPS_R1________________    S(KC_Y), S(KC_F), S(KC_O), S(KC_U), KC_DQUO
+#define _______________SNUG_CAPS_R2________________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_A)
+#define _______________SNUG_CAPS_R3________________    S(KC_Q), S(KC_H), KC_LABK, KC_RABK, KC_UNDS
 
 // Colemak-Qiou
 #define ______________COLEMAK_QIOU_L1______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
@@ -89,7 +89,7 @@
 // Symbols
 #define _________________SYMBOL_L1_________________    KC_ASTR, KC_AT,   KC_EXLM, KC_DQUO, KC_LCBR
 #define _________________SYMBOL_L2_________________    KC_SCLN, KC_COLN, KC_QUES, SFT_QUO, KC_LPRN
-#define _________________SYMBOL_L3_________________    KC_BSLS, KC_PIPE, KC_MINS, KC_GRV,  KC_LBRC
+#define _________________SYMBOL_L3_________________    KC_BSLS, KC_PIPE, KC_SLSH, KC_GRV,  KC_LBRC
 
 #define _________________SYMBOL_R1_________________    KC_RCBR, KC_DLR,  KC_PERC, KC_HASH, KC_AMPR
 #define _________________SYMBOL_R2_________________    KC_RPRN, M_AE,    M_OE,    M_UE,    M_SZ
