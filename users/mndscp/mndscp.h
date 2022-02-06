@@ -1,7 +1,6 @@
 // Homerow mods
 // ----------------------------------------------------------------------------
 
-// Colemak
 #define HG_A      LGUI_T(KC_A)
 #define HA_R      LALT_T(KC_R)
 #define HC_S      LCTL_T(KC_S)
@@ -10,8 +9,6 @@
 #define HC_E      LCTL_T(KC_E)
 #define HA_I      LALT_T(KC_I)
 #define HG_O      LGUI_T(KC_O)
-
-// Other layouts
 #define HA_A      LALT_T(KC_A)
 #define HC_T      LCTL_T(KC_T)
 #define HS_W      RSFT_T(KC_W)
@@ -28,20 +25,12 @@
 // ----------------------------------------------------------------------------
 
 #define __________________SNUG_L1__________________    LT_X,    KC_L,    LT_D,    KC_M,    KC_B
-#define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_N,    KC_F
-#define __________________SNUG_L3__________________    LT_Z,    KC_J,    KC_K,    KC_H,    KC_V
+#define __________________SNUG_L2__________________    LT_S,    HA_R,    HC_T,    HS_C,    KC_G
+#define __________________SNUG_L3__________________    LT_Z,    KC_J,    KC_K,    KC_W,    KC_V
 
-#define __________________SNUG_R1__________________    KC_Y,    KC_W,    KC_O,    KC_U,    KC_Q
-#define __________________SNUG_R2__________________    KC_P,    HS_C,    HC_E,    HA_I,    KC_A
-#define __________________SNUG_R3__________________    KC_QUOT, KC_G,    KC_COMM, KC_DOT,  LT_SLSH
-
-#define _________________SNUGX_L1__________________    LT_X,    KC_L,    LT_D,    KC_M,    KC_B
-#define _________________SNUGX_L2__________________    LT_S,    HA_R,    HC_T,    HS_C,    KC_G
-#define _________________SNUGX_L3__________________    LT_Z,    KC_J,    KC_K,    KC_W,    KC_V
-
-#define _________________SNUGX_R1__________________    KC_Y,    KC_F,    KC_O,    KC_U,    KC_QUOT
-#define _________________SNUGX_R2__________________    KC_P,    HS_N,    HC_E,    HA_I,    KC_A
-#define _________________SNUGX_R3__________________    KC_Q,    KC_H,    KC_COMM, KC_DOT,  LT_MINS
+#define __________________SNUG_R1__________________    KC_Y,    KC_F,    KC_O,    KC_U,    KC_QUOT
+#define __________________SNUG_R2__________________    KC_P,    HS_N,    HC_E,    HA_I,    KC_A
+#define __________________SNUG_R3__________________    KC_Q,    KC_H,    KC_COMM, KC_DOT,  LT_MINS
 
 #define _______________SNUG_CAPS_L1________________    S(KC_X), S(KC_L), S(KC_D), S(KC_M), S(KC_B)
 #define _______________SNUG_CAPS_L2________________    S(KC_S), S(KC_R), S(KC_T), S(KC_C), S(KC_G)
@@ -51,22 +40,22 @@
 #define _______________SNUG_CAPS_R2________________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_A)
 #define _______________SNUG_CAPS_R3________________    S(KC_Q), S(KC_H), KC_LABK, KC_RABK, KC_UNDS
 
-// Colemak-Qiou
-#define ______________COLEMAK_QIOU_L1______________    LT_Q,    KC_L,    LT_C,    KC_M,    KC_K
-#define ______________COLEMAK_QIOU_L2______________    LT_A,    HA_R,    HC_S,    HS_T,    KC_G
-#define ______________COLEMAK_QIOU_L3______________    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V
+// Crush
+#define __________________CRUSH_L1_________________    LT_Q,    KC_L,    LT_K,    KC_M,    KC_B
+#define __________________CRUSH_L2_________________    LT_C,    HA_R,    HC_S,    HS_T,    KC_G
+#define __________________CRUSH_L3_________________    LT_Z,    KC_X,    KC_W,    KC_D,    KC_V
 
-#define ______________COLEMAK_QIOU_R1______________    KC_J,    KC_F,    KC_O,    KC_Y,    KC_QUOT
-#define ______________COLEMAK_QIOU_R2______________    KC_B,    HS_N,    HC_E,    HA_I,    KC_U
-#define ______________COLEMAK_QIOU_R3______________    KC_P,    KC_H,    KC_COMM, KC_DOT,  LT_SLSH
+#define __________________CRUSH_R1_________________    KC_Y,    KC_F,    KC_O,    KC_U,    KC_QUOT
+#define __________________CRUSH_R2_________________    KC_P,    HS_N,    HC_E,    HA_I,    KC_A
+#define __________________CRUSH_R3_________________    KC_J,    KC_H,    KC_COMM, KC_DOT,  LT_MINS
 
-#define ____________COLEMAK_QIOU_CAPS_L1___________    S(KC_Q), S(KC_L), S(KC_C), S(KC_M), S(KC_K)
-#define ____________COLEMAK_QIOU_CAPS_L2___________    S(KC_A), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
-#define ____________COLEMAK_QIOU_CAPS_L3___________    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V)
+#define _______________CRUSH_CAPS_L1_______________    S(KC_Q), S(KC_L), S(KC_K), S(KC_M), S(KC_B)
+#define _______________CRUSH_CAPS_L2_______________    S(KC_C), S(KC_R), S(KC_S), S(KC_T), S(KC_G)
+#define _______________CRUSH_CAPS_L3_______________    S(KC_Z), S(KC_X), S(KC_W), S(KC_D), S(KC_V)
 
-#define ____________COLEMAK_QIOU_CAPS_R1___________    S(KC_J), S(KC_F), S(KC_O), S(KC_Y), KC_DQUO
-#define ____________COLEMAK_QIOU_CAPS_R2___________    S(KC_B), S(KC_N), S(KC_E), S(KC_I), S(KC_U)
-#define ____________COLEMAK_QIOU_CAPS_R3___________    S(KC_P), S(KC_H), KC_MINS, KC_EXLM, KC_QUES
+#define _______________CRUSH_CAPS_R1_______________    S(KC_Y), S(KC_F), S(KC_O), S(KC_U), KC_DQUO
+#define _______________CRUSH_CAPS_R2_______________    S(KC_P), S(KC_N), S(KC_E), S(KC_I), S(KC_A)
+#define _______________CRUSH_CAPS_R3_______________    S(KC_J), S(KC_H), KC_LABK, KC_RABK, KC_UNDS
 
 // QWERTY
 #define _________________QWERTY_L1_________________    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T

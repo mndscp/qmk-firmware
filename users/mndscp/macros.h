@@ -2,10 +2,9 @@
 // ----------------------------------------------------------------------------
 
 enum macros {
-  M_QIOU = SAFE_RANGE,
-  M_QWRT,
+  M_QWRT = SAFE_RANGE,
+  M_CRSH,
   M_SNUG,
-  M_SNUX,
   M_AE,
   M_OE,
   M_UE,
@@ -18,25 +17,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
 
   switch (keycode) {
-    case NAV_SFT:
+    case SYM_SFT:
       if (record->tap.count && record->event.pressed) {
         add_oneshot_mods(MOD_BIT(KC_LSFT));
         return false;
       }
 
       break;
-    case M_SNUX:
-      if (record->event.pressed) {
-        tap_code16(KC_HAEN);
-        set_single_persistent_default_layer(L_SNUGX);
-      }
-
-      return false;
-      break;
     case M_SNUG:
       if (record->event.pressed) {
         tap_code16(KC_HAEN);
         set_single_persistent_default_layer(L_SNUG);
+      }
+
+      return false;
+      break;
+    case M_CRSH:
+      if (record->event.pressed) {
+        tap_code16(KC_HAEN);
+        set_single_persistent_default_layer(L_CRUSH);
       }
 
       return false;

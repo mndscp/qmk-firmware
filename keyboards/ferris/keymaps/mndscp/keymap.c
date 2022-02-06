@@ -1,25 +1,24 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-  L_COLEMAK_QIOU,
   L_SNUG,
-  L_SNUGX,
+  L_CRUSH,
   L_QWERTY,
   L_DONTSTARVE,
   L_NUMPAD,
   L_NAVIGATION,
   L_SYMBOL,
   L_FUNCTION,
-  L_QIOUCAPS,
   L_SNUGCAPS,
+  L_CRUSHCAPS,
   L_Q,
   L_A,
+  L_B,
   L_Z,
   L_C,
   L_SLSH,
 };
 
-// Mod and Layer keys
 #define ALT_BSP   LALT_T(KC_BSPC)
 #define ALT_DEL   LALT_T(KC_DEL)
 #define ALT_ESC   LALT_T(KC_ESC)
@@ -33,8 +32,11 @@ enum layers {
 #define FUN_PLY   LT(L_FUNCTION, KC_MPLY)
 #define FUN_TAB   LT(L_FUNCTION, KC_TAB)
 #define LT_A      LT(L_A, KC_A)
-#define LT_C      LT(L_NUMPAD, KC_C)
+#define LT_C      LT(L_A, KC_C)
 #define LT_D      LT(L_NUMPAD, KC_D)
+#define LT_B      LT(L_NUMPAD, KC_B)
+#define LT_G      LT(L_NUMPAD, KC_G)
+#define LT_K      LT(L_NUMPAD, KC_K)
 #define LT_I      LT(L_A, KC_I)
 #define LT_Q      LT(L_Q, KC_Q)
 #define LT_S      LT(L_A, KC_S)
@@ -61,6 +63,7 @@ enum layers {
 #define SFT_SPC   LSFT_T(KC_SPC)
 #define SFT_TAB   LSFT_T(KC_TAB)
 #define SYM_ESC   LT(L_SYMBOL, KC_ESC)
+#define SYM_SFT   LT(L_SYMBOL, KC_LSFT)
 #define SYM_SPC   LT(L_SYMBOL, KC_SPC)
 #define NAV_SFT   LT(L_NAVIGATION, XXXXXXX)
 
@@ -80,24 +83,17 @@ enum layers {
 #define LAYOUT_wrapper(...) LAYOUT(__VA_ARGS__)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [L_COLEMAK_QIOU] = LAYOUT_wrapper(
-    ______________COLEMAK_QIOU_L1______________,          ______________COLEMAK_QIOU_R1______________,
-    ______________COLEMAK_QIOU_L2______________,          ______________COLEMAK_QIOU_R2______________,
-    ______________COLEMAK_QIOU_L3______________,          ______________COLEMAK_QIOU_R3______________,
-                               NUM_ENT, NAV_SFT,          SYM_SPC, FUN_PLY
-  ),
-
   [L_SNUG] = LAYOUT_wrapper(
     __________________SNUG_L1__________________,          __________________SNUG_R1__________________,
     __________________SNUG_L2__________________,          __________________SNUG_R2__________________,
     __________________SNUG_L3__________________,          __________________SNUG_R3__________________,
-                               _______, _______,          _______, _______
+                               NUM_ENT, NAV_SPC,          SYM_SFT, FUN_PLY
   ),
 
-  [L_SNUGX] = LAYOUT_wrapper(
-    _________________SNUGX_L1__________________,          _________________SNUGX_R1__________________,
-    _________________SNUGX_L2__________________,          _________________SNUGX_R2__________________,
-    _________________SNUGX_L3__________________,          _________________SNUGX_R3__________________,
+  [L_CRUSH] = LAYOUT_wrapper(
+    __________________CRUSH_L1_________________,          __________________CRUSH_R1_________________,
+    __________________CRUSH_L2_________________,          __________________CRUSH_R2_________________,
+    __________________CRUSH_L3_________________,          __________________CRUSH_R3_________________,
                                _______, _______,          _______, _______
   ),
 
@@ -138,22 +134,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_FUNCTION] = LAYOUT_wrapper(
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,           RESET,   KC_F15,  KC_F16,  KC_F17,  LOCK,
-    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_SNUX,  M_SNUG,  M_QWRT,  DF_DST,  _______,
+    _______, KC_F4,   KC_F5,   KC_F6,   KC_F11,           M_SNUG,  M_CRSH,  M_QWRT,  DF_DST,  _______,
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F12,           _______, ZOOMOUT, C(KC_0), ZOOMIN,  _______,
                                _______, _______,          KC_MPLY, XXXXXXX
-  ),
-
-  [L_QIOUCAPS] = LAYOUT_wrapper(
-    ____________COLEMAK_QIOU_CAPS_L1___________,          ____________COLEMAK_QIOU_CAPS_R1___________,
-    ____________COLEMAK_QIOU_CAPS_L2___________,          ____________COLEMAK_QIOU_CAPS_R2___________,
-    ____________COLEMAK_QIOU_CAPS_L3___________,          ____________COLEMAK_QIOU_CAPS_R3___________,
-                               _______, XXXXXXX,          XXXXXXX, _______
   ),
 
   [L_SNUGCAPS] = LAYOUT_wrapper(
     _______________SNUG_CAPS_L1________________,          _______________SNUG_CAPS_R1________________,
     _______________SNUG_CAPS_L2________________,          _______________SNUG_CAPS_R2________________,
     _______________SNUG_CAPS_L3________________,          _______________SNUG_CAPS_R3________________,
+                               _______, XXXXXXX,          XXXXXXX, _______
+  ),
+
+  [L_CRUSHCAPS] = LAYOUT_wrapper(
+    _______________CRUSH_CAPS_L1_______________,          _______________CRUSH_CAPS_R1_______________,
+    _______________CRUSH_CAPS_L2_______________,          _______________CRUSH_CAPS_R2_______________,
+    _______________CRUSH_CAPS_L3_______________,          _______________CRUSH_CAPS_R3_______________,
                                _______, XXXXXXX,          XXXXXXX, _______
   ),
 
@@ -173,8 +169,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_Z] = LAYOUT_wrapper(
     _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______,
-    _______, KC_BSPC, KC_UP,   KC_DEL,  _______,          _______, _______, _______, _______, _______,
-    XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, _______,          _______, _______, _______, _______, _______,
+    _______, KC_BSPC, KC_UP,   KC_DEL,  KC_HOME,          _______, _______, _______, _______, _______,
+    XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,           _______, _______, _______, _______, _______,
                                KC_LSFT, CTL_SPC,          _______, _______
   ),
 
@@ -228,7 +224,7 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     case HS_N:
     case HS_T:
     case NUM_ENT:
-    case SYM_SPC:
+    case NAV_SPC:
       return true;
     default:
       return false;
@@ -270,5 +266,5 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   // }
 
   return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_SNUGCAPS);
-  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_QIOUCAPS);
+  // return update_tri_layer_state(state, L_NAVIGATION, L_SYMBOL, L_CRUSHCAPS);
 };
