@@ -30,6 +30,7 @@ enum combos {
   C_WINTOBG,
   C_CLOSEWIN,
   C_TAB,
+  C_SPACEPLAY,
   // C_AE,
   // C_OE,
   // C_UE,
@@ -55,16 +56,17 @@ const uint16_t PROGMEM COMBO_COPYALL[]    = {LT_Z, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_CUT[]        = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTE[]      = {KC_K, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_PASTEALL[]   = {KC_W, KC_V, COMBO_END};
-const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_W, NAV_SFT, COMBO_END};
+const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_W, NAV_SPC, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_K, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_X, KC_L, COMBO_END};
 // const uint16_t PROGMEM COMBO_ESCAPE2[]    = {LT_S, HS_C, COMBO_END};
 const uint16_t PROGMEM COMBO_DELWORD[]    = {HS_N, KC_A, COMBO_END};
-const uint16_t PROGMEM COMBO_RELOAD[]     = {HA_R, NAV_SFT, COMBO_END};
+const uint16_t PROGMEM COMBO_RELOAD[]     = {HA_R, NAV_SPC, COMBO_END};
 const uint16_t PROGMEM COMBO_ALTTAB[]     = {HA_R, KC_M, COMBO_END};
 const uint16_t PROGMEM COMBO_WINTOBG[]    = {HA_R, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_CLOSEWIN[]   = {HC_T, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_TAB[]        = {HS_C, KC_G, COMBO_END};
+const uint16_t PROGMEM COMBO_SPACEPLAY[]  = {SYM_SFT, FUN_PLY, COMBO_END};
 
 // // CRST
 // const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_K, KC_M, COMBO_END};      // :)
@@ -125,6 +127,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_WINTOBG]    = COMBO_ACTION(COMBO_WINTOBG),
   [C_CLOSEWIN]   = COMBO_ACTION(COMBO_CLOSEWIN),
   [C_TAB]        = COMBO_ACTION(COMBO_TAB),
+  [C_SPACEPLAY]  = COMBO_ACTION(COMBO_SPACEPLAY),
   // [C_AE]         = COMBO_ACTION(COMBO_AE),
   // [C_OE]         = COMBO_ACTION(COMBO_OE),
   // [C_UE]         = COMBO_ACTION(COMBO_UE),
@@ -261,6 +264,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
     case C_TAB:
       if (pressed) tap_code16(KC_TAB);
+      break;
+    case C_SPACEPLAY:
+      if (pressed) {
+        tap_code16(KC_SPC);
+        tap_code16(KC_MPLY);
+      }
       break;
     // case C_AE:
     //   if (pressed) {
