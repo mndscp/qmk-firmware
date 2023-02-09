@@ -4,7 +4,7 @@
 enum layers {
   L_QWERTY,
   L_GAME,
-  L_ESC,
+//   L_ESC,
   L_TAB,
   L_NAVIGATION,
   L_NUMPAD,
@@ -26,7 +26,7 @@ enum layers {
 #define CTL_BSP   LCTL_T(KC_BSPC)
 #define CTL_ESC   LCTL_T(KC_ESC)
 #define LT_E      LT(L_NUMPAD, KC_E)
-#define LT_ESC    LT(L_ESC, KC_ESC)
+// #define LT_ESC    LT(L_ESC, KC_ESC)
 #define LT_I      LT(L_SYMBOL, KC_I)
 #define LT_TAB    LT(L_TAB, KC_TAB)
 #define LT_Z      LT(L_Z, KC_Z)
@@ -44,7 +44,6 @@ enum layers {
 #define ZOOMIN    C(KC_PLUS)
 #define ZOOMOUT   C(KC_MINS)
 
-// #include "mndscp.h"
 #include "macros.h"
 #include "combos.h"
 
@@ -127,28 +126,28 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_QWERTY] = LAYOUT_preonic_2x2u(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
+    KC_MPLY, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_BSPC,
     CPS_ESC, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_ENT,
     KC_LSFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, NUM_ENT,          NAV_SPC, SYM_SPC,          KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, NUM_ENT,          NAV_SPC, SYM_SPC,          KC_LNG1, KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
   [L_GAME] = LAYOUT_preonic_2x2u(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
+    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, _______,          KC_SPC, _______,           _______, KC_LEFT, KC_DOWN, KC_RGHT
+    _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
+    _______, _______, _______, _______,          KC_SPC, _______,           _______, KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
-  [L_ESC] = LAYOUT_preonic_2x2u(
-    XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOG,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    QK_BOOT, _______, _______, _______,          _______, _______,          _______, M_QWRT,  _______, M_GAME
-  ),
+//   [L_ESC] = LAYOUT_preonic_2x2u(
+//     XXXXXXX, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______, _______, _______, _______, _______,
+//     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOG,
+//     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+//     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+//     QK_BOOT, _______, _______, _______,          _______, _______,          _______, M_QWRT,  _______, M_GAME
+//   ),
 
   [L_TAB] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -176,26 +175,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_NUMPAD] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, BACKTAB, XXXXXXX, KC_TAB,  _______, KC_ASTR, KC_7,    KC_8,    KC_9,    KC_SLSH, _______,
+    _______, _______, BACKTAB, KC_DOT,  KC_TAB,  _______, KC_ASTR, KC_7,    KC_8,    KC_9,    KC_SLSH, _______,
     _______, _______, _______, _______, SFT_SPC, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
     _______, _______, _______, _______, _______, _______, KC_MINS, KC_1,    KC_2,    KC_3,    KC_COMM, _______,
-    _______, _______, _______, _______,          _______, KC_0,             _______, _______, _______, _______
+    _______, _______, _______, XXXXXXX,          _______, KC_0,             _______, _______, _______, _______
   ),
 
   [L_SYMBOL] = LAYOUT_preonic_2x2u(
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______, _______, _______, _______, _______,
     _______, KC_SCLN, KC_COLN, KC_QUES, KC_EXLM, KC_MINS, _______, KC_BSPC, KC_SPC,  S(KC_D), S(KC_P), _______,
-    _______, KC_LCBR, KC_LBRC, KC_LPRN, KC_RPRN, KC_RBRC, KC_RCBR, KC_MINS, _______, KC_DEL,  _______, _______,
+    _______, KC_LCBR, KC_LBRC, KC_LPRN, KC_RPRN, KC_RBRC, KC_RCBR, KC_MINS, KC_EQL,  _______, _______, _______,
     _______, _______, KC_QUOT, KC_GRV,  KC_DQUO, KC_UNDS, _______, KC_UNDS, _______, _______, _______, _______,
     _______, _______, _______, _______,          KC_ENT,  XXXXXXX,          _______, _______, _______, _______
   ),
 
   [L_Z] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, KC_UP,   _______, _______, _______, _______, _______, _______, _______, _______,
+    RGB_TOG, _______, _______, KC_UP,   _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______, _______, _______, _______, _______, _______,
     _______, XXXXXXX, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______,          KC_LCTL, _______,          _______, _______, _______, _______
+    QK_BOOT, _______, _______, _______,          KC_LCTL, _______,          _______, _______, _______, _______
   )
 };
 
@@ -208,7 +207,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HC_K:
     case LT_E:
     case LT_I:
-    case LT_ESC:
+    // case LT_ESC:
       return TAPPING_TERM + 90;
     case LT_TAB:
       return 120;
@@ -245,7 +244,7 @@ void matrix_scan_user(void) {
                 last_muse_note = muse_note;
             }
         }
-        muse_counter = (muse_counter + 1) % muse_tempo;
+        muse_counter = (muse_counter + 4) % muse_tempo;
     } else {
         if (muse_counter) {
             stop_all_notes();
@@ -264,3 +263,27 @@ void matrix_scan_user(void) {
 //       return true;
 //   }
 // }
+
+bool encoder_update_user(uint8_t index, bool clockwise) {
+    if (layer_state_is(L_NAVIGATION)) {
+        if (clockwise) {
+            tap_code16(KC_UP);
+        } else {
+            tap_code16(KC_DOWN);
+        }
+    } else if (layer_state_is(L_SYMBOL)) {
+        if (clockwise) {
+            tap_code16(C(KC_Y));
+        } else {
+            tap_code16(C(KC_Z));
+        }
+    } else {
+        if (clockwise) {
+            tap_code(KC_VOLU);
+        } else {
+            tap_code(KC_VOLD);
+        }
+    }
+
+    return false;
+}

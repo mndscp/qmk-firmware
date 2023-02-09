@@ -4,6 +4,7 @@ USER_NAME := mndscp
 BOOTMAGIC_ENABLE   = no
 COMBO_ENABLE       = yes
 CONSOLE_ENABLE     = no
+ENCODER_ENABLE     = yes
 LEADER_ENABLE      = no
 MOUSEKEY_ENABLE    = no
 RGBLIGHT_ENABLE    = yes
