@@ -131,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_BSPC,
     CPS_ESC, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_ENT,
     KC_LSFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_DEL,
-    KC_LCTL, KC_LGUI, KC_LALT, NUM_ENT,          NAV_ENT, SYM_SPC,          KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, NUM_ENT,          NAV_SPC, SYM_SPC,          KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
   [L_GAME] = LAYOUT_preonic_2x2u(
