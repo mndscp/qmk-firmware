@@ -127,76 +127,76 @@ enum layers {
 #define CAG_DOT   LCAG(KC_DOT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [L_QWERTY] = LAYOUT_preonic_2x2u(
+  [L_QWERTY] = LAYOUT_ortho_5x12(
     KC_MPLY, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,         KC_Y,    KC_U,    LT_I,    KC_O,    KC_P,    KC_BSPC,
     CPS_ESC, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,         KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_ENT,
-    KC_LCTL, KC_LGUI, KC_LALT, NUM_ENT,          NAV_SPC,      SYM_SPC,          KC_LNG1, KC_LEFT, KC_DOWN, KC_RGHT
+    KC_LCTL, KC_LGUI, KC_LALT, NUM_ENT, NUM_ENT, NAV_SPC,      SYM_SPC, KC_LNG1, KC_LNG1, KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
-  [L_GAME] = LAYOUT_preonic_2x2u(
+  [L_GAME] = LAYOUT_ortho_5x12(
     _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MPLY,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   KC_ENT,
-    _______, _______, _______, _______,          KC_SPC,       _______,          _______, KC_LEFT, KC_DOWN, KC_RGHT
+    _______, _______, _______, _______, NUM_ENT, KC_SPC,       _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
-  [L_TAB] = LAYOUT_preonic_2x2u(
+  [L_TAB] = LAYOUT_ortho_5x12(
     _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______,
     XXXXXXX, CAG_Q,   CAG_W,   CAG_E,   CAG_R,   CAG_T,        CAG_Y,   CAG_U,   CAG_I,   CAG_O,   CAG_P,   _______,
     _______, CAG_A,   CAG_S,   CAG_D,   CAG_F,   CAG_G,        CAG_H,   CAG_J,   CAG_K,   CAG_L,   CAG_SCL, _______,
     _______, CAG_Z,   CAG_X,   CAG_C,   CAG_V,   CAG_B,        CAG_N,   CAG_M,   CAG_COM ,CAG_DOT, _______, _______,
-    _______, _______, _______, LCTL(S(KC_N)),    SFT_F12,      _______,          _______, _______, _______, _______
+    _______, _______, _______, LCTL(S(KC_N)),SFT_F12, _______, _______, _______, _______, _______, _______, _______
   ),
 
-  [L_CTRL] = LAYOUT_preonic_2x2u(
+  [L_CTRL] = LAYOUT_ortho_5x12(
     _______, C_1,     C_2,     C_3,     C_4,     C_5,          C_6,     C_7,     C_8,     C_9,     C_0,     _______,
     C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,          C_Y,     C_U,     C_I,     C_O,     C_P,     C_BSPC,
     XXXXXXX, C_A,     C_S,     C_D,     C_F,     C_G,          C_H,     M_AE,    M_OE,    M_UE,    M_SZ,    C_QUOT,
     _______, C_Z,     C_X,     C_C,     C_V,     C_B,          C_N,     C_M,     C_COMM,  C_DOT,   _______, C_ENT,
-    _______, _______, KC_BSPC, _______,          SFT_ENT,      _______,          _______, C_MINS,  C_0,     C_EQL
+    _______, _______, KC_BSPC, _______, NUM_ENT, SFT_ENT,      _______, _______, _______, C_MINS,  C_0,     C_EQL
   ),
 
-  [L_NAVIGATION] = LAYOUT_preonic_2x2u(
+  [L_NAVIGATION] = LAYOUT_ortho_5x12(
     KC_QUES, KC_EXLM, KC_PGUP, KC_PGDN, _______, _______,      _______, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
     KC_PSCR, C_S,     BACKTAB, KC_SPC,  KC_TAB,  A_TAB,        _______, KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO, _______,
     CTL_ESC, KC_LGUI, ALT_ESC, CTL_BSP, SFT_ENT, C_D,          KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_DQUO,
     _______, S(C_C),  C_Y,     C_Z,     KC_DEL,  S(C_D),       _______, C_C,     C_V,     C_X,     KC_QUES, _______,
-    _______, _______, _______, _______,          XXXXXXX,      _______,          _______, _______, _______, _______
+    _______, _______, _______, _______, NUM_ENT, XXXXXXX,      _______, _______, _______, _______, _______, _______
   ),
 
-  [L_NUMPAD] = LAYOUT_preonic_2x2u(
+  [L_NUMPAD] = LAYOUT_ortho_5x12(
     _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______,
     _______, _______, BACKTAB, KC_DOT,  KC_TAB,  _______,      KC_ASTR, KC_7,    KC_8,    KC_9,    KC_SLSH, _______,
     _______, _______, _______, _______, SFT_SPC, _______,      KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
     _______, _______, _______, _______, _______, _______,      KC_MINS, KC_1,    KC_2,    KC_3,    KC_COMM, _______,
-    _______, _______, _______, XXXXXXX,          _______,      KC_0,             _______, _______, _______, _______
+    _______, _______, _______, XXXXXXX, NUM_ENT, _______,      KC_0,    KC_0,    _______, _______, _______, _______
   ),
 
-  [L_SYMBOL] = LAYOUT_preonic_2x2u(
+  [L_SYMBOL] = LAYOUT_ortho_5x12(
     _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______,
     _______, KC_HASH, KC_AT,   KC_SPC,  KC_GRV,  KC_LBRC,      KC_RBRC, KC_AMPR, KC_ASTR, KC_PIPE, KC_TILD, _______,
     _______, KC_PLUS, KC_EXLM, KC_QUES, SFT_MNS, KC_LPRN,      KC_RPRN, KC_DLR,  KC_PERC, KC_CIRC, KC_DOT,  _______,
     _______, KC_BSLS, KC_COLN, KC_SLSH, KC_UNDS, KC_LCBR,      KC_RCBR, KC_LABK, KC_EQL,  KC_RABK, _______, _______,
-    _______, _______, _______, _______,          NAV_ENT,      XXXXXXX,          _______, _______, _______, _______
+    _______, _______, _______, _______, NUM_ENT, NAV_ENT,      XXXXXXX, XXXXXXX, _______, _______, _______, _______
   ),
 
-  [L_Z] = LAYOUT_preonic_2x2u(
+  [L_Z] = LAYOUT_ortho_5x12(
     _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, KC_MUTE, LOCK,
     RGB_TOG, _______, _______, KC_UP,   _______, _______,      _______, _______, _______, _______, _______, _______,
     _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______,      _______, _______, _______, _______, _______, _______,
     _______, XXXXXXX, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______,
-    QK_BOOT, _______, _______, _______,          KC_LCTL,      _______,          _______, M_QWRT,  _______, M_GAME
+    QK_BOOT, _______, _______, _______, NUM_ENT, KC_LCTL,      _______, _______, _______, M_QWRT,  _______, M_GAME
   ),
 
-  [L_CAPS] = LAYOUT_preonic_2x2u(
+  [L_CAPS] = LAYOUT_ortho_5x12(
     _______, S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),      S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), _______,
     _______, S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T),      S(KC_Y), S(KC_U), S(KC_I), S(KC_O), S(KC_P), KC_BSPC,
     _______, S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G),      S(KC_H), S(KC_J), S(KC_K), S(KC_L), KC_COLN, KC_DQUO,
     _______, S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B),      S(KC_N), S(KC_M), KC_MINS, KC_UNDS, _______, _______,
-    _______, _______, _______, _______,          XXXXXXX,      XXXXXXX,          _______, _______, _______, _______
+    _______, _______, _______, _______, NUM_ENT, XXXXXXX,      XXXXXXX, _______, _______, _______, _______, _______
   )
 };
 

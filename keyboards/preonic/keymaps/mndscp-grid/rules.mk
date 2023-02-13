@@ -1,0 +1,14 @@
+SRC += muse.c
+USER_NAME := mndscp
+
+BOOTMAGIC_ENABLE   = no
+COMBO_ENABLE       = yes
+CONSOLE_ENABLE     = no
+ENCODER_ENABLE     = yes
+LEADER_ENABLE      = no
+MOUSEKEY_ENABLE    = no
+RGBLIGHT_ENABLE    = yes
+TAP_DANCE_ENABLE   = no
+UNICODE_ENABLE     = no
+UNICODEMAP_ENABLE  = no
+VIA_ENABLE         = no
