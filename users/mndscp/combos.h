@@ -2,9 +2,9 @@
 // ----------------------------------------------------------------------------
 
 enum combos {
-//   C_SMILEY_1,
+  C_SMILEY_1,
 //   C_SMILEY_2,
-//   C_SMILEY_3,
+  C_SMILEY_3,
 //   C_SMILEY_4,
 //   C_SMILEY_5,
 //   C_SMILEY_6,
@@ -29,7 +29,7 @@ enum combos {
   C_ALTTAB,
   C_WINTOBG,
   C_CLOSEWIN,
-  C_TAB,
+//   C_TAB,
   C_SPACEPLAY,
   C_UPENTER,
   C_HOMEPATH,
@@ -49,9 +49,9 @@ enum combos {
 //   C_RABK,
 };
 
-// const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_E, KC_R, COMBO_END};      // :)
+const uint16_t PROGMEM COMBO_SMILEY_1[]   = {HS_F, KC_G, COMBO_END};      // :)
 // const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_Q, KC_R, COMBO_END};      // :P
-// const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_W, KC_R, COMBO_END};      // : D
+const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_R, KC_T, COMBO_END};      // : D
 // const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_W, LT_E, COMBO_END};      // :D
 // const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_Q, KC_T, COMBO_END};      // ^_^
 // const uint16_t PROGMEM COMBO_SMILEY_6[]   = {KC_W, KC_T, COMBO_END};      // : DDD
@@ -78,7 +78,7 @@ const uint16_t PROGMEM COMBO_RELOAD[]     = {HS_F, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_ALTTAB[]     = {HA_S, KC_V, COMBO_END};
 const uint16_t PROGMEM COMBO_WINTOBG[]    = {HA_S, KC_R, COMBO_END};
 const uint16_t PROGMEM COMBO_CLOSEWIN[]   = {HC_D, KC_V, COMBO_END};
-const uint16_t PROGMEM COMBO_TAB[]        = {HS_F, KC_G, COMBO_END};
+// const uint16_t PROGMEM COMBO_TAB[]        = {HS_F, KC_G, COMBO_END};
 const uint16_t PROGMEM COMBO_SPACEPLAY[]  = {KC_0, KC_MPLY, COMBO_END};
 const uint16_t PROGMEM COMBO_UPENTER[]    = {NAV_SPC, KC_C, COMBO_END};
 const uint16_t PROGMEM COMBO_ENTER[]      = {NAV_SPC, HS_F, COMBO_END};
@@ -100,9 +100,9 @@ const uint16_t PROGMEM COMBO_RCBR[]       = {KC_DOT, KC_COMM, COMBO_END};   // }
 // const uint16_t PROGMEM COMBO_RAKB[]       = {KC_COMM, KC_DOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-//   [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
+  [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
 //   [C_SMILEY_2]   = COMBO_ACTION(COMBO_SMILEY_2),
-//   [C_SMILEY_3]   = COMBO_ACTION(COMBO_SMILEY_3),
+  [C_SMILEY_3]   = COMBO_ACTION(COMBO_SMILEY_3),
 //   [C_SMILEY_4]   = COMBO_ACTION(COMBO_SMILEY_4),
 //   [C_SMILEY_5]   = COMBO_ACTION(COMBO_SMILEY_5),
 //   [C_SMILEY_6]   = COMBO_ACTION(COMBO_SMILEY_6),
@@ -127,7 +127,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_ALTTAB]     = COMBO_ACTION(COMBO_ALTTAB),
   [C_WINTOBG]    = COMBO_ACTION(COMBO_WINTOBG),
   [C_CLOSEWIN]   = COMBO_ACTION(COMBO_CLOSEWIN),
-  [C_TAB]        = COMBO_ACTION(COMBO_TAB),
+//   [C_TAB]        = COMBO_ACTION(COMBO_TAB),
   [C_SPACEPLAY]  = COMBO_ACTION(COMBO_SPACEPLAY),
   [C_UPENTER]    = COMBO_ACTION(COMBO_UPENTER),
   [C_HOMEPATH]   = COMBO_ACTION(COMBO_HOMEPATH),
@@ -152,13 +152,13 @@ combo_t key_combos[COMBO_COUNT] = {
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
-    // case C_SMILEY_1:
-    //   if (pressed) {
-    //     tap_code16(KC_COLN);
-    //     tap_code16(KC_RPRN);
-    //   }
+    case C_SMILEY_1:
+      if (pressed) {
+        tap_code16(KC_COLN);
+        tap_code16(KC_RPRN);
+      }
 
-    //   break;
+      break;
     // case C_SMILEY_2:
     //   if (pressed) {
     //     tap_code16(KC_COLN);
@@ -166,14 +166,14 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     //   }
 
     //   break;
-    // case C_SMILEY_3:
-    //   if (pressed) {
-    //     tap_code16(KC_COLN);
-    //     tap_code16(KC_SPC);
-    //     tap_code16(S(KC_D));
-    //   }
+    case C_SMILEY_3:
+      if (pressed) {
+        tap_code16(KC_COLN);
+        tap_code16(KC_SPC);
+        tap_code16(S(KC_D));
+      }
 
-    //   break;
+      break;
     // case C_SMILEY_4:
     //   if (pressed) {
     //     tap_code16(KC_COLN);
@@ -285,9 +285,9 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_CLOSEWIN:
       if (pressed) tap_code16(C(KC_W));
       break;
-    case C_TAB:
-      if (pressed) tap_code16(KC_TAB);
-      break;
+    // case C_TAB:
+    //   if (pressed) tap_code16(KC_TAB);
+    //   break;
     case C_SPACEPLAY:
       if (pressed) {
         tap_code16(KC_SPC);
