@@ -1,4 +1,4 @@
-SRC += muse.c
+# SRC += muse.c
 USER_NAME := mndscp
 
 BOOTMAGIC_ENABLE   = no
