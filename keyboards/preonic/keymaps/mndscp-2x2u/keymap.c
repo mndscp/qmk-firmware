@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-#include "muse.h"
+// #include "muse.h"
 
 enum layers {
   L_QWERTY,
@@ -169,9 +169,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_NUMPAD] = LAYOUT_preonic_2x2u(
     _______, _______, _______, _______, _______, _______,      _______, _______, _______, _______, _______, _______,
-    _______, _______, BACKTAB, KC_DOT,  KC_TAB,  _______,      KC_ASTR, KC_7,    KC_8,    KC_9,    KC_SLSH, _______,
-    _______, _______, _______, _______, SFT_SPC, _______,      KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
-    _______, _______, _______, _______, _______, _______,      KC_MINS, KC_1,    KC_2,    KC_3,    KC_COMM, _______,
+    _______, _______, BACKTAB, KC_DOT,  KC_TAB,  _______,      KC_PLUS, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
+    _______, _______, _______, _______, SFT_SPC, _______,      KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______,
+    _______, _______, _______, _______, _______, _______,      KC_ASTR, KC_1,    KC_2,    KC_3,    _______, _______,
     _______, _______, _______, XXXXXXX,          _______,      KC_0,             _______, _______, _______, _______
   ),
 
