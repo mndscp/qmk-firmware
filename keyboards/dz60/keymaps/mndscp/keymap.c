@@ -176,8 +176,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_NAVIGATION] = LAYOUT_64_ansi_split_bs(
     CAG_0,   CAG_1,   CAG_2,   CAG_3,   CAG_4,   CAG_5,   CAG_6,   _______, KC_ASTR, KC_LPRN, KC_RPRN, _______, _______, _______, _______,
     SFT_PSC, S(C_C),  BACKTAB, KC_SPC,  KC_TAB,  A_TAB,   A_2TAB,  KC_BSPC, KC_UP,   KC_DEL,  KC_DQUO, KC_LCBR, KC_RCBR, _______,
-    CTL_ESC, KC_LGUI, ALT_ESC, CTL_BSP, SFT_ENT, S(C_D),  KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_DQUO, _______,
-    _______, C_S,     C_Y,     C_Z,     KC_DEL,  C_D,     C_Z,     C_C,     C_V,     C_X,     KC_QUES, _______, _______, _______,
+    CTL_ESC, KC_LGUI, ALT_ESC, CTL_BSP, SFT_ENT, C_D,     KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_DQUO, _______,
+    _______, C_S,     C_Y,     C_Z,     KC_DEL,  S(C_D),  C_Z,     C_C,     C_V,     C_X,     KC_QUES, _______, _______, _______,
     _______, _______, _______,                   XXXXXXX,                                     _______, _______, _______, _______, _______
   ),
 
@@ -234,3 +234,4 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
       return false;
   }
 }
+
