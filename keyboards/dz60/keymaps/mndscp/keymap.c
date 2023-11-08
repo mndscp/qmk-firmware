@@ -224,14 +224,13 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
-bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    // case HS_F:
-    // case HS_J:
+    case HS_F:
+    case HS_J:
     case NAV_SPC:
-      return true;
+      return 0;
     default:
-      return false;
+      return QUICK_TAP_TERM;
   }
 }
-
