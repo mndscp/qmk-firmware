@@ -27,7 +27,7 @@ enum combos {
   C_DELWORD,
   C_RELOAD,
   C_ALTTAB,
-  C_WINTOBG,
+  C_GRAVE,
   C_CLOSEWIN,
   C_TAB,
   C_SPACEPLAY,
@@ -64,7 +64,7 @@ const uint16_t PROGMEM COMBO_ESCAPE[]     = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_DELWORD[]    = {HS_J, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM COMBO_RELOAD[]     = {HS_F, KC_W, COMBO_END};
 const uint16_t PROGMEM COMBO_ALTTAB[]     = {HA_S, KC_V, COMBO_END};
-const uint16_t PROGMEM COMBO_WINTOBG[]    = {HA_S, KC_R, COMBO_END};
+const uint16_t PROGMEM COMBO_GRAVE[]      = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM COMBO_CLOSEWIN[]   = {HC_D, KC_V, COMBO_END};
 const uint16_t PROGMEM COMBO_TAB[]        = {HS_F, KC_G, COMBO_END};
 const uint16_t PROGMEM COMBO_SPACEPLAY[]  = {KC_GRV, KC_MPLY, COMBO_END};
@@ -97,7 +97,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_DELWORD]    = COMBO_ACTION(COMBO_DELWORD),
   [C_RELOAD]     = COMBO_ACTION(COMBO_RELOAD),
   [C_ALTTAB]     = COMBO_ACTION(COMBO_ALTTAB),
-  [C_WINTOBG]    = COMBO_ACTION(COMBO_WINTOBG),
+  [C_GRAVE]      = COMBO_ACTION(COMBO_GRAVE),
   [C_CLOSEWIN]   = COMBO_ACTION(COMBO_CLOSEWIN),
   [C_TAB]        = COMBO_ACTION(COMBO_TAB),
   [C_SPACEPLAY]  = COMBO_ACTION(COMBO_SPACEPLAY),
@@ -236,8 +236,8 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     case C_ALTTAB:
       if (pressed) tap_code16(A(KC_TAB));
       break;
-    case C_WINTOBG:
-      if (pressed) tap_code16(A(KC_ESC));
+    case C_GRAVE:
+      if (pressed) tap_code16(KC_GRV);
       break;
     case C_CLOSEWIN:
       if (pressed) tap_code16(C(KC_W));
@@ -280,4 +280,3 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       break;
   }
 };
-
