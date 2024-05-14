@@ -30,6 +30,7 @@ enum layers {
 #define LT_TAB    LT(L_TAB, KC_TAB)
 #define LT_Z      LT(L_Z, KC_Z)
 #define NAV_SPC   LT(L_NAVIGATION, KC_SPC)
+#define OSM_SFT   OSM(MOD_LSFT)
 #define SFT_ENT   LSFT_T(KC_ENT)
 #define SFT_F12   LSFT_T(KC_F12)
 #define SFT_SPC   LSFT_T(KC_SPC)
@@ -137,7 +138,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     MO_CTRL, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_QUOT, KC_ENT,
-    KC_LSFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS, KC_UP,   KC_DEL,
+    OSM_SFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS, KC_UP,   KC_DEL,
     KC_LCTL, KC_LGUI, KC_LALT,                   NAV_SPC,                                     KC_LNG1, CAG_7,   KC_LEFT, KC_DOWN, KC_RGHT
   ),
 
@@ -216,7 +217,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case LT_E:
     case LT_I:
     case LT_ESC:
-      return TAPPING_TERM + 90;
+      return TAPPING_TERM + 100;
     case LT_TAB:
       return 120;
     default:
