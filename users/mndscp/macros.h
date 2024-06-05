@@ -3,6 +3,7 @@
 
 enum macros {
   M_QWRT = SAFE_RANGE,
+  M_CLMK,
   M_GAME,
   M_AE,
   M_OE,
@@ -30,6 +31,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case M_QWRT:
       if (record->event.pressed) {
         set_single_persistent_default_layer(L_QWERTY);
+      }
+
+      return false;
+      break;
+    case M_CLMK:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(L_CLMK);
       }
 
       return false;
