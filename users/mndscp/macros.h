@@ -3,12 +3,12 @@
 
 enum macros {
   M_QWRT = SAFE_RANGE,
-  M_CLMK,
   M_GAME,
   M_AE,
   M_OE,
   M_UE,
   M_SZ,
+  M_QENT,
   A_2TAB,
 };
 
@@ -31,13 +31,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case M_QWRT:
       if (record->event.pressed) {
         set_single_persistent_default_layer(L_QWERTY);
-      }
-
-      return false;
-      break;
-    case M_CLMK:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(L_CLMK);
       }
 
       return false;
@@ -130,6 +123,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code16(KC_TAB);
         tap_code16(KC_TAB);
         unregister_code(KC_LALT);
+      }
+
+      return false;
+      break;
+    case M_QENT:
+      if (record->event.pressed) {
+        tap_code16(KC_QUES);
+        tap_code16(KC_ENT);
       }
 
       return false;
