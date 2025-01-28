@@ -5,7 +5,7 @@ enum combos {
   C_SMILEY_1,
   C_SMILEY_2,
   C_SMILEY_3,
-  C_SMILEY_4,
+  // C_SMILEY_4,
   C_SMILEY_5,
   C_SMILEY_6,
   C_PAREN_L,
@@ -40,7 +40,7 @@ enum combos {
 const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_E, KC_R, COMBO_END};      // :)
 const uint16_t PROGMEM COMBO_SMILEY_2[]   = {KC_Q, KC_R, COMBO_END};      // :P
 const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_W, KC_R, COMBO_END};      // : D
-const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_W, LT_E, COMBO_END};      // :D
+// const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_W, LT_E, COMBO_END};      // :D
 const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_Q, KC_T, COMBO_END};      // ^_^
 const uint16_t PROGMEM COMBO_SMILEY_6[]   = {KC_W, KC_T, COMBO_END};      // : DDD
 const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_M, KC_COMM, COMBO_END};   // " = "
@@ -75,7 +75,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
   [C_SMILEY_2]   = COMBO_ACTION(COMBO_SMILEY_2),
   [C_SMILEY_3]   = COMBO_ACTION(COMBO_SMILEY_3),
-  [C_SMILEY_4]   = COMBO_ACTION(COMBO_SMILEY_4),
+  // [C_SMILEY_4]   = COMBO_ACTION(COMBO_SMILEY_4),
   [C_SMILEY_5]   = COMBO_ACTION(COMBO_SMILEY_5),
   [C_SMILEY_6]   = COMBO_ACTION(COMBO_SMILEY_6),
 //   [C_PAREN_L]    = COMBO_ACTION(COMBO_PAREN_L),
@@ -131,13 +131,13 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
       }
 
       break;
-    case C_SMILEY_4:
-      if (pressed) {
-        tap_code16(KC_COLN);
-        tap_code16(S(KC_D));
-      }
+    // case C_SMILEY_4:
+    //   if (pressed) {
+    //     tap_code16(KC_COLN);
+    //     tap_code16(S(KC_D));
+    //   }
 
-      break;
+    //   break;
     case C_SMILEY_5:
       if (pressed) {
         tap_code16(KC_CIRC);

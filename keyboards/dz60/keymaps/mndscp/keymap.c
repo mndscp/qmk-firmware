@@ -35,6 +35,7 @@ enum layers {
 #define LT_TAB    LT(L_TAB, KC_TAB)
 #define LT_Z      LT(L_Z, KC_Z)
 #define NAV_SPC   LT(L_NAVIGATION, KC_SPC)
+#define OSL_CTL   OSL(L_CTRL)
 #define OSM_SFT   OSM(MOD_LSFT)
 #define SFT_ENT   LSFT_T(KC_ENT)
 #define SFT_F12   LSFT_T(KC_F12)
@@ -143,7 +144,7 @@ enum layers {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_QWERTY] = LAYOUT_64_ansi_split_bs(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  KC_MPLY,
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  GUI_PLY,
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     MO_CTRL, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_QUOT, KC_ENT,
     OSM_SFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS, KC_UP,   KC_DEL,
@@ -151,7 +152,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_GAME] = LAYOUT_64_ansi_split_bs(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_PSCR,  KC_MPLY,
+    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_PSCR,  GUI_PLY,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS, KC_UP,   KC_DEL,
@@ -176,7 +177,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_CTRL] = LAYOUT_64_ansi_split_bs(
     _______, C_1,     C_2,     C_3,     C_4,     C_5,     C_6,     C_7,     C_8,     C_9,     C_0,     C_MINS,  C_EQL,   C_GRV,   _______,
-    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     _______, _______, _______, _______, _______, _______, _______, C_BSPC,
+    C_TAB,   C_Q,     C_W,     C_E,     C_R,     C_T,     _______, M_BAE,   M_BOE,   M_BUE,   M_BSZ,   _______, _______, C_BSPC,
     XXXXXXX, C_A,     C_S,     C_D,     C_F,     C_G,     C_H,     M_AE,    M_OE,    M_UE,    M_SZ,    C_QUOT,  C_ENT,
     _______, C_Z,     C_X,     C_C,     C_V,     C_B,     _______, _______, C_COMM,  _______, _______, _______, _______, _______,
     _______, _______, KC_BSPC,                   SFT_ENT,                                     _______, _______, C_MINS,  C_0,     C_EQL
