@@ -24,7 +24,6 @@ enum combos {
   C_ESCAPE,
 };
 
-// Colemak-Qi
 const uint16_t PROGMEM COMBO_SMILEY_1[]   = {LT_C, KC_M, COMBO_END};      // :)
 const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_Q, KC_M, COMBO_END};      // :P
 const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_L, KC_M, COMBO_END};      // : D
@@ -45,26 +44,6 @@ const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
 const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Z, KC_D, COMBO_END};
 const uint16_t PROGMEM COMBO_SCREENSHOT[] = {KC_L, LT_C, KC_M, COMBO_END};
 const uint16_t PROGMEM COMBO_ESCAPE[]     = {LT_A, HS_T, COMBO_END};
-
-// // Crustmak
-// const uint16_t PROGMEM COMBO_SMILEY_1[]   = {KC_F, KC_P, COMBO_END};      // :)
-// const uint16_t PROGMEM COMBO_SMILEY_2[]   = {LT_Q, KC_P, COMBO_END};      // :P
-// const uint16_t PROGMEM COMBO_SMILEY_3[]   = {KC_W, KC_P, COMBO_END};      // : D
-// const uint16_t PROGMEM COMBO_SMILEY_4[]   = {KC_W, KC_F, COMBO_END};      // :D
-// const uint16_t PROGMEM COMBO_SMILEY_5[]   = {KC_W, KC_K, COMBO_END};      // ^_^
-// const uint16_t PROGMEM COMBO_PAREN_L[]    = {HS_T, KC_G, COMBO_END};      // (
-// const uint16_t PROGMEM COMBO_PAREN_R[]    = {KC_M, HS_N, COMBO_END};      // )
-// const uint16_t PROGMEM COMBO_BRACK_L[]    = {KC_D, KC_B, COMBO_END};      // [
-// const uint16_t PROGMEM COMBO_BRACK_R[]    = {KC_Z, KC_H, COMBO_END};      // ]
-// const uint16_t PROGMEM COMBO_CURLY_L[]    = {KC_P, KC_K, COMBO_END};      // {
-// const uint16_t PROGMEM COMBO_CURLY_R[]    = {KC_J, KC_L, COMBO_END};      // }
-// const uint16_t PROGMEM COMBO_EQUALS[]     = {KC_H, KC_COMM, COMBO_END};   // " = "
-// const uint16_t PROGMEM COMBO_FATARROW[]   = {KC_COMM, KC_DOT, COMBO_END}; // " => "
-// const uint16_t PROGMEM COMBO_COPY[]       = {KC_X, KC_D, COMBO_END};
-// const uint16_t PROGMEM COMBO_CUT[]        = {KC_X, KC_V, COMBO_END};
-// const uint16_t PROGMEM COMBO_PASTE[]      = {KC_V, KC_D, COMBO_END};
-// const uint16_t PROGMEM COMBO_PASTEANDGO[] = {KC_D, LT_ENT, COMBO_END};
-// const uint16_t PROGMEM COMBO_SELECTALL[]  = {LT_Y, KC_D, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [C_SMILEY_1]   = COMBO_ACTION(COMBO_SMILEY_1),
