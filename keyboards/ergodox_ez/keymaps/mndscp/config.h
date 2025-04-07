@@ -1,0 +1,11 @@
+#pragma once
+
+#define COMBO_COUNT 33
+#define COMBO_STRICT_TIMER
+#define COMBO_TERM 20
+#define ONESHOT_TIMEOUT 800
+#define QUICK_TAP_TERM_PER_KEY
+#define TAPPING_FORCE_HOLD_PER_KEY
+#define TAPPING_TERM 220
+#define TAPPING_TERM_PER_KEY
+ 

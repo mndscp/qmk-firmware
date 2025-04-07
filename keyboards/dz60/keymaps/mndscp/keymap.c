@@ -1,15 +1,15 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-  L_QWERTY,
+  L_BASE,
   L_GAME,
+  L_NAVIGATION,
   L_ESC,
   L_TAB,
-  L_NAVIGATION,
-  L_NUMPAD,
-  L_SYMBOL,
-  L_Z,
   L_CTRL,
+  L_Z,
+  L_NUMBERS,
+  L_SYMBOLS,
 };
 
 // QWERTY homerow mods
@@ -28,10 +28,10 @@ enum layers {
 #define CTL_ESC   LCTL_T(KC_ESC)
 #define CTL_PRV   LCTL_T(KC_MPRV)
 #define GUI_PLY   LGUI_T(KC_MPLY)
-#define LT_E      LT(L_NUMPAD, KC_E)
-#define LT_F      LT(L_NUMPAD, KC_F)
+#define LT_E      LT(L_NUMBERS, KC_E)
+#define LT_F      LT(L_NUMBERS, KC_F)
 #define LT_ESC    LT(L_ESC, KC_ESC)
-#define LT_I      LT(L_SYMBOL, KC_I)
+#define LT_I      LT(L_SYMBOLS, KC_I)
 #define LT_TAB    LT(L_TAB, KC_TAB)
 #define LT_Z      LT(L_Z, KC_Z)
 #define NAV_SPC   LT(L_NAVIGATION, KC_SPC)
@@ -44,11 +44,8 @@ enum layers {
 
 #define MO_CTRL   MO(L_CTRL)
 
-// Custom keys
 #define LOCK      G(KC_L)
 #define BACKTAB   S(KC_TAB)
-#define ZOOMIN    C(KC_PLUS)
-#define ZOOMOUT   C(KC_MINS)
 
 #include "macros.h"
 #include "combos.h"
@@ -140,9 +137,10 @@ enum layers {
 #define CAG_EQL   LCAG(KC_EQL)
 #define CAG_MIN   LCAG(KC_MINS)
 #define G_ENT     G(KC_ENT)
+#define CS_N      LCTL(S(KC_N))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [L_QWERTY] = LAYOUT_64_ansi_split_bs(
+  [L_BASE] = LAYOUT_64_ansi_split_bs(
     LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  GUI_PLY,
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     MO_CTRL, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_QUOT, KC_ENT,
@@ -171,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, CAG_Q,   CAG_W,   CAG_E,   CAG_R,   CAG_T,   CAG_Y,   CAG_U,   CAG_I,   CAG_O,   CAG_P,   _______, _______, _______,
     _______, CAG_A,   CAG_S,   CAG_D,   CAG_F,   CAG_G,   CAG_H,   CAG_J,   CAG_K,   CAG_L,   CAG_SCL, _______, _______,
     _______, CAG_Z,   CAG_X,   CAG_C,   CAG_V,   CAG_B,   CAG_N,   CAG_M,   CAG_COM ,CAG_DOT, _______, _______, _______, _______,
-    _______, _______, LCTL(S(KC_N)),             SFT_F12,                                     _______, _______, _______, _______, _______
+    _______, _______, CS_N,                      SFT_F12,                                     _______, _______, _______, _______, _______
   ),
 
   [L_CTRL] = LAYOUT_64_ansi_split_bs(
@@ -190,7 +188,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,                   XXXXXXX,                                     _______, _______, _______, _______, _______
   ),
 
-  [L_NUMPAD] = LAYOUT_64_ansi_split_bs(
+  [L_NUMBERS] = LAYOUT_64_ansi_split_bs(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, BACKTAB, XXXXXXX, KC_TAB,  _______, KC_ASTR, KC_7,    KC_8,    KC_9,    KC_SLSH, _______, _______, _______,
     _______, _______, _______, _______, SFT_SPC, _______, KC_PLUS, KC_4,    KC_5,    KC_6,    KC_DOT,  _______, _______,
@@ -198,7 +196,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______,                   KC_0,                                        _______, _______, _______, _______, _______
   ),
 
-  [L_SYMBOL] = LAYOUT_64_ansi_split_bs(
+  [L_SYMBOLS] = LAYOUT_64_ansi_split_bs(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, KC_SCLN, KC_COLN, KC_QUES, KC_EXLM, KC_MINS, _______, KC_BSPC, XXXXXXX, S(KC_D), S(KC_P), _______, _______, _______,
     _______, KC_LCBR, KC_LBRC, KC_LPRN, KC_RPRN, KC_RBRC, KC_RCBR, KC_SPC,  _______, KC_DEL,  _______, _______, _______,
