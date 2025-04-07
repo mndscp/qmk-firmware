@@ -212,3 +212,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _______, _______, _______,      _______, _______, _______
   ),
 };
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case HG_A:
+    case HA_S:
+    case HA_L:
+    case HC_D:
+    case HC_K:
+    case LT_E:
+    case LT_ESC:
+      return TAPPING_TERM + 100;
+    case LT_TAB:
+      return 120;
+    default:
+      return TAPPING_TERM;
+  }
+}
+
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case HS_F:
+    case HS_J:
+    case NAV_SPC:
+      return 0;
+    default:
+      return QUICK_TAP_TERM;
+  }
+}

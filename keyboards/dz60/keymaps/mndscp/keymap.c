@@ -221,7 +221,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     case HC_D:
     case HC_K:
     case LT_E:
-    case LT_I:
     case LT_ESC:
       return TAPPING_TERM + 100;
     case LT_TAB:
