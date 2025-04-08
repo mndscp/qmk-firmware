@@ -18,13 +18,116 @@ enum macros {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    // case SYM_SFT:
-    //   if (record->tap.count && record->event.pressed) {
-    //     add_oneshot_mods(MOD_BIT(KC_LSFT));
-    //     return false;
-    //   }
+    case LT(1, KC_EXLM):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_EXLM);
 
-    //   break;
+          return false;
+      }
+
+      return true;
+    case LT(2, KC_AT):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_AT);
+
+          return false;
+      }
+
+      return true;
+    case LT(3, KC_HASH):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_HASH);
+
+          return false;
+      }
+
+      return true;
+    case LT(4, KC_DLR):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_DLR);
+
+          return false;
+      }
+
+      return true;
+    case LT(5, KC_PERC):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_PERC);
+
+          return false;
+      }
+
+      return true;
+    case LT(6, KC_CIRC):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_CIRC);
+
+          return false;
+      }
+
+      return true;
+    case LT(7, KC_AMPR):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_AMPR);
+
+          return false;
+      }
+
+      return true;
+    case LT(8, KC_ASTR):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_ASTR);
+
+          return false;
+      }
+
+      return true;
+    case LT(9, KC_LPRN):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_LPRN);
+
+          return false;
+      }
+
+      return true;
+    case LT(0, KC_RPRN):
+      if (record->tap.count && record->event.pressed) {
+          return true;
+          break;
+      } else if (record->event.pressed) {
+          tap_code16(KC_RPRN);
+
+          return false;
+      }
+
+      return true;
     case M_GAME:
       if (record->event.pressed) {
         set_single_persistent_default_layer(L_GAME);

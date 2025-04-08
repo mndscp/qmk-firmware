@@ -33,6 +33,7 @@ enum layers {
 #define NAV_SPC   LT(L_NAVIGATION, KC_SPC)
 #define OSM_SFT   OSM(MOD_LSFT)
 #define SFT_ENT   LSFT_T(KC_ENT)
+#define SFT_F12   LSFT_T(KC_F12)
 #define SFT_PSC   LSFT_T(KC_PSCR)
 #define SFT_SPC   LSFT_T(KC_SPC)
 
@@ -117,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_LPRN,      KC_RPRN, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     LT_CTRL, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,                           KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_QUOT,
     OSM_SFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LBRC,      KC_RBRC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-    _______, _______, _______, _______, _______,                                          _______, _______, _______, _______, _______,
+    _______, _______, _______, KC_UNDS, KC_MINS,                                          _______, _______, _______, _______, _______,
 
                                                  KC_DEL,  KC_PSCR,      _______, _______,
                                                           CS_N,         _______,
@@ -165,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                  _______, _______,      _______, _______,
                                                           _______,      _______,
-                                        _______, _______, _______,      _______, _______, _______
+                                        SFT_F12, _______, _______,      _______, _______, _______
   ),
   [L_CTRL] = LAYOUT_ergodox_pretty(
     C_0,     C_1,     C_2,     C_3,     C_4,     C_5,     _______,      _______, _______, _______, _______, _______, _______, _______,

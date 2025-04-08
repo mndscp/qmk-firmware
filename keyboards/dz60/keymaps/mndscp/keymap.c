@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 
 enum layers {
-  L_BASE,
+  L_QWERTY,
   L_GAME,
   L_NAVIGATION,
   L_ESC,
@@ -21,6 +21,7 @@ enum layers {
 #define HC_K      LCTL_T(KC_K)
 #define HA_L      LALT_T(KC_L)
 
+// Hold-tap layers and mods
 #define ALT_ESC   LALT_T(KC_ESC)
 #define ALT_NXT   LALT_T(KC_MNXT)
 #define CPS_ESC   LT(L_CTRL, KC_ESC)
@@ -42,14 +43,22 @@ enum layers {
 #define SFT_SPC   LSFT_T(KC_SPC)
 #define SFT_PSC   LSFT_T(KC_PSCR)
 
-#define MO_CTRL   MO(L_CTRL)
-
-#define LOCK      G(KC_L)
-#define BACKTAB   S(KC_TAB)
+// Hold-tap simple keys
+#define H_1       LT(1, KC_EXLM)
+#define H_2       LT(2, KC_AT)
+#define H_3       LT(3, KC_HASH)
+#define H_4       LT(4, KC_DLR)
+#define H_5       LT(5, KC_PERC)
+#define H_6       LT(6, KC_CIRC)
+#define H_7       LT(7, KC_AMPR)
+#define H_8       LT(8, KC_ASTR)
+#define H_9       LT(9, KC_LPRN)
+#define H_0       LT(0, KC_RPRN)
 
 #include "macros.h"
 #include "combos.h"
 
+// Modded keys
 #define A_TAB     A(KC_TAB)
 #define C_BSPC    C(KC_BSPC)
 #define C_COMM    C(KC_COMM)
@@ -139,9 +148,14 @@ enum layers {
 #define G_ENT     G(KC_ENT)
 #define CS_N      LCTL(S(KC_N))
 
+// Custom keys
+#define MO_CTRL   MO(L_CTRL)
+#define LOCK      G(KC_L)
+#define BACKTAB   S(KC_TAB)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [L_BASE] = LAYOUT_64_ansi_split_bs(
-    LT_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRV,  GUI_PLY,
+  [L_QWERTY] = LAYOUT_64_ansi_split_bs(
+    LT_ESC,  H_1,     H_2,     H_3,     H_4,     H_5,     H_6,     H_7,     H_8,     H_9,     H_0,     KC_MINS, KC_EQL,  KC_GRV,  GUI_PLY,
     LT_TAB,  KC_Q,    KC_W,    LT_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSPC,
     MO_CTRL, HG_A,    HA_S,    HC_D,    HS_F,    KC_G,    KC_H,    HS_J,    HC_K,    HA_L,    KC_SCLN, KC_QUOT, KC_ENT,
     OSM_SFT, LT_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS, KC_UP,   KC_DEL,
